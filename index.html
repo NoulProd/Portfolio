@@ -523,6 +523,36 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    .placeholder-action {
+      margin-top: 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      color: var(--color-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      padding: 0.25rem 0.65rem;
+      border: 1px dashed rgba(197, 160, 89, 0.5);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      background: rgba(197, 160, 89, 0.06);
+    }
+
+    .placeholder-action:hover {
+      opacity: 1;
+      background: rgba(197, 160, 89, 0.18);
+      border-color: var(--color-gold);
+      transform: translateY(-1px);
+    }
+
+    .photo-frame.drag-target {
+      outline: 2px dashed var(--color-gold) !important;
+      outline-offset: -4px;
+    }
+
     /* ==========================================================================
        SECTION 0: HERO / COVER (THE PHOTOGRAPHER)
        ========================================================================== */
@@ -1928,6 +1958,7 @@
               alt="Portrait of the Photographer — NOUL PRODUCTION" 
               class="photo-img" 
               loading="eager"
+              referrerpolicy="no-referrer"
               onerror="handleImgError(this, 'assets/images/photographer/portrait.jpg', 'Portrait Placeholder')"
             />
             <div class="photo-placeholder-box">
@@ -1981,6 +2012,7 @@
             alt="Wedding intimate ceremony portrait" 
             class="photo-img" 
             loading="lazy"
+            referrerpolicy="no-referrer"
             onerror="handleImgError(this, 'assets/images/weddings/wedding-01.jpg', 'Intimate Ceremony')"
           />
           <div class="photo-placeholder-box">
@@ -2941,6 +2973,7 @@
               alt="${titleText}" 
               class="photo-img" 
               loading="lazy" 
+              referrerpolicy="no-referrer"
               onerror="handleImgError(this, '${item.src}', '${titleText}')"
             />
             <div class="photo-placeholder-box">
@@ -2968,6 +3001,7 @@
 
         container.appendChild(tile);
       });
+      setupAllFramesDragDrop();
     }
 
     function filterGallery(category) {
@@ -2984,10 +3018,100 @@
        ========================================================================== */
     function handleImgError(imgEl, originalPath, titleFallback) {
       imgEl.style.display = 'none';
-      const placeholder = imgEl.parentElement ? imgEl.parentElement.querySelector('.photo-placeholder-box') : null;
+      const frame = imgEl.parentElement;
+      const placeholder = frame ? frame.querySelector('.photo-placeholder-box') : null;
       if (placeholder) {
         placeholder.style.display = 'flex';
+        // Add interactive local preview button if not yet created
+        if (!placeholder.querySelector('.placeholder-action')) {
+          const actionBtn = document.createElement('div');
+          actionBtn.className = 'placeholder-action';
+          actionBtn.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>Preview Local File</span>
+          `;
+          actionBtn.onclick = (e) => {
+            e.stopPropagation();
+            promptFileForFrame(frame);
+          };
+          placeholder.appendChild(actionBtn);
+        }
       }
+    }
+
+    function promptFileForFrame(frame) {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*,video/*';
+      input.onchange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+          applyFileToFrame(frame, e.target.files[0]);
+        }
+      };
+      input.click();
+    }
+
+    function applyFileToFrame(frame, file) {
+      const url = URL.createObjectURL(file);
+      const isVideo = file.type.startsWith('video/') || file.name.match(/\.(mp4|mov|webm)$/i);
+      
+      const placeholder = frame.querySelector('.photo-placeholder-box');
+      if (placeholder) placeholder.style.display = 'none';
+
+      let img = frame.querySelector('.photo-img');
+      let vid = frame.querySelector('video.photo-vid');
+
+      if (isVideo) {
+        if (img) img.style.display = 'none';
+        if (!vid) {
+          vid = document.createElement('video');
+          vid.className = 'photo-img photo-vid';
+          vid.autoplay = true;
+          vid.loop = true;
+          vid.muted = true;
+          vid.playsInline = true;
+          frame.appendChild(vid);
+        }
+        vid.src = url;
+        vid.style.display = 'block';
+        vid.play().catch(() => {});
+        frame.dataset.customVideo = url;
+      } else {
+        if (vid) vid.style.display = 'none';
+        if (!img) {
+          img = document.createElement('img');
+          img.className = 'photo-img';
+          frame.appendChild(img);
+        }
+        img.src = url;
+        img.style.display = 'block';
+        frame.dataset.customImage = url;
+      }
+    }
+
+    function setupAllFramesDragDrop() {
+      document.querySelectorAll('.photo-frame').forEach(frame => {
+        if (frame.dataset.dndReady) return;
+        frame.dataset.dndReady = 'true';
+        frame.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          frame.classList.add('drag-target');
+        });
+        frame.addEventListener('dragleave', () => {
+          frame.classList.remove('drag-target');
+        });
+        frame.addEventListener('drop', (e) => {
+          e.preventDefault();
+          frame.classList.remove('drag-target');
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+            applyFileToFrame(frame, e.dataTransfer.files[0]);
+          }
+        });
+      });
     }
 
     function handleLogoError(imgEl) {
@@ -3011,6 +3135,11 @@
       const item = filteredPortfolioItems[index];
       if (!item) return;
 
+      const tile = document.querySelectorAll('.gallery-tile')[index];
+      const frame = tile ? tile.querySelector('.photo-frame') : null;
+      const customImg = frame ? frame.dataset.customImage : null;
+      const customVid = frame ? frame.dataset.customVideo : null;
+
       const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
       const cat = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
 
@@ -3018,9 +3147,9 @@
       lightboxInfo.textContent = `${cat} · ${item.year}`;
 
       lightboxMediaSlot.innerHTML = '';
-      if (item.isVideo && item.videoSrc) {
+      if (customVid || (item.isVideo && item.videoSrc)) {
         const video = document.createElement('video');
-        video.src = item.videoSrc;
+        video.src = customVid || item.videoSrc;
         video.controls = true;
         video.autoplay = true;
         video.muted = false;
@@ -3034,7 +3163,7 @@
         lightboxMediaSlot.appendChild(video);
       } else {
         const img = document.createElement('img');
-        img.src = item.src;
+        img.src = customImg || item.src;
         img.alt = title;
         img.onerror = () => {
           lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
@@ -3050,6 +3179,12 @@
     }
 
     function openLightboxBySrc(src, title, category, year, isVideo = false) {
+      const frame = document.querySelector(`.photo-frame[onclick*="${src}"]`);
+      const customImg = frame ? frame.dataset.customImage : null;
+      const customVid = frame ? frame.dataset.customVideo : null;
+      if (customImg) src = customImg;
+      if (customVid) { src = customVid; isVideo = true; }
+
       const foundIndex = filteredPortfolioItems.findIndex(i => i.src === src || i.videoSrc === src);
       if (foundIndex >= 0) {
         openLightboxByIndex(foundIndex);
@@ -3216,8 +3351,9 @@
       }
     });
 
-    /* Initial Gallery Render */
+    /* Initial Gallery Render & Frame Drag Drop */
     renderGallery();
+    setupAllFramesDragDrop();
   </script>
 </body>
 </html>
