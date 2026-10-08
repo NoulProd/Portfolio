@@ -1,0 +1,3238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOUL PRODUCTION — Photographer & Visual Storyteller</title>
+  <meta name="description" content="Official portfolio of NOUL PRODUCTION – Premium personal photography, editorial weddings, artistic shooting sessions, and bespoke visual content creation." />
+  <meta property="og:title" content="NOUL PRODUCTION — Photographer & Visual Storyteller" />
+  <meta property="og:description" content="Official portfolio of NOUL PRODUCTION – Premium personal photography, editorial weddings, artistic shooting sessions, and bespoke visual content creation." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Editorial Serif (Cormorant Garamond) + Clean Modern Sans (Plus Jakarta Sans) + Premium Arabic (Tajawal & IBM Plex Sans Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NOUL PRODUCTION",
+    "description": "Editorial wedding photography, artistic personal portraits, fashion shooting sessions, and bespoke brand visual content creation.",
+    "category": "Photography",
+    "telephone": "[WHATSAPP]",
+    "email": "[EMAIL]",
+    "url": "https://noulproduction.com",
+    "priceRange": "$$$$"
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       NOUL PRODUCTION — LUXURY EDITORIAL PHOTOGRAPHY DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      /* Color System */
+      --bg-ivory: #FAF8F5;
+      --bg-warm-white: #FDFCF7;
+      --bg-cream: #F5F2EB;
+      --bg-soft-beige: #EFECE6;
+      --bg-champagne: #E6DFD5;
+      --color-gold-subtle: #C5A880;
+      --color-gold-hover: #D8BD97;
+
+      --bg-deep-black: #0A0A0C;
+      --bg-charcoal: #121215;
+      --bg-dark-navy: #0D131B;
+      --bg-dark-surface: #171C24;
+
+      --text-dark-primary: #121214;
+      --text-dark-secondary: #58575B;
+      --text-dark-muted: #8C8A90;
+
+      --text-light-primary: #F8F6F2;
+      --text-light-secondary: #B6B4BC;
+      --text-light-muted: #7E7C85;
+
+      --border-light: rgba(18, 18, 20, 0.08);
+      --border-dark: rgba(255, 255, 255, 0.1);
+
+      /* Typography */
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-arabic-serif: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+      --font-arabic-sans: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+
+      /* Transitions */
+      --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 0.35s var(--ease-editorial);
+    }
+
+    /* RTL adaptations */
+    html[dir="rtl"] {
+      --font-serif: 'Tajawal', 'IBM Plex Sans Arabic', serif;
+      --font-sans: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: var(--bg-ivory);
+      color: var(--text-dark-primary);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      overflow-x: hidden;
+      background-color: var(--bg-ivory);
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-base), opacity var(--transition-base);
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: inherit;
+      outline: none;
+    }
+
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--color-gold-subtle);
+      outline-offset: 3px;
+    }
+
+    /* Global Container */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(1.25rem, 4vw, 3.5rem);
+      padding-right: clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    /* Typography Utilities */
+    .font-serif {
+      font-family: var(--font-serif);
+      font-feature-settings: 'cv01' on, 'cv02' on;
+    }
+
+    .font-sans {
+      font-family: var(--font-sans);
+    }
+
+    .editorial-heading {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      text-wrap: balance;
+    }
+
+    .editorial-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 500;
+      opacity: 0.8;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    html[dir="rtl"] .editorial-kicker {
+      letter-spacing: 0.05em;
+    }
+
+    /* Editorial Section Dividers */
+    .section-hairline {
+      height: 1px;
+      width: 100%;
+      background: var(--border-light);
+    }
+
+    .section-hairline-dark {
+      height: 1px;
+      width: 100%;
+      background: var(--border-dark);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: background-color 0.4s var(--ease-editorial),
+                  backdrop-filter 0.4s var(--ease-editorial),
+                  border-color 0.4s var(--ease-editorial),
+                  padding 0.4s var(--ease-editorial),
+                  box-shadow 0.4s var(--ease-editorial);
+      padding: 1.75rem 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      padding: 1.1rem 0;
+      background-color: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: rgba(18, 18, 20, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .site-header.dark-mode {
+      color: var(--text-light-primary);
+    }
+
+    .site-header.dark-mode.scrolled {
+      background-color: rgba(13, 19, 27, 0.92);
+      border-bottom-color: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Brand Logo / Wordmark */
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity var(--transition-base);
+    }
+
+    .brand-logo-fallback {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: inherit;
+    }
+
+    .brand-subtext {
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-top: 3px;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.35rem 0;
+      opacity: 0.78;
+      transition: opacity var(--transition-base), color var(--transition-base);
+      white-space: nowrap;
+    }
+
+    html[dir="rtl"] .nav-link {
+      letter-spacing: 0.04em;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: currentColor;
+      transition: width 0.3s var(--ease-editorial);
+    }
+
+    html[dir="rtl"] .nav-link::after {
+      left: auto;
+      right: 0;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      opacity: 1;
+    }
+
+    /* Header Actions: Language Switcher */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid rgba(18, 18, 20, 0.15);
+      border-radius: 2px;
+      transition: border-color var(--transition-base), background-color var(--transition-base);
+    }
+
+    .site-header.dark-mode .lang-switcher {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn {
+      padding: 0.1rem 0.25rem;
+      opacity: 0.5;
+      transition: opacity var(--transition-base), color var(--transition-base);
+    }
+
+    .lang-btn.active {
+      opacity: 1;
+      color: var(--color-gold-subtle);
+    }
+
+    .lang-divider {
+      opacity: 0.3;
+      margin: 0 0.2rem;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      gap: 5px;
+      z-index: 110;
+    }
+
+    .hamburger-line {
+      width: 22px;
+      height: 1.5px;
+      background-color: currentColor;
+      transition: transform 0.3s var(--ease-editorial), opacity 0.3s var(--ease-editorial);
+    }
+
+    .mobile-menu-btn.open .hamburger-line:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .mobile-menu-btn.open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.open .hamburger-line:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background-color: var(--bg-deep-black);
+      color: var(--text-light-primary);
+      z-index: 105;
+      padding: 6rem 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateX(100%);
+      transition: transform 0.45s var(--ease-editorial);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    html[dir="rtl"] .mobile-drawer {
+      right: auto;
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 104;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-nav-link {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+      transition: opacity 0.25s, color 0.25s, padding-left 0.25s;
+    }
+
+    html[dir="rtl"] .mobile-nav-link {
+      letter-spacing: 0.01em;
+    }
+
+    .mobile-nav-link:hover {
+      opacity: 1;
+      color: var(--color-gold-subtle);
+      padding-left: 0.5rem;
+    }
+
+    html[dir="rtl"] .mobile-nav-link:hover {
+      padding-left: 0;
+      padding-right: 0.5rem;
+    }
+
+    /* ==========================================================================
+       MEDIA / PHOTO WRAPPER & RESILIENT PLACEHOLDER FALLBACK
+       ========================================================================== */
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      background-color: #EAE6DF;
+      border-radius: 1px;
+    }
+
+    .photo-frame.dark-theme {
+      background-color: #171B22;
+    }
+
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s var(--ease-editorial), filter 0.85s var(--ease-editorial);
+      display: block;
+    }
+
+    .photo-frame:hover .photo-img {
+      transform: scale(1.035);
+    }
+
+    /* Fallback overlay when local file is yet to be placed */
+    .photo-placeholder-box {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      background: radial-gradient(circle at center, #F4EFE6 0%, #E7E0D3 100%);
+      color: var(--text-dark-primary);
+      border: 1px dashed rgba(18, 18, 20, 0.15);
+      z-index: 2;
+    }
+
+    .photo-frame.dark-theme .photo-placeholder-box {
+      background: radial-gradient(circle at center, #18202C 0%, #0E131B 100%);
+      color: var(--text-light-primary);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .placeholder-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 0.85rem;
+      opacity: 0.45;
+      stroke: currentColor;
+    }
+
+    .placeholder-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .placeholder-path {
+      font-family: monospace;
+      font-size: 0.68rem;
+      opacity: 0.6;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      word-break: break-all;
+      max-width: 90%;
+    }
+
+    .photo-frame.dark-theme .placeholder-path {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ==========================================================================
+       SECTION 0: HERO / COVER (THE PHOTOGRAPHER)
+       ========================================================================== */
+    .hero-section {
+      min-height: 100vh;
+      background-color: var(--bg-ivory);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 7.5rem;
+      padding-bottom: 4rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+      gap: clamp(2rem, 5vw, 6rem);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      z-index: 2;
+    }
+
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+      font-weight: 300;
+      line-height: 0.95;
+      margin-bottom: 1.75rem;
+      color: var(--text-dark-primary);
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title-production {
+      font-style: italic;
+      color: var(--color-gold-subtle);
+      font-weight: 400;
+    }
+
+    .hero-roles {
+      font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-dark-secondary);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    html[dir="rtl"] .hero-roles {
+      letter-spacing: 0.06em;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border-light);
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-meta-item-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .hero-meta-item-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark-primary);
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-dark-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 48ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Editorial Action Buttons */
+    .btn-editorial-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      background-color: var(--text-dark-primary);
+      color: var(--bg-ivory);
+      border: 1px solid var(--text-dark-primary);
+      transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+    }
+
+    html[dir="rtl"] .btn-editorial-primary {
+      letter-spacing: 0.04em;
+    }
+
+    .btn-editorial-primary:hover {
+      background-color: transparent;
+      color: var(--text-dark-primary);
+    }
+
+    .btn-editorial-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .btn-editorial-ghost::after {
+      content: '';
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transition: width var(--transition-base);
+    }
+
+    /* Hero Portrait Visual Frame */
+    .hero-portrait-col {
+      position: relative;
+    }
+
+    .hero-portrait-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      margin-left: auto;
+    }
+
+    html[dir="rtl"] .hero-portrait-wrapper {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .hero-portrait-frame {
+      aspect-ratio: 4 / 5.4;
+      box-shadow: 0 25px 60px rgba(18, 18, 20, 0.08);
+    }
+
+    .hero-floating-caption {
+      position: absolute;
+      bottom: -1.75rem;
+      left: -2rem;
+      background-color: var(--bg-warm-white);
+      padding: 1.25rem 1.75rem;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      z-index: 3;
+      max-width: 260px;
+    }
+
+    html[dir="rtl"] .hero-floating-caption {
+      left: auto;
+      right: -2rem;
+    }
+
+    .hero-floating-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-floating-text {
+      font-size: 0.72rem;
+      opacity: 0.65;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Scroll Indicator */
+    .hero-scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+      margin-top: 3.5rem;
+      transition: color var(--transition-base);
+    }
+
+    .hero-scroll-indicator:hover {
+      color: var(--text-dark-primary);
+    }
+
+    .scroll-arrow-anim {
+      animation: bounceSubtle 2s infinite ease-in-out;
+    }
+
+    @keyframes bounceSubtle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* ==========================================================================
+       CHAPTER 01 — WEDDINGS (EMOTIONAL & TIMELESS / CINEMATIC TRANSITION)
+       ========================================================================== */
+    .weddings-section {
+      background-color: var(--bg-dark-navy);
+      color: var(--text-light-primary);
+      padding: clamp(5rem, 9vw, 9.5rem) 0;
+      position: relative;
+    }
+
+    .weddings-header-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: flex-end;
+      gap: 3rem;
+      margin-bottom: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    .weddings-kicker {
+      color: var(--color-gold-subtle);
+    }
+
+    .weddings-title {
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      margin-top: 0.75rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-light-primary);
+    }
+
+    .weddings-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.95rem);
+      font-style: italic;
+      color: #E2DDD5;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .weddings-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-light-secondary);
+      max-width: 48ch;
+      margin-bottom: 2rem;
+    }
+
+    /* Weddings Editorial Image Showcase */
+    .weddings-gallery-composition {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr 1fr;
+      gap: clamp(1.25rem, 2.5vw, 2.25rem);
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .weddings-frame-tall {
+      aspect-ratio: 3 / 4.4;
+    }
+
+    .weddings-frame-detail {
+      aspect-ratio: 1 / 1.15;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2.25rem);
+    }
+
+    .weddings-frame-wide {
+      aspect-ratio: 16 / 10.5;
+    }
+
+    .weddings-frame-landscape {
+      aspect-ratio: 4 / 5.2;
+    }
+
+    .caption-editorial {
+      margin-top: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+
+    .btn-weddings-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-light-primary);
+      padding: 0.75rem 0;
+      position: relative;
+      transition: color var(--transition-base);
+    }
+
+    .btn-weddings-cta::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gold-subtle);
+      transition: transform var(--transition-base);
+    }
+
+    .btn-weddings-cta:hover {
+      color: var(--color-gold-subtle);
+    }
+
+    /* ==========================================================================
+       CHAPTER 02 — SHOOTING (ARTISTIC & FASHION EDITORIAL / ATELIER LIGHT)
+       ========================================================================== */
+    .shooting-section {
+      background-color: var(--bg-cream);
+      color: var(--text-dark-primary);
+      padding: clamp(5rem, 9vw, 9.5rem) 0;
+      position: relative;
+    }
+
+    .shooting-asymmetric-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2.5rem, 6vw, 6.5rem);
+      align-items: center;
+    }
+
+    .shooting-hero-image-wrap {
+      position: relative;
+    }
+
+    .shooting-frame-main {
+      aspect-ratio: 3.5 / 5;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    }
+
+    .shooting-frame-offset {
+      position: absolute;
+      bottom: -3.5rem;
+      right: -2.5rem;
+      width: 52%;
+      aspect-ratio: 1 / 1.25;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border: 6px solid var(--bg-cream);
+    }
+
+    html[dir="rtl"] .shooting-frame-offset {
+      right: auto;
+      left: -2.5rem;
+    }
+
+    .shooting-content-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shooting-title {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark-primary);
+    }
+
+    .shooting-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-style: italic;
+      color: var(--text-dark-secondary);
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .shooting-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-dark-secondary);
+      margin-bottom: 2.25rem;
+      max-width: 50ch;
+    }
+
+    .shooting-categories-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.75rem;
+      margin-bottom: 2.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .shooting-category-item {
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-dark-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .shooting-category-item::before {
+      content: '·';
+      font-weight: bold;
+      color: var(--color-gold-subtle);
+    }
+
+    /* ==========================================================================
+       CHAPTER 03 — CONTENT CREATION (MODERN, DYNAMIC & SOCIAL STORYTELLING)
+       ========================================================================== */
+    .content-section {
+      background-color: var(--bg-deep-black);
+      color: var(--text-light-primary);
+      padding: clamp(5rem, 9vw, 9.5rem) 0;
+      position: relative;
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .content-title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      margin-top: 0.75rem;
+      color: var(--text-light-primary);
+    }
+
+    .content-grid-composition {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .content-vertical-frame {
+      aspect-ratio: 9 / 16;
+      border: 1px solid var(--border-dark);
+      position: relative;
+    }
+
+    .content-pill-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: rgba(10, 10, 12, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 0.25rem 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light-primary);
+      z-index: 3;
+    }
+
+    html[dir="rtl"] .content-pill-badge {
+      left: auto;
+      right: 1rem;
+    }
+
+    .reel-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+      z-index: 2;
+    }
+
+    .content-vertical-frame:hover .reel-play-overlay {
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .play-icon-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s var(--ease-editorial);
+    }
+
+    .content-vertical-frame:hover .play-icon-circle {
+      transform: scale(1.12);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==========================================================================
+       SELECTED WORK (EDITORIAL CURATED MASONRY & FILTER SYSTEM)
+       ========================================================================== */
+    .selected-work-section {
+      background-color: var(--bg-warm-white);
+      color: var(--text-dark-primary);
+      padding: clamp(5rem, 9vw, 9.5rem) 0;
+      position: relative;
+    }
+
+    .gallery-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .gallery-title {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      margin-top: 0.5rem;
+    }
+
+    /* Filter Controls */
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      color: var(--text-dark-secondary);
+      border: 1px solid transparent;
+      transition: all var(--transition-base);
+    }
+
+    html[dir="rtl"] .filter-btn {
+      letter-spacing: 0.04em;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-dark-primary);
+    }
+
+    .filter-btn.active {
+      color: var(--text-dark-primary);
+      border-color: var(--text-dark-primary);
+      background-color: var(--bg-ivory);
+    }
+
+    /* Editorial Masonry / Dynamic Grid */
+    .gallery-masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+
+    .gallery-tile {
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.4s var(--ease-editorial);
+    }
+
+    .gallery-tile:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Tile Layout Variations for Editorial Rhythm */
+    .tile-span-6-tall {
+      grid-column: span 6;
+      aspect-ratio: 3.2 / 4;
+    }
+
+    .tile-span-6-square {
+      grid-column: span 6;
+      aspect-ratio: 1 / 1;
+    }
+
+    .tile-span-4-portrait {
+      grid-column: span 4;
+      aspect-ratio: 3 / 4.2;
+    }
+
+    .tile-span-8-landscape {
+      grid-column: span 8;
+      aspect-ratio: 16 / 10;
+    }
+
+    .tile-span-12-wide {
+      grid-column: span 12;
+      aspect-ratio: 21 / 9;
+    }
+
+    .gallery-tile-meta {
+      margin-top: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .tile-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-dark-primary);
+    }
+
+    .tile-category-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+    }
+
+    /* ==========================================================================
+       ABOUT (BEHIND THE LENS / خلف العدسة)
+       ========================================================================== */
+    .about-section {
+      background-color: var(--bg-soft-beige);
+      color: var(--text-dark-primary);
+      padding: clamp(5rem, 9vw, 9.5rem) 0;
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(2.5rem, 6vw, 6.5rem);
+      align-items: center;
+    }
+
+    .about-portrait-frame {
+      aspect-ratio: 3.5 / 4.8;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-title {
+      font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+      margin-top: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-subtitle {
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-gold-subtle);
+      margin-bottom: 2rem;
+    }
+
+    .about-bio-text {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-dark-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .about-philosophy-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--text-dark-primary);
+      padding-left: 1.75rem;
+      border-left: 2px solid var(--color-gold-subtle);
+      margin-bottom: 2.5rem;
+    }
+
+    html[dir="rtl"] .about-philosophy-quote {
+      padding-left: 0;
+      padding-right: 1.75rem;
+      border-left: none;
+      border-right: 2px solid var(--color-gold-subtle);
+    }
+
+    .about-details-table {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ==========================================================================
+       SERVICES (MINIMAL EDITORIAL DISCIPLINE)
+       ========================================================================== */
+    .services-section {
+      background-color: var(--bg-ivory);
+      color: var(--text-dark-primary);
+      padding: clamp(5rem, 8vw, 8rem) 0;
+    }
+
+    .services-header {
+      margin-bottom: 4rem;
+    }
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 0.6fr 1.4fr 1.6fr 0.4fr;
+      align-items: baseline;
+      padding: 2.75rem 0;
+      border-top: 1px solid var(--border-light);
+      transition: background-color var(--transition-base);
+    }
+
+    .service-row:last-child {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .service-index {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--color-gold-subtle);
+    }
+
+    .service-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .service-description {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-dark-secondary);
+      max-width: 50ch;
+    }
+
+    .service-action-arrow {
+      text-align: right;
+      font-size: 1.25rem;
+      opacity: 0.5;
+      transition: opacity var(--transition-base), transform var(--transition-base);
+    }
+
+    html[dir="rtl"] .service-action-arrow {
+      text-align: left;
+    }
+
+    .service-row:hover .service-action-arrow {
+      opacity: 1;
+      transform: translateX(6px);
+    }
+
+    html[dir="rtl"] .service-row:hover .service-action-arrow {
+      transform: translateX(-6px);
+    }
+
+    /* ==========================================================================
+       CONTACT (MEMORABLE EDITORIAL FINALE)
+       ========================================================================== */
+    .contact-section {
+      background-color: var(--bg-dark-navy);
+      color: var(--text-light-primary);
+      padding: clamp(6rem, 11vw, 11rem) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: flex-end;
+    }
+
+    .contact-heading-large {
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      line-height: 0.95;
+      font-weight: 300;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-lead {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light-secondary);
+      max-width: 45ch;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      padding: 3rem;
+      background-color: var(--bg-dark-surface);
+      border: 1px solid var(--border-dark);
+    }
+
+    .contact-channel-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .contact-channel-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold-subtle);
+      font-weight: 600;
+    }
+
+    .contact-channel-value {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--text-light-primary);
+      transition: color var(--transition-base);
+    }
+
+    .contact-channel-value:hover {
+      color: var(--color-gold-subtle);
+    }
+
+    .btn-contact-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 1.25rem 2.25rem;
+      background-color: var(--color-gold-subtle);
+      color: var(--bg-deep-black);
+      transition: background-color var(--transition-base);
+      margin-top: 1rem;
+    }
+
+    .btn-contact-action:hover {
+      background-color: var(--color-gold-hover);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: #070709;
+      color: var(--text-light-muted);
+      padding: 3.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light-primary);
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color var(--transition-base);
+    }
+
+    .footer-nav a:hover {
+      color: var(--text-light-primary);
+    }
+
+    .footer-copyright {
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+    }
+
+    /* ==========================================================================
+       FULLSCREEN LIGHTBOX MODAL
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(6, 7, 10, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-editorial);
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      color: var(--text-light-primary);
+    }
+
+    .lightbox-brand-label {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-gold-subtle);
+    }
+
+    .lightbox-close-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light-primary);
+      padding: 0.5rem;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity var(--transition-base);
+    }
+
+    .lightbox-close-btn:hover {
+      opacity: 1;
+    }
+
+    .lightbox-content-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 3rem;
+      position: relative;
+    }
+
+    .lightbox-media-container {
+      max-width: 90vw;
+      max-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-media-container img,
+    .lightbox-media-container video {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light-primary);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: background var(--transition-base), transform var(--transition-base);
+      z-index: 5;
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .lightbox-arrow.prev {
+      left: 2rem;
+    }
+
+    .lightbox-arrow.next {
+      right: 2rem;
+    }
+
+    .lightbox-bottombar {
+      padding: 1.5rem 2.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-light-primary);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .lightbox-meta-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .lightbox-meta-info {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* ==========================================================================
+       CONTACT INQUIRY MODAL (EDITORIAL DRAWER)
+       ========================================================================== */
+    .inquiry-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(6, 7, 10, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 1.5rem;
+    }
+
+    .inquiry-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .inquiry-card {
+      background-color: var(--bg-ivory);
+      color: var(--text-dark-primary);
+      width: 100%;
+      max-width: 580px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .inquiry-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.25rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    html[dir="rtl"] .inquiry-close-btn {
+      right: auto;
+      left: 1.5rem;
+    }
+
+    .inquiry-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .inquiry-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-dark-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .inquiry-form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .inquiry-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-dark-secondary);
+    }
+
+    .inquiry-input, .inquiry-select, .inquiry-textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg-warm-white);
+      border: 1px solid var(--border-light);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--text-dark-primary);
+      transition: border-color 0.2s;
+    }
+
+    .inquiry-input:focus, .inquiry-select:focus, .inquiry-textarea:focus {
+      border-color: var(--text-dark-primary);
+    }
+
+    .inquiry-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .hero-portrait-wrapper {
+        margin: 0 auto;
+        max-width: 440px;
+      }
+      .weddings-header-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .weddings-gallery-composition {
+        grid-template-columns: 1fr 1fr;
+      }
+      .shooting-asymmetric-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .shooting-frame-offset {
+        display: none;
+      }
+      .content-grid-composition {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape {
+        grid-column: span 6;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .service-row {
+        grid-template-columns: 0.4fr 1.6fr 1fr;
+      }
+      .service-description {
+        display: none;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .hero-section {
+        padding-top: 6.5rem;
+      }
+      .hero-floating-caption {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 1rem;
+        max-width: 100%;
+      }
+      .weddings-gallery-composition {
+        grid-template-columns: 1fr;
+      }
+      .content-grid-composition {
+        grid-template-columns: 1fr;
+      }
+      .gallery-masonry-grid {
+        grid-template-columns: 1fr;
+      }
+      .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape, .tile-span-12-wide {
+        grid-column: span 1;
+        aspect-ratio: 4 / 5;
+      }
+      .service-row {
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+      }
+      .service-index {
+        display: none;
+      }
+      .contact-info-block {
+        padding: 2rem 1.5rem;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .lightbox-arrow {
+        width: 42px;
+        height: 42px;
+      }
+      .lightbox-arrow.prev {
+        left: 0.5rem;
+      }
+      .lightbox-arrow.next {
+        right: 0.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Brand Logo / Wordmark -->
+      <a href="#home" class="brand-link" aria-label="NOUL PRODUCTION Home">
+        <!-- Replaceable Logo Image Path -->
+        <img 
+          src="assets/images/logo.png" 
+          alt="NOUL PRODUCTION" 
+          class="brand-logo-img" 
+          id="mainLogoImg"
+          onerror="handleLogoError(this)" 
+        />
+        <div class="brand-logo-fallback" id="logoFallback">
+          <span class="brand-wordmark">NOUL PRODUCTION</span>
+          <span class="brand-subtext" data-i18n="headerSubtitle">PHOTOGRAPHER & VISUAL STORYTELLER</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Clean single-line text links) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active" data-i18n="navHome">HOME</a>
+        <a href="#weddings" class="nav-link" data-i18n="navWeddings">WEDDINGS</a>
+        <a href="#shooting" class="nav-link" data-i18n="navShooting">SHOOTING</a>
+        <a href="#content" class="nav-link" data-i18n="navContent">CONTENT</a>
+        <a href="#work" class="nav-link" data-i18n="navWork">SELECTED WORK</a>
+        <a href="#about" class="nav-link" data-i18n="navAbout">ABOUT</a>
+        <a href="#contact" class="nav-link" data-i18n="navContact">CONTACT</a>
+      </nav>
+
+      <!-- Language Switcher & Mobile Trigger -->
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Language Selector">
+          <button class="lang-btn active" id="btnEn" onclick="switchLanguage('en')">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="btnAr" onclick="switchLanguage('ar')">AR</button>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navHome">HOME</a>
+      <a href="#weddings" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWeddings">WEDDINGS</a>
+      <a href="#shooting" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navShooting">SHOOTING</a>
+      <a href="#content" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContent">CONTENT</a>
+      <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWork">SELECTED WORK</a>
+      <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navAbout">ABOUT</a>
+      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a>
+    </div>
+    <div>
+      <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold-subtle); margin-bottom: 0.6rem;" data-i18n="mobileContactPrompt">
+        DIRECT INQUIRIES
+      </div>
+      <div style="font-size: 0.88rem; color: var(--text-light-secondary);">
+        [EMAIL] &middot; [WHATSAPP]
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       SECTION 0: THE PHOTOGRAPHER (HERO / COVER)
+       ========================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <!-- Left: Editorial Typography & Metadata -->
+      <div class="hero-content">
+        <div class="hero-kicker-row">
+          <span class="editorial-kicker" data-i18n="heroKicker">EDITORIAL ARCHIVE 2026</span>
+          <span style="height: 1px; width: 40px; background-color: var(--border-light);"></span>
+        </div>
+
+        <h1 class="editorial-heading hero-title">
+          <span>NOUL</span>
+          <span class="hero-title-production">PRODUCTION</span>
+        </h1>
+
+        <div class="hero-roles">
+          <span data-i18n="heroRole1">PHOTOGRAPHER</span>
+          <span>&middot;</span>
+          <span data-i18n="heroRole2">VISUAL STORYTELLER</span>
+        </div>
+
+        <!-- Photographer Metadata Placeholders -->
+        <div class="hero-meta-grid">
+          <div>
+            <div class="hero-meta-item-label" data-i18n="heroMetaPhotographer">PHOTOGRAPHER</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaName">[PHOTOGRAPHER NAME]</div>
+          </div>
+          <div>
+            <div class="hero-meta-item-label" data-i18n="heroMetaLocation">BASED IN</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaCity">[LOCATION]</div>
+          </div>
+        </div>
+
+        <p class="hero-description" data-i18n="heroDescription">
+          [SHORT PERSONAL DESCRIPTION — An intimate, editorial perspective capturing authentic human emotion, quiet elegance, and timeless visual poetry.]
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn-editorial-primary" data-i18n="heroCtaWork">
+            <span>VIEW SELECTED WORK</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <button onclick="openInquiryModal()" class="btn-editorial-ghost" data-i18n="heroCtaInquire">
+            <span>BOOK A SESSION</span>
+          </button>
+        </div>
+
+        <a href="#weddings" class="hero-scroll-indicator" aria-label="Scroll to Weddings">
+          <span data-i18n="heroScroll">SCROLL</span>
+          <span class="scroll-arrow-anim">&darr;</span>
+        </a>
+      </div>
+
+      <!-- Right: Editorial Portrait -->
+      <div class="hero-portrait-col">
+        <div class="hero-portrait-wrapper">
+          <div class="photo-frame hero-portrait-frame">
+            <img 
+              src="assets/images/photographer/portrait.jpg" 
+              alt="Portrait of the Photographer — NOUL PRODUCTION" 
+              class="photo-img" 
+              loading="eager"
+              onerror="handleImgError(this, 'assets/images/photographer/portrait.jpg', 'Portrait Placeholder')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
+              </svg>
+              <div class="placeholder-title" data-i18n="heroPortraitTitle">Photographer Portrait</div>
+              <div class="placeholder-path">assets/images/photographer/portrait.jpg</div>
+            </div>
+          </div>
+
+          <div class="hero-floating-caption">
+            <div class="hero-floating-title" data-i18n="heroFloatingTitle">Natural Light & Intimacy</div>
+            <div class="hero-floating-text" data-i18n="heroFloatingText">[LOCATION] &middot; WORLDWIDE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CHAPTER 01 — WEDDINGS
+       ========================================================================== -->
+  <section class="weddings-section" id="weddings">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="weddings-header-grid">
+        <div>
+          <span class="editorial-kicker weddings-kicker" data-i18n="weddingsKicker">01 &mdash; WEDDINGS</span>
+          <h2 class="editorial-heading weddings-title" data-i18n="weddingsTitle">WEDDINGS</h2>
+          <div class="weddings-tagline" data-i18n="weddingsTagline">Love stories, honestly captured.</div>
+        </div>
+        <div>
+          <p class="weddings-desc" data-i18n="weddingsDesc">
+            Preserving unguarded intimacy, quiet glances, and celebratory grandeur. We approach your day with editorial sensitivity and timeless warmth&mdash;creating photographs that hold their breath for generations.
+          </p>
+          <a href="#work" onclick="filterGallery('WEDDINGS')" class="btn-weddings-cta" data-i18n="weddingsCta">
+            <span>EXPLORE WEDDINGS</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Editorial Image Composition (Asymmetric Full Visuals) -->
+      <div class="weddings-gallery-composition">
+        <!-- Tall Emotional Portrait -->
+        <div class="photo-frame dark-theme weddings-frame-tall" onclick="openLightboxBySrc('assets/images/weddings/wedding-01.jpg', 'The Sacred Vows', 'Weddings', '2026')">
+          <img 
+            src="assets/images/weddings/wedding-01.jpg" 
+            alt="Wedding intimate ceremony portrait" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/weddings/wedding-01.jpg', 'Intimate Ceremony')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <div class="placeholder-title">The Sacred Vows</div>
+            <div class="placeholder-path">assets/images/weddings/wedding-01.jpg</div>
+          </div>
+        </div>
+
+        <!-- Middle Column: Detail + Film Preview -->
+        <div>
+          <div class="photo-frame dark-theme weddings-frame-detail" onclick="openLightboxBySrc('assets/images/weddings/wedding-02.jpg', 'Gown & Heirloom Details', 'Weddings', '2026')">
+            <img 
+              src="assets/images/weddings/wedding-02.jpg" 
+              alt="Bridal heirloom details" 
+              class="photo-img" 
+              loading="lazy"
+              onerror="handleImgError(this, 'assets/images/weddings/wedding-02.jpg', 'Bridal Details')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
+              </svg>
+              <div class="placeholder-title">Heirloom Details</div>
+              <div class="placeholder-path">assets/images/weddings/wedding-02.jpg</div>
+            </div>
+          </div>
+
+          <div class="photo-frame dark-theme weddings-frame-wide" onclick="openLightboxBySrc('assets/images/weddings/wedding-03.jpg', 'The Twilight Reception', 'Weddings', '2026')">
+            <img 
+              src="assets/images/weddings/wedding-03.jpg" 
+              alt="Twilight wedding reception atmosphere" 
+              class="photo-img" 
+              loading="lazy"
+              onerror="handleImgError(this, 'assets/images/weddings/wedding-03.jpg', 'Twilight Atmosphere')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <div class="placeholder-title">Twilight Reception</div>
+              <div class="placeholder-path">assets/images/weddings/wedding-03.jpg</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Couple In Motion -->
+        <div class="photo-frame dark-theme weddings-frame-landscape" onclick="openLightboxBySrc('assets/images/weddings/wedding-04.jpg', 'Golden Hour Departure', 'Weddings', '2026')">
+          <img 
+            src="assets/images/weddings/wedding-04.jpg" 
+            alt="Couple portrait in golden hour light" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/weddings/wedding-04.jpg', 'Golden Hour')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
+            </svg>
+            <div class="placeholder-title">Golden Hour Departure</div>
+            <div class="placeholder-path">assets/images/weddings/wedding-04.jpg</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CHAPTER 02 — SHOOTING
+       ========================================================================== -->
+  <section class="shooting-section" id="shooting">
+    <div class="container">
+      <div class="shooting-asymmetric-layout">
+        <!-- Visual Composition: Overlapping Atelier Frames -->
+        <div class="shooting-hero-image-wrap">
+          <div class="photo-frame shooting-frame-main" onclick="openLightboxBySrc('assets/images/shooting/shoot-01.jpg', 'Architectural Silhouette', 'Shooting', '2026')">
+            <img 
+              src="assets/images/shooting/shoot-01.jpg" 
+              alt="Editorial fashion and portrait shooting session" 
+              class="photo-img" 
+              loading="lazy"
+              onerror="handleImgError(this, 'assets/images/shooting/shoot-01.jpg', 'Editorial Fashion')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <div class="placeholder-title">Architectural Silhouette</div>
+              <div class="placeholder-path">assets/images/shooting/shoot-01.jpg</div>
+            </div>
+          </div>
+
+          <div class="photo-frame shooting-frame-offset" onclick="openLightboxBySrc('assets/images/shooting/shoot-02.jpg', 'Raw Portraiture Study', 'Shooting', '2026')">
+            <img 
+              src="assets/images/shooting/shoot-02.jpg" 
+              alt="Raw intimate black and white portrait" 
+              class="photo-img" 
+              loading="lazy"
+              onerror="handleImgError(this, 'assets/images/shooting/shoot-02.jpg', 'Raw Portraiture')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+              </svg>
+              <div class="placeholder-title">Raw Portraiture</div>
+              <div class="placeholder-path">assets/images/shooting/shoot-02.jpg</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text & Editorial Identity -->
+        <div class="shooting-content-col">
+          <span class="editorial-kicker" data-i18n="shootingKicker">02 &mdash; SHOOTING</span>
+          <h2 class="editorial-heading shooting-title" data-i18n="shootingTitle">SHOOTING</h2>
+          <div class="shooting-tagline" data-i18n="shootingTagline">Form, light, and artistic presence.</div>
+          
+          <p class="shooting-desc" data-i18n="shootingDesc">
+            High-fashion editorials, intimate personal sessions, and creative portrait commissions. Crafted through deliberate light sculpting, compositional asymmetry, and an organic collaboration with the subject.
+          </p>
+
+          <div class="shooting-categories-list">
+            <span class="shooting-category-item" data-i18n="shootingCat1">PORTRAITURE</span>
+            <span class="shooting-category-item" data-i18n="shootingCat2">FASHION & EDITORIAL</span>
+            <span class="shooting-category-item" data-i18n="shootingCat3">CREATIVE SESSIONS</span>
+            <span class="shooting-category-item" data-i18n="shootingCat4">LIFESTYLE ATELIER</span>
+          </div>
+
+          <div>
+            <a href="#work" onclick="filterGallery('SHOOTING')" class="btn-editorial-primary" data-i18n="shootingCta">
+              <span>EXPLORE SHOOTING</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CHAPTER 03 — CONTENT CREATION
+       ========================================================================== -->
+  <section class="content-section" id="content">
+    <div class="container">
+      <div class="content-header">
+        <div>
+          <span class="editorial-kicker" style="color: var(--color-gold-subtle);" data-i18n="contentKicker">03 &mdash; CONTENT CREATION</span>
+          <h2 class="editorial-heading content-title" data-i18n="contentTitle">CONTENT CREATION</h2>
+        </div>
+        <p style="max-width: 48ch; font-size: 0.95rem; line-height: 1.8; color: var(--text-light-secondary);" data-i18n="contentDesc">
+          Contemporary visual language for distinguished personal brands, tactile products, and digital platforms. Vertical imagery, rhythmic motion, and tailored aesthetic direction.
+        </p>
+      </div>
+
+      <!-- Vertical Social & Reel Showcase Composition -->
+      <div class="content-grid-composition">
+        <!-- Vertical Slot 1 -->
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-01.jpg', 'Modern Brand Campaign', 'Content', '2026')">
+          <span class="content-pill-badge" data-i18n="contentBadgeVisual">VISUAL STORY</span>
+          <img 
+            src="assets/images/content/content-01.jpg" 
+            alt="Contemporary brand visual story" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/content/content-01.jpg', 'Brand Story')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <div class="placeholder-title">Brand Campaign</div>
+            <div class="placeholder-path">assets/images/content/content-01.jpg</div>
+          </div>
+        </div>
+
+        <!-- Vertical Slot 2 (Reel preview) -->
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/videos/content/reel-01.mp4', 'Kinetic Reel & Motion', 'Content', '2026', true)">
+          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
+          <div class="reel-play-overlay">
+            <div class="play-icon-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <img 
+            src="assets/images/content/content-02.jpg" 
+            alt="Short form motion preview" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/videos/content/reel-01.mp4', 'Motion Reel')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <div class="placeholder-title">Motion Reel</div>
+            <div class="placeholder-path">assets/videos/content/reel-01.mp4</div>
+          </div>
+        </div>
+
+        <!-- Vertical Slot 3 -->
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-03.jpg', 'Tactile Product Study', 'Content', '2026')">
+          <span class="content-pill-badge" data-i18n="contentBadgeProduct">STILL LIFE</span>
+          <img 
+            src="assets/images/content/content-03.jpg" 
+            alt="Minimalist luxury product photograph" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/content/content-03.jpg', 'Product Still Life')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <div class="placeholder-title">Tactile Still Life</div>
+            <div class="placeholder-path">assets/images/content/content-03.jpg</div>
+          </div>
+        </div>
+
+        <!-- Vertical Slot 4 -->
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-04.jpg', 'Creator Editorial Aesthetic', 'Content', '2026')">
+          <span class="content-pill-badge" data-i18n="contentBadgeEditorial">INFLUENCE</span>
+          <img 
+            src="assets/images/content/content-04.jpg" 
+            alt="Creator aesthetic lifestyle imagery" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/content/content-04.jpg', 'Creator Editorial')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+            <div class="placeholder-title">Creator Editorial</div>
+            <div class="placeholder-path">assets/images/content/content-04.jpg</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="#work" onclick="filterGallery('CONTENT')" class="btn-weddings-cta" data-i18n="contentCta">
+          <span>EXPLORE CONTENT CREATION</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SELECTED WORK (CURATED EXHIBITION & LIGHTBOX)
+       ========================================================================== -->
+  <section class="selected-work-section" id="work">
+    <div class="container">
+      <div class="gallery-top-bar">
+        <div>
+          <span class="editorial-kicker" data-i18n="galleryKicker">CURATED EXHIBITION</span>
+          <h2 class="editorial-heading gallery-title" data-i18n="galleryTitle">SELECTED WORK</h2>
+        </div>
+
+        <!-- Filter Buttons (ALL, WEDDINGS, SHOOTING, CONTENT) -->
+        <div class="filter-group" role="tablist" aria-label="Portfolio Filters">
+          <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterGallery('ALL')" id="filter-ALL" data-i18n="filterAll">ALL</button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('WEDDINGS')" id="filter-WEDDINGS" data-i18n="filterWeddings">WEDDINGS</button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('SHOOTING')" id="filter-SHOOTING" data-i18n="filterShooting">SHOOTING</button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('CONTENT')" id="filter-CONTENT" data-i18n="filterContent">CONTENT</button>
+        </div>
+      </div>
+
+      <!-- Masonry Grid Root (Populated via PORTFOLIO_DATA in JavaScript) -->
+      <div class="gallery-masonry-grid" id="galleryGridRoot">
+        <!-- Dynamically rendered items -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ABOUT (BEHIND THE LENS / خلف العدسة)
+       ========================================================================== -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <!-- Portrait -->
+      <div>
+        <div class="photo-frame about-portrait-frame">
+          <img 
+            src="assets/images/photographer/about.jpg" 
+            alt="Photographer at work — NOUL PRODUCTION" 
+            class="photo-img" 
+            loading="lazy"
+            onerror="handleImgError(this, 'assets/images/photographer/about.jpg', 'Photographer in Atelier')"
+          />
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
+            </svg>
+            <div class="placeholder-title" data-i18n="aboutPortraitTitle">Behind the Lens</div>
+            <div class="placeholder-path">assets/images/photographer/about.jpg</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Philosophy & Biography -->
+      <div>
+        <span class="editorial-kicker" data-i18n="aboutKicker">THE ARTIST</span>
+        <h2 class="editorial-heading about-title" data-i18n="aboutTitle">BEHIND THE LENS</h2>
+        <div class="about-subtitle" data-i18n="aboutSubtitle">AN EDITORIAL DIALOGUE OF LIGHT AND EMOTION</div>
+
+        <div class="about-philosophy-quote" data-i18n="aboutPhilosophy">
+          "Photography is not about forcing perfection, but about honouring the quiet, unscripted truth of human emotion."
+        </div>
+
+        <p class="about-bio-text" data-i18n="aboutBio">
+          [SHORT BIOGRAPHY — Dedicated to crafting visual narratives that balance contemporary editorial poise with profound vulnerability. Working with couples, discerning creators, and distinctive brands across the globe to produce imagery that stands timeless.]
+        </p>
+
+        <div class="about-details-table">
+          <div>
+            <div class="hero-meta-item-label" data-i18n="aboutLabelName">NAME</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaName">[PHOTOGRAPHER NAME]</div>
+          </div>
+          <div>
+            <div class="hero-meta-item-label" data-i18n="aboutLabelBase">STUDIO & LOCATION</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaCity">[LOCATION]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICES (REFINED EDITORIAL CATALOGUE)
+       ========================================================================== -->
+  <section class="services-section">
+    <div class="container">
+      <div class="services-header">
+        <span class="editorial-kicker" data-i18n="servicesKicker">COMMISSIONS</span>
+        <h2 class="editorial-heading" style="font-size: clamp(2.4rem, 4.5vw, 4rem); margin-top: 0.5rem;" data-i18n="servicesTitle">SERVICES</h2>
+      </div>
+
+      <div class="services-list">
+        <!-- Service 01 -->
+        <div class="service-row">
+          <span class="service-index">01</span>
+          <h3 class="service-name" data-i18n="serviceWeddingsTitle">WEDDINGS</h3>
+          <p class="service-description" data-i18n="serviceWeddingsDesc">
+            Full-day & destination coverage, analogue stills, ceremony intimacy, and timeless emotional chronicles.
+          </p>
+          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
+        </div>
+
+        <!-- Service 02 -->
+        <div class="service-row">
+          <span class="service-index">02</span>
+          <h3 class="service-name" data-i18n="serviceShootingTitle">SHOOTING</h3>
+          <p class="service-description" data-i18n="serviceShootingDesc">
+            Fashion editorials, private portraiture sessions, creative portfolio development, and personal styling sessions.
+          </p>
+          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
+        </div>
+
+        <!-- Service 03 -->
+        <div class="service-row">
+          <span class="service-index">03</span>
+          <h3 class="service-name" data-i18n="serviceContentTitle">CONTENT CREATION</h3>
+          <p class="service-description" data-i18n="serviceContentDesc">
+            Bespoke visual identity for modern brands, 4K vertical reels, tactile product still life, and creative brand campaigns.
+          </p>
+          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT (MEMORABLE EDITORIAL FINALE)
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="editorial-kicker" style="color: var(--color-gold-subtle);" data-i18n="contactKicker">GET IN TOUCH</span>
+        <h2 class="editorial-heading contact-heading-large" data-i18n="contactHeading">
+          LET'S CREATE<br />SOMETHING<br />BEAUTIFUL.
+        </h2>
+        <p class="contact-lead" data-i18n="contactSubtitle">
+          Currently accepting commissions for upcoming wedding dates, fashion editorials, and selective brand partnerships.
+        </p>
+
+        <button onclick="openInquiryModal()" class="btn-contact-action" data-i18n="contactCta">
+          <span>START A CONVERSATION</span>
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+
+      <!-- Contact Coordinates -->
+      <div class="contact-info-block">
+        <div class="contact-channel-item">
+          <span class="contact-channel-label" data-i18n="contactLabelInsta">INSTAGRAM</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-channel-value" data-i18n="contactValInsta">
+            [INSTAGRAM]
+          </a>
+        </div>
+
+        <div class="contact-channel-item">
+          <span class="contact-channel-label" data-i18n="contactLabelWhatsApp">WHATSAPP</span>
+          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="contact-channel-value" data-i18n="contactValWhatsApp">
+            [WHATSAPP]
+          </a>
+        </div>
+
+        <div class="contact-channel-item">
+          <span class="contact-channel-label" data-i18n="contactLabelEmail">DIRECT EMAIL</span>
+          <a href="mailto:contact@noulproduction.com" class="contact-channel-value" data-i18n="contactValEmail">
+            [EMAIL]
+          </a>
+        </div>
+
+        <div class="contact-channel-item">
+          <span class="contact-channel-label" data-i18n="contactLabelLocation">LOCATION</span>
+          <span class="contact-channel-value" data-i18n="heroMetaCity">[LOCATION]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">NOUL PRODUCTION</div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="#home" data-i18n="navHome">HOME</a>
+        <a href="#weddings" data-i18n="navWeddings">WEDDINGS</a>
+        <a href="#shooting" data-i18n="navShooting">SHOOTING</a>
+        <a href="#content" data-i18n="navContent">CONTENT</a>
+        <a href="#about" data-i18n="navAbout">ABOUT</a>
+        <a href="#contact" data-i18n="navContact">CONTACT</a>
+      </nav>
+
+      <div class="footer-copyright" data-i18n="footerCopy">
+        &copy; 2026 NOUL PRODUCTION. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FULLSCREEN LIGHTBOX MODAL
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Media Lightbox">
+    <div class="lightbox-topbar">
+      <div class="lightbox-brand-label">NOUL PRODUCTION</div>
+      <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox (Escape)">
+        <span data-i18n="lightboxClose">CLOSE</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="lightbox-content-area">
+      <button class="lightbox-arrow prev" onclick="lightboxPrev()" aria-label="Previous Image (Left Arrow)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-media-container" id="lightboxMediaSlot">
+        <!-- Rendered Image or Video Element -->
+      </div>
+
+      <button class="lightbox-arrow next" onclick="lightboxNext()" aria-label="Next Image (Right Arrow)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="lightbox-bottombar">
+      <div class="lightbox-meta-title" id="lightboxTitle">Project Title</div>
+      <div class="lightbox-meta-info" id="lightboxInfo">Category &middot; 2026</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       EDITORIAL INQUIRY MODAL
+       ========================================================================== -->
+  <div class="inquiry-modal" id="inquiryModal" role="dialog" aria-modal="true" aria-label="Direct Inquiry">
+    <div class="inquiry-card">
+      <button class="inquiry-close-btn" onclick="closeInquiryModal()" aria-label="Close Modal">&times;</button>
+      <h3 class="inquiry-title" data-i18n="inquiryTitle">Direct Inquiry</h3>
+      <p class="inquiry-subtitle" data-i18n="inquirySubtitle">Share your vision, date, and project specifications.</p>
+
+      <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+        <div class="inquiry-form-group">
+          <label class="inquiry-label" for="inqName" data-i18n="inqNameLabel">Your Name</label>
+          <input type="text" id="inqName" required class="inquiry-input" placeholder="e.g. Elena Rostova" />
+        </div>
+
+        <div class="inquiry-form-group">
+          <label class="inquiry-label" for="inqEmail" data-i18n="inqEmailLabel">Email Address</label>
+          <input type="email" id="inqEmail" required class="inquiry-input" placeholder="elena@example.com" />
+        </div>
+
+        <div class="inquiry-form-group">
+          <label class="inquiry-label" for="inqCategory" data-i18n="inqCategoryLabel">Commission Category</label>
+          <select id="inqCategory" class="inquiry-select">
+            <option value="Weddings" data-i18n="inqOptWeddings">Weddings</option>
+            <option value="Shooting" data-i18n="inqOptShooting">Shooting / Editorial Portrait</option>
+            <option value="Content Creation" data-i18n="inqOptContent">Content Creation & Reels</option>
+          </select>
+        </div>
+
+        <div class="inquiry-form-group">
+          <label class="inquiry-label" for="inqMessage" data-i18n="inqMessageLabel">Message & Details</label>
+          <textarea id="inqMessage" class="inquiry-textarea" placeholder="Tell us about your date, location, and aesthetic preferences..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-editorial-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" data-i18n="inqSubmitBtn">
+          <span>SEND INQUIRY</span>
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ALL SCRIPTS IN ONE CONCISE, ROBUST ENGINE
+       ========================================================================== -->
+  <script>
+    /* ==========================================================================
+       PORTFOLIO ITEMS DATA SECTION (EASILY EDITABLE FOR THE PHOTOGRAPHER)
+       To add, remove or modify projects, simply edit this array:
+       ========================================================================== */
+    const PORTFOLIO_DATA = [
+      {
+        id: 'w1',
+        titleEn: 'The Silent Vow',
+        titleAr: 'عهد الصمت والنقاء',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-01.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-6-tall'
+      },
+      {
+        id: 's1',
+        titleEn: 'Architectural Form',
+        titleAr: 'تكوين معماري',
+        category: 'SHOOTING',
+        year: '2026',
+        src: 'assets/images/shooting/shoot-01.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-6-square'
+      },
+      {
+        id: 'c1',
+        titleEn: 'Maison Minimalist Reel',
+        titleAr: 'ريل لعلامة فاخرة',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-01.jpg',
+        videoSrc: 'assets/videos/content/reel-01.mp4',
+        isVideo: true,
+        spanClass: 'tile-span-4-portrait'
+      },
+      {
+        id: 'w2',
+        titleEn: 'Twilight Vows',
+        titleAr: 'مراسم وقت الغروب',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-02.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-8-landscape'
+      },
+      {
+        id: 's2',
+        titleEn: 'Shadow & Ivory Portrait',
+        titleAr: 'بورتريه الظل والعاج',
+        category: 'SHOOTING',
+        year: '2026',
+        src: 'assets/images/shooting/shoot-02.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-6-square'
+      },
+      {
+        id: 'c2',
+        titleEn: 'Sensory Product Study',
+        titleAr: 'دراسة بصرية لمنتج',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-02.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-6-tall'
+      },
+      {
+        id: 'w3',
+        titleEn: 'Heirloom In Black & White',
+        titleAr: 'إرث عائلي بالأبيض والأسود',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-03.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-12-wide'
+      },
+      {
+        id: 's3',
+        titleEn: 'Editorial Movement',
+        titleAr: 'حركة تحريرية حرة',
+        category: 'SHOOTING',
+        year: '2026',
+        src: 'assets/images/shooting/shoot-03.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-4-portrait'
+      },
+      {
+        id: 'c3',
+        titleEn: 'Digital Story Series',
+        titleAr: 'سلسلة قصص رقمية',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-03.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-4-portrait'
+      },
+      {
+        id: 'w4',
+        titleEn: 'The First Dance',
+        titleAr: 'الرقصة الأولى',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-04.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-4-portrait'
+      }
+    ];
+
+    /* ==========================================================================
+       BILINGUAL LOCALIZATION (ENGLISH & ARABIC)
+       ========================================================================== */
+    const I18N = {
+      en: {
+        pageTitle: 'NOUL PRODUCTION — Photographer & Visual Storyteller',
+        headerSubtitle: 'PHOTOGRAPHER & VISUAL STORYTELLER',
+        navHome: 'HOME',
+        navWeddings: 'WEDDINGS',
+        navShooting: 'SHOOTING',
+        navContent: 'CONTENT',
+        navWork: 'SELECTED WORK',
+        navAbout: 'ABOUT',
+        navContact: 'CONTACT',
+        mobileContactPrompt: 'DIRECT INQUIRIES',
+
+        heroKicker: 'EDITORIAL ARCHIVE 2026',
+        heroRole1: 'PHOTOGRAPHER',
+        heroRole2: 'VISUAL STORYTELLER',
+        heroMetaPhotographer: 'PHOTOGRAPHER',
+        heroMetaName: '[PHOTOGRAPHER NAME]',
+        heroMetaLocation: 'BASED IN',
+        heroMetaCity: '[LOCATION]',
+        heroDescription: '[SHORT PERSONAL DESCRIPTION — An intimate, editorial perspective capturing authentic human emotion, quiet elegance, and timeless visual poetry.]',
+        heroCtaWork: 'VIEW SELECTED WORK',
+        heroCtaInquire: 'BOOK A SESSION',
+        heroScroll: 'SCROLL',
+        heroPortraitTitle: 'Photographer Portrait',
+        heroFloatingTitle: 'Natural Light & Intimacy',
+        heroFloatingText: '[LOCATION] · WORLDWIDE',
+
+        weddingsKicker: '01 — WEDDINGS',
+        weddingsTitle: 'WEDDINGS',
+        weddingsTagline: 'Love stories, honestly captured.',
+        weddingsDesc: 'Preserving unguarded intimacy, quiet glances, and celebratory grandeur. We approach your day with editorial sensitivity and timeless warmth—creating photographs that hold their breath for generations.',
+        weddingsCta: 'EXPLORE WEDDINGS',
+
+        shootingKicker: '02 — SHOOTING',
+        shootingTitle: 'SHOOTING',
+        shootingTagline: 'Form, light, and artistic presence.',
+        shootingDesc: 'High-fashion editorials, intimate personal sessions, and creative portrait commissions. Crafted through deliberate light sculpting, compositional asymmetry, and an organic collaboration with the subject.',
+        shootingCat1: 'PORTRAITURE',
+        shootingCat2: 'FASHION & EDITORIAL',
+        shootingCat3: 'CREATIVE SESSIONS',
+        shootingCat4: 'LIFESTYLE ATELIER',
+        shootingCta: 'EXPLORE SHOOTING',
+
+        contentKicker: '03 — CONTENT CREATION',
+        contentTitle: 'CONTENT CREATION',
+        contentDesc: 'Contemporary visual language for distinguished personal brands, tactile products, and digital platforms. Vertical imagery, rhythmic motion, and tailored aesthetic direction.',
+        contentBadgeVisual: 'VISUAL STORY',
+        contentBadgeReel: 'REEL · 4K',
+        contentBadgeProduct: 'STILL LIFE',
+        contentBadgeEditorial: 'INFLUENCE',
+        contentCta: 'EXPLORE CONTENT CREATION',
+
+        galleryKicker: 'CURATED EXHIBITION',
+        galleryTitle: 'SELECTED WORK',
+        filterAll: 'ALL',
+        filterWeddings: 'WEDDINGS',
+        filterShooting: 'SHOOTING',
+        filterContent: 'CONTENT',
+
+        aboutKicker: 'THE ARTIST',
+        aboutTitle: 'BEHIND THE LENS',
+        aboutSubtitle: 'AN EDITORIAL DIALOGUE OF LIGHT AND EMOTION',
+        aboutPhilosophy: '"Photography is not about forcing perfection, but about honouring the quiet, unscripted truth of human emotion."',
+        aboutBio: '[SHORT BIOGRAPHY — Dedicated to crafting visual narratives that balance contemporary editorial poise with profound vulnerability. Working with couples, discerning creators, and distinctive brands across the globe to produce imagery that stands timeless.]',
+        aboutLabelName: 'NAME',
+        aboutLabelBase: 'STUDIO & LOCATION',
+        aboutPortraitTitle: 'Behind the Lens',
+
+        servicesKicker: 'COMMISSIONS',
+        servicesTitle: 'SERVICES',
+        serviceWeddingsTitle: 'WEDDINGS',
+        serviceWeddingsDesc: 'Full-day & destination coverage, analogue stills, ceremony intimacy, and timeless emotional chronicles.',
+        serviceShootingTitle: 'SHOOTING',
+        serviceShootingDesc: 'Fashion editorials, private portraiture sessions, creative portfolio development, and personal styling sessions.',
+        serviceContentTitle: 'CONTENT CREATION',
+        serviceContentDesc: 'Bespoke visual identity for modern brands, 4K vertical reels, tactile product still life, and creative brand campaigns.',
+
+        contactKicker: 'GET IN TOUCH',
+        contactHeading: "LET'S CREATE<br />SOMETHING<br />BEAUTIFUL.",
+        contactSubtitle: 'Currently accepting commissions for upcoming wedding dates, fashion editorials, and selective brand partnerships.',
+        contactCta: 'START A CONVERSATION',
+        contactLabelInsta: 'INSTAGRAM',
+        contactValInsta: '[INSTAGRAM]',
+        contactLabelWhatsApp: 'WHATSAPP',
+        contactValWhatsApp: '[WHATSAPP]',
+        contactLabelEmail: 'DIRECT EMAIL',
+        contactValEmail: '[EMAIL]',
+        contactLabelLocation: 'LOCATION',
+
+        footerCopy: '© 2026 NOUL PRODUCTION. ALL RIGHTS RESERVED.',
+        lightboxClose: 'CLOSE',
+
+        inquiryTitle: 'Direct Inquiry',
+        inquirySubtitle: 'Share your vision, date, and project specifications.',
+        inqNameLabel: 'Your Name',
+        inqEmailLabel: 'Email Address',
+        inqCategoryLabel: 'Commission Category',
+        inqOptWeddings: 'Weddings',
+        inqOptShooting: 'Shooting / Editorial Portrait',
+        inqOptContent: 'Content Creation & Reels',
+        inqMessageLabel: 'Message & Details',
+        inqSubmitBtn: 'SEND INQUIRY'
+      },
+      ar: {
+        pageTitle: 'نول برودكشن — مصورة فوتوغرافية وراوية بصرية',
+        headerSubtitle: 'مصورة فوتوغرافية · راوية بصرية',
+        navHome: 'الرئيسية',
+        navWeddings: 'حفلات الزفاف',
+        navShooting: 'جلسات التصوير',
+        navContent: 'صناعة المحتوى',
+        navWork: 'أعمال مختارة',
+        navAbout: 'من نحن',
+        navContact: 'تواصل معنا',
+        mobileContactPrompt: 'للتواصل المباشر',
+
+        heroKicker: 'أرشيف الأعمال ٢٠٢٦',
+        heroRole1: 'مصورة فوتوغرافية',
+        heroRole2: 'راوية بصرية',
+        heroMetaPhotographer: 'المصورة',
+        heroMetaName: '[اسم المصورة]',
+        heroMetaLocation: 'المقر الرئيسي',
+        heroMetaCity: '[الموقع]',
+        heroDescription: '[نبذة شخصية موجزة — رؤية فنية حالمة تلتقط المشاعر الإنسانية الصادقة، والرقي الهادئ، وشاعرية اللحظات الخالدة.]',
+        heroCtaWork: 'استعراض الأعمال المختارة',
+        heroCtaInquire: 'حجز جلسة تصوير',
+        heroScroll: 'تمرير',
+        heroPortraitTitle: 'بورتريه المصورة',
+        heroFloatingTitle: 'الضوء الطبيعي والعفوية',
+        heroFloatingText: '[الموقع] · حول العالم',
+
+        weddingsKicker: '٠١ — حفلات الزفاف',
+        weddingsTitle: 'حفلات الزفاف',
+        weddingsTagline: 'قصص حب تُروى بصدق وعفوية.',
+        weddingsDesc: 'توثيق أصدق المشاعر، النظرات العفوية، وبهجة الاحتفال الكبير. نتعامل مع يومكم الخاص بحس تحريري راقٍ ودفء دائم—لنصنع صوراً تحفظ جمالها عبر الأجيال.',
+        weddingsCta: 'اكتشف حفلات الزفاف',
+
+        shootingKicker: '٠٢ — جلسات التصوير',
+        shootingTitle: 'جلسات التصوير',
+        shootingTagline: 'الشكل، الضوء، والحضور الفني.',
+        shootingDesc: 'جلسات أزياء تحريرية، بورتريهات شخصية خاصة، ومشاريع بصرية مبتكرة. تولد عبر نحت الضوء بعناية، والتوازن البصري الجريء، والتناغم الإنساني العميق مع الشخصية.',
+        shootingCat1: 'بورتريه شخصي',
+        shootingCat2: 'أزياء وتحريري',
+        shootingCat3: 'جلسات إبداعية',
+        shootingCat4: 'أسلوب حياة',
+        shootingCta: 'اكتشف جلسات التصوير',
+
+        contentKicker: '٠٣ — صناعة المحتوى',
+        contentTitle: 'صناعة المحتوى',
+        contentDesc: 'لغة بصرية معاصرة للعلامات التجارية المتميزة، وتصوير المنتجات، والمنصات الرقمية. صور طولية، حركة إيقاعية، وتوجيه بصري مخصص.',
+        contentBadgeVisual: 'قصة بصرية',
+        contentBadgeReel: 'ريلز · 4K',
+        contentBadgeProduct: 'تصوير منتجات',
+        contentBadgeEditorial: 'محتوى مؤثر',
+        contentCta: 'اكتشف صناعة المحتوى',
+
+        galleryKicker: 'معرض منتقى',
+        galleryTitle: 'أعمال مختارة',
+        filterAll: 'الكل',
+        filterWeddings: 'حفلات الزفاف',
+        filterShooting: 'جلسات التصوير',
+        filterContent: 'صناعة المحتوى',
+
+        aboutKicker: 'الفنانة',
+        aboutTitle: 'خلف العدسة',
+        aboutSubtitle: 'حوار بصري بين الضوء والوجدان',
+        aboutPhilosophy: '"التصوير الفوتوغرافي ليس محاولة لفرض الكمال، بل هو احتفاء بالحقيقة الصادقة الهادئة للمشاعر الإنسانية."',
+        aboutBio: '[سيرة شخصية موجزة — مكرسة لصياغة حكايات بصرية تجمع بين الرقي العصري والعفوية الصادقة. أتعاون مع المقبلين على الزواج، والمبدعين، والعلامات الراقية لإنتاج صور تعيش طويلاً.]',
+        aboutLabelName: 'الاسم',
+        aboutLabelBase: 'الاستوديو والموقع',
+        aboutPortraitTitle: 'خلف العدسة',
+
+        servicesKicker: 'المشاريع والخدمات',
+        servicesTitle: 'الخدمات المقدمة',
+        serviceWeddingsTitle: 'حفلات الزفاف',
+        serviceWeddingsDesc: 'تغطية كاملة وشاملة، صور كلاسيكية ورقمية، وتوثيق المناسبات الخاصة بأعلى معايير الإتقان.',
+        serviceShootingTitle: 'جلسات التصوير',
+        serviceShootingDesc: 'جلسات أزياء تحريرية، بورتريه شخصي راقٍ، وتطوير هوية بصرية للشخصيات.',
+        serviceContentTitle: 'صناعة المحتوى',
+        serviceContentDesc: 'هوية بصرية مصممة للمنصات الحديثة، مقاطع ريلز 4K، وتصوير منتجات بأسلوب فني رفيع.',
+
+        contactKicker: 'تواصل معنا',
+        contactHeading: 'لنصنع شيئاً<br />جميلاً<br />معاً.',
+        contactSubtitle: 'نستقبل حالياً الحجوزات لمواعيد الأعراس القادمة، وجلسات التصوير التحريرية، والشراكات المختارة.',
+        contactCta: 'ابدأ المحادثة',
+        contactLabelInsta: 'إنستغرام',
+        contactValInsta: '[إنستغرام]',
+        contactLabelWhatsApp: 'واتساب',
+        contactValWhatsApp: '[واتساب]',
+        contactLabelEmail: 'البريد الإلكتروني',
+        contactValEmail: '[البريد الإلكتروني]',
+        contactLabelLocation: 'الموقع',
+
+        footerCopy: '© ٢٠٢٦ نول برودكشن. جميع الحقوق محفوظة.',
+        lightboxClose: 'إغلاق',
+
+        inquiryTitle: 'طلب حجز واستفسار',
+        inquirySubtitle: 'شاركينا رؤيتك، الموعد المقترح، وتفاصيل المناسبة.',
+        inqNameLabel: 'الاسم الكريم',
+        inqEmailLabel: 'البريد الإلكتروني',
+        inqCategoryLabel: 'نوع الجلسة أو المشروع',
+        inqOptWeddings: 'حفلات الزفاف',
+        inqOptShooting: 'جلسات تصوير / بورتريه',
+        inqOptContent: 'صناعة محتوى وريلز',
+        inqMessageLabel: 'تفاصيل الرسالة',
+        inqSubmitBtn: 'إرسال الاستفسار'
+      }
+    };
+
+    let currentLang = 'en';
+    let currentFilter = 'ALL';
+    let activeLightboxIndex = 0;
+    let filteredPortfolioItems = [...PORTFOLIO_DATA];
+
+    /* ==========================================================================
+       LANGUAGE SWITCHER ENGINE (PRESERVES EXACT SCROLL POSITION)
+       ========================================================================== */
+    function switchLanguage(lang) {
+      if (lang === currentLang) return;
+      currentLang = lang;
+
+      // Retain exact scroll position
+      const scrollY = window.scrollY;
+
+      // Update HTML root attributes
+      const htmlEl = document.documentElement;
+      htmlEl.setAttribute('lang', lang);
+      htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      // Update button visual states
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      document.getElementById('btnAr').classList.toggle('active', lang === 'ar');
+
+      // Update Document Title
+      document.title = I18N[lang].pageTitle;
+
+      // Replace text of all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (I18N[lang] && I18N[lang][key]) {
+          if (I18N[lang][key].includes('<br')) {
+            el.innerHTML = I18N[lang][key];
+          } else {
+            el.textContent = I18N[lang][key];
+          }
+        }
+      });
+
+      // Re-render gallery items with localized titles
+      renderGallery();
+
+      // Restore scroll position seamlessly
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+
+      // Persist in localStorage
+      try {
+        localStorage.setItem('noul_preferred_lang', lang);
+      } catch (e) {}
+    }
+
+    /* Initialize stored language preference */
+    try {
+      const savedLang = localStorage.getItem('noul_preferred_lang');
+      if (savedLang === 'ar') {
+        switchLanguage('ar');
+      }
+    } catch (e) {}
+
+    /* ==========================================================================
+       GALLERY RENDERING & FILTERING
+       ========================================================================== */
+    function renderGallery() {
+      const container = document.getElementById('galleryGridRoot');
+      if (!container) return;
+
+      filteredPortfolioItems = currentFilter === 'ALL'
+        ? PORTFOLIO_DATA
+        : PORTFOLIO_DATA.filter(item => item.category === currentFilter);
+
+      container.innerHTML = '';
+
+      filteredPortfolioItems.forEach((item, index) => {
+        const tile = document.createElement('div');
+        tile.className = `gallery-tile ${item.spanClass}`;
+        tile.onclick = () => openLightboxByIndex(index);
+
+        const titleText = currentLang === 'ar' ? item.titleAr : item.titleEn;
+        const catText = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
+
+        tile.innerHTML = `
+          <div class="photo-frame" style="width: 100%; height: 100%;">
+            <img 
+              src="${item.src}" 
+              alt="${titleText}" 
+              class="photo-img" 
+              loading="lazy" 
+              onerror="handleImgError(this, '${item.src}', '${titleText}')"
+            />
+            <div class="photo-placeholder-box">
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
+              </svg>
+              <div class="placeholder-title">${titleText}</div>
+              <div class="placeholder-path">${item.src}</div>
+            </div>
+            ${item.isVideo ? `
+              <div class="reel-play-overlay">
+                <div class="play-icon-circle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                  </svg>
+                </div>
+              </div>` : ''}
+          </div>
+          <div class="gallery-tile-meta">
+            <span class="tile-title">${titleText}</span>
+            <span class="tile-category-year">${catText} &middot; ${item.year}</span>
+          </div>
+        `;
+
+        container.appendChild(tile);
+      });
+    }
+
+    function filterGallery(category) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.id === `filter-${category}`);
+        btn.setAttribute('aria-selected', btn.id === `filter-${category}`);
+      });
+      renderGallery();
+    }
+
+    /* ==========================================================================
+       IMAGE & LOGO RESILIENT ERROR HANDLERS (ZERO BROKEN IMAGES)
+       ========================================================================== */
+    function handleImgError(imgEl, originalPath, titleFallback) {
+      imgEl.style.display = 'none';
+      const placeholder = imgEl.parentElement ? imgEl.parentElement.querySelector('.photo-placeholder-box') : null;
+      if (placeholder) {
+        placeholder.style.display = 'flex';
+      }
+    }
+
+    function handleLogoError(imgEl) {
+      imgEl.style.display = 'none';
+      const fallback = document.getElementById('logoFallback');
+      if (fallback) {
+        fallback.style.display = 'flex';
+      }
+    }
+
+    /* ==========================================================================
+       FULLSCREEN LIGHTBOX MODAL & KEYBOARD CONTROLS
+       ========================================================================== */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxMediaSlot = document.getElementById('lightboxMediaSlot');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxInfo = document.getElementById('lightboxInfo');
+
+    function openLightboxByIndex(index) {
+      activeLightboxIndex = index;
+      const item = filteredPortfolioItems[index];
+      if (!item) return;
+
+      const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
+      const cat = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
+
+      lightboxTitle.textContent = title;
+      lightboxInfo.textContent = `${cat} · ${item.year}`;
+
+      lightboxMediaSlot.innerHTML = '';
+      if (item.isVideo && item.videoSrc) {
+        const video = document.createElement('video');
+        video.src = item.videoSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = false;
+        video.playsInline = true;
+        video.onerror = () => {
+          lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
+            <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${item.videoSrc}</div>
+          </div>`;
+        };
+        lightboxMediaSlot.appendChild(video);
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = title;
+        img.onerror = () => {
+          lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
+            <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${item.src}</div>
+          </div>`;
+        };
+        lightboxMediaSlot.appendChild(img);
+      }
+
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openLightboxBySrc(src, title, category, year, isVideo = false) {
+      const foundIndex = filteredPortfolioItems.findIndex(i => i.src === src || i.videoSrc === src);
+      if (foundIndex >= 0) {
+        openLightboxByIndex(foundIndex);
+      } else {
+        // Direct ad-hoc opening
+        lightboxTitle.textContent = title;
+        lightboxInfo.textContent = `${category} · ${year}`;
+        lightboxMediaSlot.innerHTML = '';
+
+        if (isVideo) {
+          const video = document.createElement('video');
+          video.src = src;
+          video.controls = true;
+          video.autoplay = true;
+          video.muted = false;
+          lightboxMediaSlot.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = title;
+          img.onerror = () => {
+            lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
+              <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
+              <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${src}</div>
+            </div>`;
+          };
+          lightboxMediaSlot.appendChild(img);
+        }
+
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('active');
+      lightboxMediaSlot.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    function lightboxPrev() {
+      if (filteredPortfolioItems.length === 0) return;
+      activeLightboxIndex = (activeLightboxIndex - 1 + filteredPortfolioItems.length) % filteredPortfolioItems.length;
+      openLightboxByIndex(activeLightboxIndex);
+    }
+
+    function lightboxNext() {
+      if (filteredPortfolioItems.length === 0) return;
+      activeLightboxIndex = (activeLightboxIndex + 1) % filteredPortfolioItems.length;
+      openLightboxByIndex(activeLightboxIndex);
+    }
+
+    // Keyboard navigation (Escape, ArrowLeft, ArrowRight)
+    window.addEventListener('keydown', (e) => {
+      if (lightboxModal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          if (document.documentElement.dir === 'rtl') lightboxNext();
+          else lightboxPrev();
+        } else if (e.key === 'ArrowRight') {
+          if (document.documentElement.dir === 'rtl') lightboxPrev();
+          else lightboxNext();
+        }
+      }
+    });
+
+    /* ==========================================================================
+       HEADER SCROLL RECOGNITION (ADAPTIVE HEADER)
+       ========================================================================== */
+    const siteHeader = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+
+      // Check section under scroll to adapt header contrast
+      const weddingsSec = document.getElementById('weddings');
+      const contentSec = document.getElementById('content');
+      const contactSec = document.getElementById('contact');
+
+      const scrollPos = window.scrollY + 80;
+      let inDarkZone = false;
+
+      [weddingsSec, contentSec, contactSec].forEach(sec => {
+        if (sec) {
+          const top = sec.offsetTop;
+          const bottom = top + sec.offsetHeight;
+          if (scrollPos >= top && scrollPos <= bottom) {
+            inDarkZone = true;
+          }
+        }
+      });
+
+      siteHeader.classList.toggle('dark-mode', inDarkZone);
+    }, { passive: true });
+
+    /* ==========================================================================
+       MOBILE DRAWER CONTROLS
+       ========================================================================== */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    function openMobileMenu() {
+      mobileDrawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      mobileMenuBtn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      mobileMenuBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ==========================================================================
+       INQUIRY MODAL (EDITORIAL DRAWER)
+       ========================================================================== */
+    const inquiryModal = document.getElementById('inquiryModal');
+
+    function openInquiryModal() {
+      inquiryModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeInquiryModal() {
+      inquiryModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inqName').value;
+      const email = document.getElementById('inqEmail').value;
+      const cat = document.getElementById('inqCategory').value;
+      const msg = document.getElementById('inqMessage').value;
+
+      const subject = encodeURIComponent(`Portfolio Inquiry: ${cat} — ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCategory: ${cat}\n\nMessage:\n${msg}`);
+
+      // Open email client with pre-filled details
+      window.location.href = `mailto:contact@noulproduction.com?subject=${subject}&body=${body}`;
+      closeInquiryModal();
+    }
+
+    // Close inquiry modal with Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && inquiryModal.classList.contains('active')) {
+        closeInquiryModal();
+      }
+    });
+
+    /* Initial Gallery Render */
+    renderGallery();
+  </script>
+</body>
+</html>
