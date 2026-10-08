@@ -226,23 +226,27 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: clamp(2rem, 4vw, 5rem);
     }
 
-    /* Brand Wordmark */
+    /* Brand Wordmark with generous breathing room */
     .brand-link {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
+      flex-shrink: 0;
+      margin-inline-end: clamp(2.5rem, 5vw, 6rem);
     }
 
     .brand-wordmark {
       font-family: var(--font-serif);
-      font-size: 1.4rem;
+      font-size: clamp(1.2rem, 1.5vw, 1.45rem);
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: inherit;
       transition: opacity var(--transition-base), color var(--transition-base);
+      white-space: nowrap;
     }
 
     .brand-link:hover .brand-wordmark {
@@ -253,7 +257,8 @@
     .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 2.25rem;
+      gap: clamp(1.25rem, 2vw, 2.25rem);
+      flex-wrap: nowrap;
     }
 
     .nav-link {
@@ -305,6 +310,8 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      flex-shrink: 0;
+      margin-inline-start: clamp(1.5rem, 3vw, 3.5rem);
     }
 
     .lang-switcher {
@@ -1765,13 +1772,16 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .desktop-nav {
         display: none;
       }
       .mobile-menu-btn {
         display: flex;
       }
+    }
+
+    @media (max-width: 768px) {
       .hero-section {
         padding-top: 6.5rem;
       }
@@ -1861,6 +1871,8 @@
         <div class="lang-switcher" aria-label="Language Selector">
           <button class="lang-btn active" id="btnEn" onclick="switchLanguage('en')">EN</button>
           <span class="lang-divider">|</span>
+          <button class="lang-btn" id="btnFr" onclick="switchLanguage('fr')">FR</button>
+          <span class="lang-divider">|</span>
           <button class="lang-btn" id="btnAr" onclick="switchLanguage('ar')">AR</button>
         </div>
 
@@ -1889,6 +1901,17 @@
         <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWork">SELECTED WORK</a>
         <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navAbout">ABOUT</a>
         <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a>
+      </div>
+
+      <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 0.75rem;">
+        <span style="font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light-muted);">LANG</span>
+        <div class="lang-switcher" style="border-color: rgba(255,255,255,0.2);">
+          <button class="lang-btn" id="mBtnEn" onclick="switchLanguage('en')">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="mBtnFr" onclick="switchLanguage('fr')">FR</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="mBtnAr" onclick="switchLanguage('ar')">AR</button>
+        </div>
       </div>
     </div>
     <div>
@@ -2586,6 +2609,7 @@
         id: 'w1',
         titleEn: 'The Silent Vow',
         titleAr: 'عهد الصمت والنقاء',
+        titleFr: 'Le Vœu Silencieux',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-01.jpg',
@@ -2596,6 +2620,7 @@
         id: 's1',
         titleEn: 'Architectural Form',
         titleAr: 'تكوين معماري',
+        titleFr: 'Forme Architecturale',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-01.jpg',
@@ -2606,6 +2631,7 @@
         id: 'c1',
         titleEn: 'Maison Minimalist Reel',
         titleAr: 'ريل لعلامة فاخرة',
+        titleFr: 'Maison Reel Minimaliste',
         category: 'CONTENT',
         year: '2026',
         src: 'assets/images/content/content-01.jpg',
@@ -2617,6 +2643,7 @@
         id: 'w2',
         titleEn: 'Twilight Vows',
         titleAr: 'مراسم وقت الغروب',
+        titleFr: 'Vœux au Crépuscule',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-02.jpg',
@@ -2627,6 +2654,7 @@
         id: 's2',
         titleEn: 'Shadow & Ivory Portrait',
         titleAr: 'بورتريه الظل والعاج',
+        titleFr: 'Ombre & Portrait Ivoire',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-02.jpg',
@@ -2637,6 +2665,7 @@
         id: 'c2',
         titleEn: 'Sensory Product Study',
         titleAr: 'دراسة بصرية لمنتج',
+        titleFr: 'Étude Sensorielle de Produit',
         category: 'CONTENT',
         year: '2026',
         src: 'assets/images/content/content-02.jpg',
@@ -2647,6 +2676,7 @@
         id: 'w3',
         titleEn: 'Twilight Reception (Motion)',
         titleAr: 'حفل الاستقبال المسائي (فيديو)',
+        titleFr: 'Réception au Crépuscule (Vidéo)',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-03.mp4',
@@ -2658,6 +2688,7 @@
         id: 's3',
         titleEn: 'Editorial Movement',
         titleAr: 'حركة تحريرية حرة',
+        titleFr: 'Mouvement Éditorial',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-03.jpg',
@@ -2668,6 +2699,7 @@
         id: 'c3',
         titleEn: 'Digital Story Series',
         titleAr: 'سلسلة قصص رقمية',
+        titleFr: 'Série Récit Numérique',
         category: 'CONTENT',
         year: '2026',
         src: 'assets/images/content/content-03.jpg',
@@ -2678,6 +2710,7 @@
         id: 'w4',
         titleEn: 'The First Dance',
         titleAr: 'الرقصة الأولى',
+        titleFr: 'La Première Danse',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-04.jpg',
@@ -2897,6 +2930,110 @@
         inqMessageLabel: 'تفاصيل الرسالة',
         inqSubmitBtn: 'إرسال الاستفسار',
         inqInstaAlternative: 'هل تفضل المراسلة المباشرة؟'
+      },
+      fr: {
+        pageTitle: 'NOUL PRODUCTION — Photographe & Récits Visuels',
+        headerSubtitle: 'PHOTOGRAPHE & RÉCITS VISUELS',
+        navHome: 'ACCUEIL',
+        navWeddings: 'MARIAGES',
+        navShooting: 'SÉANCES',
+        navContent: 'CONTENU',
+        navWork: 'ŒUVRES',
+        navAbout: 'À PROPOS',
+        navContact: 'CONTACT',
+        mobileContactPrompt: 'DEMANDES DIRECTES',
+
+        heroKicker: 'ARCHIVES ÉDITORIALES 2026',
+        heroRole1: 'PHOTOGRAPHE',
+        heroRole2: 'RÉCITS VISUELS',
+        heroMetaPhotographer: 'PHOTOGRAPHE',
+        heroMetaName: '[NOM DU PHOTOGRAPHE]',
+        heroMetaLocation: 'BASÉ À',
+        heroMetaCity: '[LIEU]',
+        heroDescription: '[COURTE DESCRIPTION PERSONNELLE — Une vision éditoriale sensible, capturant la vérité des émotions humaines, une élégance feutrée et une poésie intemporelle.]',
+        heroCtaWork: 'DÉCOUVRIR LE PORTFOLIO',
+        heroCtaInquire: 'RÉSERVER UNE SÉANCE',
+        heroScroll: 'DÉFILER',
+        heroPortraitTitle: 'Portrait du Photographe',
+        heroFloatingTitle: 'Lumière Naturelle & Intimité',
+        heroFloatingText: '[LIEU] · DANS LE MONDE ENTIER',
+
+        weddingsKicker: '01 — MARIAGES',
+        weddingsTitle: 'MARIAGES',
+        weddingsTagline: 'Histoires d’amour, capturées avec authenticité.',
+        weddingsDesc: 'Préserver l’intimité spontanée, les regards silencieux et la grâce de vos célébrations. Une approche éditoriale et chaleureuse pour créer des images intemporelles qui traversent les générations.',
+        weddingsCta: 'DÉCOUVRIR LES MARIAGES',
+
+        shootingKicker: '02 — SÉANCES ÉDITORIALES',
+        shootingTitle: 'SÉANCES',
+        shootingTagline: 'Forme, lumière et présence artistique.',
+        shootingDesc: 'Éditoriaux de haute couture, portraits intimes et commandes artistiques. Façonnés par un travail délicat de la lumière, une asymétrie de composition et une complicité organique avec le sujet.',
+        shootingCat1: 'PORTRAIT D’ART',
+        shootingCat2: 'MODE & ÉDITORIAL',
+        shootingCat3: 'SÉANCES CRÉATIVES',
+        shootingCat4: 'ATELIER ART DE VIVRE',
+        shootingCta: 'DÉCOUVRIR LES SÉANCES',
+
+        contentKicker: '03 — CRÉATION DE CONTENU',
+        contentTitle: 'CRÉATION DE CONTENU',
+        contentDesc: 'Un langage visuel contemporain pour marques d’exception, produits raffinés et plateformes digitales. Formats verticaux, dynamique rythmée et direction artistique sur mesure.',
+        contentBadgeVisual: 'HISTOIRE VISUELLE',
+        contentBadgeReel: 'REEL · 4K',
+        contentBadgeProduct: 'NATURE MORTE',
+        contentBadgeEditorial: 'INFLUENCE',
+        contentCta: 'DÉCOUVRIR LE CONTENU',
+
+        galleryKicker: 'EXPOSITION CURATÉE',
+        galleryTitle: 'ŒUVRES SÉLECTIONNÉES',
+        filterAll: 'TOUS',
+        filterWeddings: 'MARIAGES',
+        filterShooting: 'SÉANCES',
+        filterContent: 'CONTENU',
+
+        aboutKicker: 'L’ARTISTE',
+        aboutTitle: 'DERRIÈRE L’OBJECTIF',
+        aboutSubtitle: 'UN DIALOGUE ÉDITORIAL ENTRE LUMIÈRE ET ÉMOTION',
+        aboutPhilosophy: '"La photographie ne cherche pas à imposer la perfection, mais à honorer la vérité silencieuse et spontanée du sentiment humain."',
+        aboutBio: '[COURTE BIOGRAPHIE — Dédiée à la création de récits visuels mêlant grâce contemporaine et sincérité profonde. En collaboration avec des couples, des créateurs exigeants et des marques prestigieuses à travers le monde.]',
+        aboutLabelName: 'NOM',
+        aboutLabelBase: 'STUDIO & ATELIER',
+        aboutPortraitTitle: 'Derrière l’Objectif',
+
+        servicesKicker: 'COMMANDES',
+        servicesTitle: 'SERVICES',
+        serviceWeddingsTitle: 'MARIAGES',
+        serviceWeddingsDesc: 'Couverture intégrale et mariages à destination, photographies argentiques et numériques, et chroniques émouvantes de vos journées uniques.',
+        serviceShootingTitle: 'SÉANCES ÉDITORIALES',
+        serviceShootingDesc: 'Éditoriaux mode, portraits privés d’exception, développement de portfolios artistiques et stylisme visuel personnalisé.',
+        serviceContentTitle: 'CRÉATION DE CONTENU',
+        serviceContentDesc: 'Identité visuelle sur mesure pour marques de prestige, reels verticaux 4K, natures mortes de produits et campagnes signatures.',
+
+        contactKicker: 'CONTACT',
+        contactHeading: 'CRÉONS ENSEMBLE<br />QUELQUE CHOSE<br />DE SUBLIME.',
+        contactSubtitle: 'Disponibilités ouvertes pour les mariages à venir, les éditoriaux de mode et les collaborations de marque exclusives.',
+        contactCta: 'INITIER UN ÉCHANGE',
+        contactLabelInsta: 'INSTAGRAM',
+        contactValInsta: '@noulprod',
+        contactLabelWhatsApp: 'WHATSAPP',
+        contactValWhatsApp: '[WHATSAPP]',
+        contactLabelEmail: 'EMAIL DIRECT',
+        contactValEmail: '[EMAIL]',
+        contactLabelLocation: 'LOCALISATION',
+
+        footerCopy: '© 2026 NOUL PRODUCTION. TOUS DROITS RÉSERVÉS.',
+        lightboxClose: 'FERMER',
+
+        inquiryTitle: 'Demande de Réservation',
+        inquirySubtitle: 'Partagez votre vision, vos dates et les détails de votre projet.',
+        inqNameLabel: 'Votre Nom',
+        inqEmailLabel: 'Adresse Email',
+        inqCategoryLabel: 'Catégorie de Prestation',
+        inqOptWeddings: 'Mariages',
+        inqOptShooting: 'Séance / Portrait Éditorial',
+        inqOptContent: 'Création de Contenu & Reels',
+        inqMessageLabel: 'Message & Détails',
+        inqSubmitBtn: 'ENVOYER LA DEMANDE',
+        inqInstaAlternative: 'Vous préférez un échange direct ?'
       }
     };
 
@@ -2909,7 +3046,7 @@
        LANGUAGE SWITCHER ENGINE (PRESERVES EXACT SCROLL POSITION)
        ========================================================================== */
     function switchLanguage(lang) {
-      if (lang === currentLang) return;
+      if (lang === currentLang && document.documentElement.getAttribute('lang') === lang) return;
       currentLang = lang;
 
       // Retain exact scroll position
@@ -2920,12 +3057,16 @@
       htmlEl.setAttribute('lang', lang);
       htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 
-      // Update button visual states
-      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
-      document.getElementById('btnAr').classList.toggle('active', lang === 'ar');
+      // Update button visual states for both desktop and mobile switchers
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isTarget = btn.id.toLowerCase().endsWith(lang.toLowerCase());
+        btn.classList.toggle('active', isTarget);
+      });
 
       // Update Document Title
-      document.title = I18N[lang].pageTitle;
+      if (I18N[lang] && I18N[lang].pageTitle) {
+        document.title = I18N[lang].pageTitle;
+      }
 
       // Replace text of all data-i18n elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2954,8 +3095,8 @@
     /* Initialize stored language preference */
     try {
       const savedLang = localStorage.getItem('noul_preferred_lang');
-      if (savedLang === 'ar') {
-        switchLanguage('ar');
+      if (savedLang && (savedLang === 'ar' || savedLang === 'fr')) {
+        switchLanguage(savedLang);
       }
     } catch (e) {}
 
@@ -2977,7 +3118,7 @@
         tile.className = `gallery-tile ${item.spanClass}`;
         tile.onclick = () => openLightboxByIndex(index);
 
-        const titleText = currentLang === 'ar' ? item.titleAr : item.titleEn;
+        const titleText = currentLang === 'ar' ? item.titleAr : (currentLang === 'fr' ? (item.titleFr || item.titleEn) : item.titleEn);
         const catText = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
 
         tile.innerHTML = `
@@ -3171,7 +3312,7 @@
       const customImg = frame ? frame.dataset.customImage : null;
       const customVid = frame ? frame.dataset.customVideo : null;
 
-      const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
+      const title = currentLang === 'ar' ? item.titleAr : (currentLang === 'fr' ? (item.titleFr || item.titleEn) : item.titleEn);
       const cat = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
 
       lightboxTitle.textContent = title;
