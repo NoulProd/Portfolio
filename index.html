@@ -228,43 +228,25 @@
       justify-content: space-between;
     }
 
-    /* Brand Logo / Wordmark */
+    /* Brand Wordmark */
     .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
       text-decoration: none;
-    }
-
-    .brand-logo-img {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-      transition: opacity var(--transition-base);
-    }
-
-    .brand-logo-fallback {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
     }
 
     .brand-wordmark {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: inherit;
+      transition: opacity var(--transition-base), color var(--transition-base);
     }
 
-    .brand-subtext {
-      font-family: var(--font-sans);
-      font-size: 0.58rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      opacity: 0.65;
-      margin-top: 3px;
+    .brand-link:hover .brand-wordmark {
+      opacity: 0.75;
     }
 
     /* Desktop Navigation */
@@ -1826,20 +1808,9 @@
        ========================================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <!-- Brand Logo / Wordmark -->
+      <!-- Brand Wordmark -->
       <a href="#home" class="brand-link" aria-label="NOUL PRODUCTION Home">
-        <!-- Replaceable Logo Image Path -->
-        <img 
-          src="assets/images/logo.png" 
-          alt="NOUL PRODUCTION" 
-          class="brand-logo-img" 
-          id="mainLogoImg"
-          onerror="handleLogoError(this)" 
-        />
-        <div class="brand-logo-fallback" id="logoFallback">
-          <span class="brand-wordmark">NOUL PRODUCTION</span>
-          <span class="brand-subtext" data-i18n="headerSubtitle">PHOTOGRAPHER & VISUAL STORYTELLER</span>
-        </div>
+        <span class="brand-wordmark">NOUL PRODUCTION</span>
       </a>
 
       <!-- Desktop Navigation (Clean single-line text links) -->
@@ -1873,14 +1844,20 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="closeMobileMenu()"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <div class="mobile-nav-links">
-      <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navHome">HOME</a>
-      <a href="#weddings" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWeddings">WEDDINGS</a>
-      <a href="#shooting" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navShooting">SHOOTING</a>
-      <a href="#content" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContent">CONTENT</a>
-      <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWork">SELECTED WORK</a>
-      <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navAbout">ABOUT</a>
-      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a>
+    <div>
+      <div style="padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;">
+        <div style="font-family: var(--font-serif); font-size: 1.45rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light-primary);">NOUL PRODUCTION</div>
+      </div>
+
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navHome">HOME</a>
+        <a href="#weddings" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWeddings">WEDDINGS</a>
+        <a href="#shooting" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navShooting">SHOOTING</a>
+        <a href="#content" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContent">CONTENT</a>
+        <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWork">SELECTED WORK</a>
+        <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navAbout">ABOUT</a>
+        <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a>
+      </div>
     </div>
     <div>
       <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold-subtle); margin-bottom: 0.6rem;" data-i18n="mobileContactPrompt">
@@ -1909,12 +1886,6 @@
           <span>NOUL</span>
           <span class="hero-title-production">PRODUCTION</span>
         </h1>
-
-        <div class="hero-roles">
-          <span data-i18n="heroRole1">PHOTOGRAPHER</span>
-          <span>&middot;</span>
-          <span data-i18n="heroRole2">VISUAL STORYTELLER</span>
-        </div>
 
         <!-- Photographer Metadata Placeholders -->
         <div class="hero-meta-grid">
