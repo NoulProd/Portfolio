@@ -26,8 +26,13 @@
     "sameAs": [
       "https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
     ],
-    "telephone": "[WHATSAPP]",
-    "email": "[EMAIL]",
+    "telephone": ["+212 656 448 893", "+212 669 587 666"],
+    "email": "aitoufquirnouhaila@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marrakesh",
+      "addressCountry": "MA"
+    },
     "url": "https://noulproduction.com",
     "priceRange": "$$$$"
   }
@@ -311,7 +316,7 @@
       align-items: center;
       gap: 1.5rem;
       flex-shrink: 0;
-      margin-inline-start: clamp(1.5rem, 3vw, 3.5rem);
+      margin-inline-start: clamp(0.5rem, 1vw, 1rem);
     }
 
     .lang-switcher {
@@ -383,16 +388,39 @@
       width: 100%;
       max-width: 420px;
       height: 100vh;
+      height: 100dvh;
       background-color: var(--bg-deep-black);
       color: var(--text-light-primary);
       z-index: 105;
-      padding: 6rem 2.5rem 3rem;
+      padding: 5.5rem 2.5rem 2rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 2.5rem;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       transform: translateX(100%);
       transition: transform 0.45s var(--ease-editorial);
       box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .mobile-drawer-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-light-primary);
+      z-index: 1;
+    }
+
+    .mobile-drawer-close:hover {
+      color: var(--color-gold-subtle);
+      border-color: var(--color-gold-subtle);
     }
 
     html[dir="rtl"] .mobile-drawer {
@@ -401,7 +429,16 @@
       transform: translateX(-100%);
     }
 
+    html[dir="rtl"] .mobile-drawer-close {
+      right: auto;
+      left: 1rem;
+    }
+
     .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    html[dir="rtl"] .mobile-drawer.open {
       transform: translateX(0);
     }
 
@@ -1161,9 +1198,18 @@
     }
 
     .gallery-tile {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
       cursor: pointer;
       position: relative;
       transition: transform 0.4s var(--ease-editorial);
+    }
+
+    .gallery-tile > .photo-frame {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
     }
 
     .gallery-tile:hover {
@@ -1196,14 +1242,30 @@
       aspect-ratio: 21 / 9;
     }
 
+    .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
+      grid-column: span 4;
+      aspect-ratio: auto;
+    }
+
+    .gallery-masonry-grid[data-filter="WEDDINGS"] .gallery-tile,
+    .gallery-masonry-grid[data-filter="SHOOTING"] .gallery-tile,
+    .gallery-masonry-grid[data-filter="CONTENT"] .gallery-tile {
+      grid-column: span 6;
+      aspect-ratio: auto;
+    }
+
     .gallery-tile-meta {
       margin-top: 0.85rem;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: flex-start;
+      gap: 0.75rem;
+      min-height: 2.6rem;
     }
 
     .tile-title {
+      flex: 1;
+      min-width: 0;
       font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 500;
@@ -1211,10 +1273,12 @@
     }
 
     .tile-category-year {
+      flex-shrink: 0;
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-dark-muted);
+      text-align: end;
     }
 
     /* ==========================================================================
@@ -1259,6 +1323,13 @@
       line-height: 1.85;
       color: var(--text-dark-secondary);
       margin-bottom: 2rem;
+    }
+
+    .about-slogan {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-dark-primary);
     }
 
     .about-philosophy-quote {
@@ -1325,6 +1396,26 @@
       color: var(--color-gold-subtle);
     }
 
+    .service-toggle {
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      text-align: start;
+      cursor: default;
+    }
+
+    .service-toggle:disabled {
+      color: inherit;
+      opacity: 1;
+    }
+
+    .service-toggle:disabled:focus-visible {
+      outline: none;
+    }
+
     .service-name {
       font-family: var(--font-serif);
       font-size: clamp(1.8rem, 2.8vw, 2.5rem);
@@ -1333,30 +1424,34 @@
     }
 
     .service-description {
+      grid-column: 3;
       font-size: 0.92rem;
       line-height: 1.75;
       color: var(--text-dark-secondary);
       max-width: 50ch;
     }
 
+    .service-description[aria-hidden="true"] {
+      display: none;
+    }
+
     .service-action-arrow {
-      text-align: right;
-      font-size: 1.25rem;
-      opacity: 0.5;
-      transition: opacity var(--transition-base), transform var(--transition-base);
+      display: none;
     }
 
-    html[dir="rtl"] .service-action-arrow {
-      text-align: left;
+    .service-row::after {
+      content: '\2192';
+      grid-column: 4;
+      grid-row: 1;
+      justify-self: end;
+      align-self: center;
+      color: var(--text-dark-muted);
+      transition: color var(--transition-base), transform var(--transition-base);
     }
 
-    .service-row:hover .service-action-arrow {
-      opacity: 1;
-      transform: translateX(6px);
-    }
-
-    html[dir="rtl"] .service-row:hover .service-action-arrow {
-      transform: translateX(-6px);
+    .service-row:hover::after {
+      color: var(--color-gold-subtle);
+      transform: translateX(4px);
     }
 
     /* ==========================================================================
@@ -1425,6 +1520,12 @@
 
     .contact-channel-value:hover {
       color: var(--color-gold-subtle);
+    }
+
+    .contact-phone-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
 
     .btn-contact-action {
@@ -1727,6 +1828,18 @@
     /* ==========================================================================
        RESPONSIVE DESIGN BREAKPOINTS
        ========================================================================== */
+    @media (min-width: 1101px) and (max-width: 1400px) {
+      .header-inner {
+        gap: 1rem;
+      }
+      .brand-link {
+        margin-inline-end: 1rem;
+      }
+      .desktop-nav {
+        gap: clamp(0.75rem, 1vw, 1rem);
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1748,7 +1861,17 @@
         gap: 4rem;
       }
       .shooting-frame-offset {
-        display: none;
+        position: relative;
+        inset: auto;
+        display: block;
+        width: min(68%, 320px);
+        margin: -3rem 0 0 auto;
+        z-index: 1;
+      }
+      html[dir="rtl"] .shooting-frame-offset {
+        inset: auto;
+        margin-left: 0;
+        margin-right: auto;
       }
       .content-grid-composition {
         grid-template-columns: repeat(2, 1fr);
@@ -1756,15 +1879,13 @@
       .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape {
         grid-column: span 6;
       }
+      .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
+        grid-column: span 6;
+        aspect-ratio: auto;
+      }
       .about-grid {
         grid-template-columns: 1fr;
         gap: 3.5rem;
-      }
-      .service-row {
-        grid-template-columns: 0.4fr 1.6fr 1fr;
-      }
-      .service-description {
-        display: none;
       }
       .contact-grid {
         grid-template-columns: 1fr;
@@ -1772,7 +1893,7 @@
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1100px) {
       .desktop-nav {
         display: none;
       }
@@ -1800,18 +1921,79 @@
         grid-template-columns: 1fr;
       }
       .gallery-masonry-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape, .tile-span-12-wide {
         grid-column: span 1;
         aspect-ratio: 4 / 5;
       }
+      .gallery-masonry-grid[data-filter="WEDDINGS"] .gallery-tile,
+      .gallery-masonry-grid[data-filter="SHOOTING"] .gallery-tile,
+      .gallery-masonry-grid[data-filter="CONTENT"] .gallery-tile {
+        grid-column: span 1;
+      }
+      .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
+        grid-column: span 1;
+      }
       .service-row {
-        grid-template-columns: 1fr auto;
-        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        padding: 1.25rem 0;
+      }
+      .service-row::after {
+        display: none;
+      }
+      .service-toggle {
+        grid-column: 1;
+        grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+        gap: 0.85rem;
+        min-height: 3.5rem;
+        cursor: pointer;
+      }
+      .service-toggle:disabled {
+        cursor: pointer;
+      }
+      .service-toggle:disabled:focus-visible {
+        outline: 2px solid var(--color-gold-subtle);
       }
       .service-index {
-        display: none;
+        display: inline;
+        font-size: 1.05rem;
+      }
+      .service-name {
+        font-size: 1.65rem;
+        line-height: 1.15;
+      }
+      .service-description {
+        display: block;
+        grid-column: 1;
+        max-width: none;
+        padding-top: 0.65rem;
+        padding-inline-start: 3.35rem;
+        padding-inline-end: 0.5rem;
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+      .service-row.open .service-description {
+        animation: serviceReveal 0.3s var(--ease-editorial) both;
+      }
+      .service-action-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        color: var(--color-gold-subtle);
+        border: 1px solid var(--border-light);
+        transition: border-color var(--transition-base), color var(--transition-base);
+      }
+      .service-action-arrow svg {
+        width: 16px;
+        height: 16px;
+        transition: transform var(--transition-base);
+      }
+      .service-toggle[aria-expanded="true"] .service-action-arrow svg {
+        transform: rotate(180deg);
       }
       .contact-info-block {
         padding: 2rem 1.5rem;
@@ -1831,6 +2013,74 @@
       .lightbox-arrow.next {
         right: 0.5rem;
       }
+      .mobile-drawer {
+        padding: 5rem 1.5rem 1.5rem;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        gap: 0.5rem;
+      }
+      .brand-link {
+        margin-inline-end: 0;
+      }
+      .brand-wordmark {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+      }
+      .header-actions {
+        gap: 0.35rem;
+        margin-inline-start: 0;
+      }
+      .lang-switcher {
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        padding: 0.2rem 0.3rem;
+      }
+      .lang-btn {
+        padding: 0.08rem 0.12rem;
+      }
+      .lang-divider {
+        margin: 0 0.1rem;
+      }
+      .mobile-menu-btn {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .brand-wordmark {
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+      .header-inner {
+        gap: 0.1rem;
+      }
+      .header-actions {
+        gap: 0.15rem;
+      }
+      .lang-switcher {
+        padding: 0.15rem 0.2rem;
+      }
+      .lang-btn {
+        padding: 0.06rem 0.08rem;
+      }
+      .mobile-menu-btn {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    @keyframes serviceReveal {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1876,7 +2126,7 @@
           <button class="lang-btn" id="btnAr" onclick="switchLanguage('ar')">AR</button>
         </div>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -1888,6 +2138,12 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="closeMobileMenu()"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <button class="mobile-drawer-close" type="button" onclick="closeMobileMenu()" aria-label="Close Navigation Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
     <div>
       <div style="padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;">
         <div style="font-family: var(--font-serif); font-size: 1.45rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light-primary);">NOUL PRODUCTION</div>
@@ -1920,7 +2176,9 @@
       </div>
       <div style="font-size: 0.88rem; color: var(--text-light-secondary); line-height: 1.6;">
         <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold-subtle); text-decoration: underline; font-weight: 500;">@noulprod on Instagram &rarr;</a><br />
-        <span>[EMAIL] &middot; [WHATSAPP]</span>
+        <a href="mailto:aitoufquirnouhaila@gmail.com" style="color: var(--text-light-secondary);">aitoufquirnouhaila@gmail.com</a>
+        <a href="tel:+212656448893" style="color: var(--text-light-secondary);">+212 656 448 893</a>
+        <a href="tel:+212669587666" style="color: var(--text-light-secondary);">+212 669 587 666</a>
       </div>
     </div>
   </aside>
@@ -1946,16 +2204,16 @@
         <div class="hero-meta-grid">
           <div>
             <div class="hero-meta-item-label" data-i18n="heroMetaPhotographer">PHOTOGRAPHER</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaName">[PHOTOGRAPHER NAME]</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaName">Nouhaila Ait Oufquir</div>
           </div>
           <div>
             <div class="hero-meta-item-label" data-i18n="heroMetaLocation">BASED IN</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaCity">[LOCATION]</div>
+            <div class="hero-meta-item-value" data-i18n="heroMetaCity">Marrakesh, Morocco</div>
           </div>
         </div>
 
         <p class="hero-description" data-i18n="heroDescription">
-          [SHORT PERSONAL DESCRIPTION — An intimate, editorial perspective capturing authentic human emotion, quiet elegance, and timeless visual poetry.]
+          My name is Nouhaila Ait Oufquir, I am 23 years old, and I am a Specialized Technician in Audiovisual. Passionate about images and visual storytelling, I express ideas and emotions through photography, video, and directing. I enjoy turning creative ideas into meaningful visual content and creating images that communicate emotions and tell stories with authenticity.
         </p>
 
         <div class="hero-actions">
@@ -1997,8 +2255,8 @@
           </div>
 
           <div class="hero-floating-caption">
-            <div class="hero-floating-title" data-i18n="heroFloatingTitle">Natural Light & Intimacy</div>
-            <div class="hero-floating-text" data-i18n="heroFloatingText">[LOCATION] &middot; WORLDWIDE</div>
+            <div class="hero-floating-title" data-i18n="heroFloatingTitle">Stories Told with Feeling</div>
+            <div class="hero-floating-text" data-i18n="heroFloatingText">MARRAKESH, MOROCCO &middot; WORLDWIDE</div>
           </div>
         </div>
       </div>
@@ -2031,45 +2289,45 @@
       <!-- Editorial Image Composition (Asymmetric Full Visuals) -->
       <div class="weddings-gallery-composition">
         <!-- Tall Emotional Portrait -->
-        <div class="photo-frame dark-theme weddings-frame-tall" onclick="openLightboxBySrc('assets/images/weddings/wedding-01.jpg', 'The Sacred Vows', 'Weddings', '2026')">
+        <div class="photo-frame dark-theme weddings-frame-tall" onclick="openLightboxBySrc('assets/images/weddings/wedding-01.jpg', 'The Bridal Heirloom', 'Weddings', '2026')">
           <img 
             src="assets/images/weddings/wedding-01.jpg" 
-            alt="Wedding intimate ceremony portrait" 
+            alt="Bride wearing an ornate jeweled headpiece" 
             class="photo-img" 
             loading="lazy"
             referrerpolicy="no-referrer"
-            onerror="handleImgError(this, 'assets/images/weddings/wedding-01.jpg', 'Intimate Ceremony')"
+            onerror="handleImgError(this, 'assets/images/weddings/wedding-01.jpg', 'The Bridal Heirloom')"
           />
           <div class="photo-placeholder-box">
             <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
-            <div class="placeholder-title">The Sacred Vows</div>
+            <div class="placeholder-title">The Bridal Heirloom</div>
             <div class="placeholder-path">assets/images/weddings/wedding-01.jpg</div>
           </div>
         </div>
 
         <!-- Middle Column: Detail + Film Preview -->
         <div>
-          <div class="photo-frame dark-theme weddings-frame-detail" onclick="openLightboxBySrc('assets/images/weddings/wedding-02.jpg', 'Gown & Heirloom Details', 'Weddings', '2026')">
+          <div class="photo-frame dark-theme weddings-frame-detail" onclick="openLightboxBySrc('assets/images/weddings/wedding-02.jpg', 'The Newlyweds’ Exit', 'Weddings', '2026')">
             <img 
               src="assets/images/weddings/wedding-02.jpg" 
-              alt="Bridal heirloom details" 
+              alt="Newlyweds walking together after the ceremony" 
               class="photo-img" 
               loading="lazy"
-              onerror="handleImgError(this, 'assets/images/weddings/wedding-02.jpg', 'Bridal Details')"
+              onerror="handleImgError(this, 'assets/images/weddings/wedding-02.jpg', 'The Newlyweds’ Exit')"
             />
             <div class="photo-placeholder-box">
               <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
               </svg>
-              <div class="placeholder-title">Heirloom Details</div>
+              <div class="placeholder-title">The Newlyweds’ Exit</div>
               <div class="placeholder-path">assets/images/weddings/wedding-02.jpg</div>
             </div>
           </div>
 
-          <div class="photo-frame dark-theme weddings-frame-wide" onclick="openLightboxBySrc('assets/images/weddings/wedding-03.mp4', 'The Twilight Reception', 'Weddings', '2026', true)">
+          <div class="photo-frame dark-theme weddings-frame-wide" onclick="openLightboxBySrc('assets/images/weddings/wedding-03.mp4', 'A Promise at Dusk', 'Weddings', '2026', true)">
             <video 
               class="photo-img" 
               autoplay 
@@ -2093,27 +2351,27 @@
                 <circle cx="12" cy="12" r="10"></circle>
                 <polygon points="10 8 16 12 10 16 10 8"></polygon>
               </svg>
-              <div class="placeholder-title">Twilight Reception</div>
+              <div class="placeholder-title">A Promise at Dusk</div>
               <div class="placeholder-path">assets/images/weddings/wedding-03.mp4</div>
             </div>
           </div>
         </div>
 
         <!-- Right Column: Couple In Motion -->
-        <div class="photo-frame dark-theme weddings-frame-landscape" onclick="openLightboxBySrc('assets/images/weddings/wedding-04.jpg', 'Golden Hour Departure', 'Weddings', '2026')">
+        <div class="photo-frame dark-theme weddings-frame-landscape" onclick="openLightboxBySrc('assets/images/weddings/wedding-04.jpg', 'A Dance of Joy', 'Weddings', '2026')">
           <img 
             src="assets/images/weddings/wedding-04.jpg" 
-            alt="Couple portrait in golden hour light" 
+            alt="Bride celebrating with guests at her wedding" 
             class="photo-img" 
             loading="lazy"
-            onerror="handleImgError(this, 'assets/images/weddings/wedding-04.jpg', 'Golden Hour')"
+            onerror="handleImgError(this, 'assets/images/weddings/wedding-04.jpg', 'A Dance of Joy')"
           />
           <div class="photo-placeholder-box">
             <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
               <circle cx="12" cy="12" r="3"></circle>
               <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
             </svg>
-            <div class="placeholder-title">Golden Hour Departure</div>
+            <div class="placeholder-title">A Dance of Joy</div>
             <div class="placeholder-path">assets/images/weddings/wedding-04.jpg</div>
           </div>
         </div>
@@ -2129,13 +2387,13 @@
       <div class="shooting-asymmetric-layout">
         <!-- Visual Composition: Overlapping Atelier Frames -->
         <div class="shooting-hero-image-wrap">
-          <div class="photo-frame shooting-frame-main" onclick="openLightboxBySrc('assets/images/shooting/shoot-01.jpg', 'Architectural Silhouette', 'Shooting', '2026')">
+          <div class="photo-frame shooting-frame-main" onclick="openLightboxBySrc('assets/images/shooting/shoot-01.jpg', 'A Gown in Evening Light', 'Shooting', '2026')">
             <img 
               src="assets/images/shooting/shoot-01.jpg" 
-              alt="Editorial fashion and portrait shooting session" 
+              alt="Model posing in a flowing peach gown at dusk" 
               class="photo-img" 
               loading="lazy"
-              onerror="handleImgError(this, 'assets/images/shooting/shoot-01.jpg', 'Editorial Fashion')"
+              onerror="handleImgError(this, 'assets/images/shooting/shoot-01.jpg', 'A Gown in Evening Light')"
             />
             <div class="photo-placeholder-box">
               <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
@@ -2143,25 +2401,25 @@
                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                 <polyline points="21 15 16 10 5 21"></polyline>
               </svg>
-              <div class="placeholder-title">Architectural Silhouette</div>
+              <div class="placeholder-title">A Gown in Evening Light</div>
               <div class="placeholder-path">assets/images/shooting/shoot-01.jpg</div>
             </div>
           </div>
 
-          <div class="photo-frame shooting-frame-offset" onclick="openLightboxBySrc('assets/images/shooting/shoot-02.jpg', 'Raw Portraiture Study', 'Shooting', '2026')">
+          <div class="photo-frame shooting-frame-offset" onclick="openLightboxBySrc('assets/images/shooting/shoot-02.jpg', 'Portrait in Soft Light', 'Shooting', '2026')">
             <img 
               src="assets/images/shooting/shoot-02.jpg" 
-              alt="Raw intimate black and white portrait" 
+              alt="Thoughtful portrait in soft natural light" 
               class="photo-img" 
               loading="lazy"
-              onerror="handleImgError(this, 'assets/images/shooting/shoot-02.jpg', 'Raw Portraiture')"
+              onerror="handleImgError(this, 'assets/images/shooting/shoot-02.jpg', 'Portrait in Soft Light')"
             />
             <div class="photo-placeholder-box">
               <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
               </svg>
-              <div class="placeholder-title">Raw Portraiture</div>
+              <div class="placeholder-title">Portrait in Soft Light</div>
               <div class="placeholder-path">assets/images/shooting/shoot-02.jpg</div>
             </div>
           </div>
@@ -2212,90 +2470,56 @@
 
       <!-- Vertical Social & Reel Showcase Composition -->
       <div class="content-grid-composition">
-        <!-- Vertical Slot 1 -->
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-01.jpg', 'Modern Brand Campaign', 'Content', '2026')">
-          <span class="content-pill-badge" data-i18n="contentBadgeVisual">VISUAL STORY</span>
-          <img 
-            src="assets/images/content/content-01.jpg" 
-            alt="Contemporary brand visual story" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/images/content/content-01.jpg', 'Brand Story')"
-          />
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-            <div class="placeholder-title">Brand Campaign</div>
-            <div class="placeholder-path">assets/images/content/content-01.jpg</div>
-          </div>
-        </div>
-
-        <!-- Vertical Slot 2 (Reel preview) -->
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/videos/content/reel-01.mp4', 'Kinetic Reel & Motion', 'Content', '2026', true)">
+        <!-- Vertical Reel Slots -->
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-01.mp4', 'Safer Roads, Shared Together', 'Content', '2026', true)">
           <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
-          <div class="reel-play-overlay">
-            <div class="play-icon-circle">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-              </svg>
-            </div>
-          </div>
-          <img 
-            src="assets/images/content/content-02.jpg" 
-            alt="Short form motion preview" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/videos/content/reel-01.mp4', 'Motion Reel')"
-          />
+          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-01.mp4', 'Safer Roads, Shared Together')">
+            <source src="assets/images/content/content-01.mp4" type="video/mp4" />
+          </video>
+          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
           <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            <div class="placeholder-title">Motion Reel</div>
-            <div class="placeholder-path">assets/videos/content/reel-01.mp4</div>
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <div class="placeholder-title">Safer Roads, Shared Together</div>
+            <div class="placeholder-path">assets/images/content/content-01.mp4</div>
           </div>
         </div>
 
-        <!-- Vertical Slot 3 -->
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-03.jpg', 'Tactile Product Study', 'Content', '2026')">
-          <span class="content-pill-badge" data-i18n="contentBadgeProduct">STILL LIFE</span>
-          <img 
-            src="assets/images/content/content-03.jpg" 
-            alt="Minimalist luxury product photograph" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/images/content/content-03.jpg', 'Product Still Life')"
-          />
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-02.mp4', 'Ride Together', 'Content', '2026', true)">
+          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
+          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-02.mp4', 'Ride Together')">
+            <source src="assets/images/content/content-02.mp4" type="video/mp4" />
+          </video>
+          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
           <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <div class="placeholder-title">Tactile Still Life</div>
-            <div class="placeholder-path">assets/images/content/content-03.jpg</div>
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <div class="placeholder-title">Ride Together</div>
+            <div class="placeholder-path">assets/images/content/content-02.mp4</div>
           </div>
         </div>
 
-        <!-- Vertical Slot 4 -->
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-04.jpg', 'Creator Editorial Aesthetic', 'Content', '2026')">
-          <span class="content-pill-badge" data-i18n="contentBadgeEditorial">INFLUENCE</span>
-          <img 
-            src="assets/images/content/content-04.jpg" 
-            alt="Creator aesthetic lifestyle imagery" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/images/content/content-04.jpg', 'Creator Editorial')"
-          />
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-03.mp4', 'Crossing Safely', 'Content', '2026', true)">
+          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
+          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-03.mp4', 'Crossing Safely')">
+            <source src="assets/images/content/content-03.mp4" type="video/mp4" />
+          </video>
+          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
           <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-            </svg>
-            <div class="placeholder-title">Creator Editorial</div>
-            <div class="placeholder-path">assets/images/content/content-04.jpg</div>
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <div class="placeholder-title">Crossing Safely</div>
+            <div class="placeholder-path">assets/images/content/content-03.mp4</div>
+          </div>
+        </div>
+
+        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-04.mp4', 'Ideas Around the Table', 'Content', '2026', true)">
+          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
+          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-04.mp4', 'Ideas Around the Table')">
+            <source src="assets/images/content/content-04.mp4" type="video/mp4" />
+          </video>
+          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
+          <div class="photo-placeholder-box">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <div class="placeholder-title">Ideas Around the Table</div>
+            <div class="placeholder-path">assets/images/content/content-04.mp4</div>
           </div>
         </div>
       </div>
@@ -2373,19 +2597,9 @@
         </div>
 
         <p class="about-bio-text" data-i18n="aboutBio">
-          [SHORT BIOGRAPHY — Dedicated to crafting visual narratives that balance contemporary editorial poise with profound vulnerability. Working with couples, discerning creators, and distinctive brands across the globe to produce imagery that stands timeless.]
+          I see every project as a new opportunity to explore creativity and transform ideas and emotions into visual stories. Through photography, video, and filmmaking, I aim to capture moments, express feelings, and tell stories in an authentic and meaningful way. For me, creating is about more than simply capturing an image; it is about giving each image a purpose and a story to tell.
         </p>
-
-        <div class="about-details-table">
-          <div>
-            <div class="hero-meta-item-label" data-i18n="aboutLabelName">NAME</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaName">[PHOTOGRAPHER NAME]</div>
-          </div>
-          <div>
-            <div class="hero-meta-item-label" data-i18n="aboutLabelBase">STUDIO & LOCATION</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaCity">[LOCATION]</div>
-          </div>
-        </div>
+        <p class="about-slogan" data-i18n="aboutSlogan">Create. Capture. Tell.</p>
       </div>
     </div>
   </section>
@@ -2403,32 +2617,38 @@
       <div class="services-list">
         <!-- Service 01 -->
         <div class="service-row">
-          <span class="service-index">01</span>
-          <h3 class="service-name" data-i18n="serviceWeddingsTitle">WEDDINGS</h3>
-          <p class="service-description" data-i18n="serviceWeddingsDesc">
+          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionWeddings">
+            <span class="service-index">01</span>
+            <span class="service-name" data-i18n="serviceWeddingsTitle">WEDDINGS</span>
+            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <p class="service-description" id="serviceDescriptionWeddings" data-i18n="serviceWeddingsDesc">
             Full-day & destination coverage, analogue stills, ceremony intimacy, and timeless emotional chronicles.
           </p>
-          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
         </div>
 
         <!-- Service 02 -->
         <div class="service-row">
-          <span class="service-index">02</span>
-          <h3 class="service-name" data-i18n="serviceShootingTitle">SHOOTING</h3>
-          <p class="service-description" data-i18n="serviceShootingDesc">
+          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionShooting">
+            <span class="service-index">02</span>
+            <span class="service-name" data-i18n="serviceShootingTitle">SHOOTING</span>
+            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <p class="service-description" id="serviceDescriptionShooting" data-i18n="serviceShootingDesc">
             Fashion editorials, private portraiture sessions, creative portfolio development, and personal styling sessions.
           </p>
-          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
         </div>
 
         <!-- Service 03 -->
         <div class="service-row">
-          <span class="service-index">03</span>
-          <h3 class="service-name" data-i18n="serviceContentTitle">CONTENT CREATION</h3>
-          <p class="service-description" data-i18n="serviceContentDesc">
+          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionContent">
+            <span class="service-index">03</span>
+            <span class="service-name" data-i18n="serviceContentTitle">CONTENT CREATION</span>
+            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <p class="service-description" id="serviceDescriptionContent" data-i18n="serviceContentDesc">
             Bespoke visual identity for modern brands, 4K vertical reels, tactile product still life, and creative brand campaigns.
           </p>
-          <div class="service-action-arrow" aria-hidden="true">&rarr;</div>
         </div>
       </div>
     </div>
@@ -2465,21 +2685,22 @@
 
         <div class="contact-channel-item">
           <span class="contact-channel-label" data-i18n="contactLabelWhatsApp">WHATSAPP</span>
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="contact-channel-value" data-i18n="contactValWhatsApp">
-            [WHATSAPP]
-          </a>
+          <div class="contact-phone-links">
+            <a href="https://wa.me/212656448893" target="_blank" rel="noopener noreferrer" class="contact-channel-value">+212 656 448 893</a>
+            <a href="https://wa.me/212669587666" target="_blank" rel="noopener noreferrer" class="contact-channel-value">+212 669 587 666</a>
+          </div>
         </div>
 
         <div class="contact-channel-item">
           <span class="contact-channel-label" data-i18n="contactLabelEmail">DIRECT EMAIL</span>
-          <a href="mailto:contact@noulproduction.com" class="contact-channel-value" data-i18n="contactValEmail">
-            [EMAIL]
+          <a href="mailto:aitoufquirnouhaila@gmail.com" class="contact-channel-value" data-i18n="contactValEmail">
+            aitoufquirnouhaila@gmail.com
           </a>
         </div>
 
         <div class="contact-channel-item">
           <span class="contact-channel-label" data-i18n="contactLabelLocation">LOCATION</span>
-          <span class="contact-channel-value" data-i18n="heroMetaCity">[LOCATION]</span>
+          <span class="contact-channel-value" data-i18n="heroMetaCity">Marrakesh, Morocco</span>
         </div>
       </div>
     </div>
@@ -2607,9 +2828,9 @@
     const PORTFOLIO_DATA = [
       {
         id: 'w1',
-        titleEn: 'The Silent Vow',
-        titleAr: 'عهد الصمت والنقاء',
-        titleFr: 'Le Vœu Silencieux',
+        titleEn: 'The Bridal Heirloom',
+        titleAr: 'زينة العروس',
+        titleFr: 'La parure de la mariée',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-01.jpg',
@@ -2618,9 +2839,9 @@
       },
       {
         id: 's1',
-        titleEn: 'Architectural Form',
-        titleAr: 'تكوين معماري',
-        titleFr: 'Forme Architecturale',
+        titleEn: 'A Gown in Evening Light',
+        titleAr: 'فستان بضوء الغروب',
+        titleFr: 'Une robe au crépuscule',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-01.jpg',
@@ -2629,21 +2850,21 @@
       },
       {
         id: 'c1',
-        titleEn: 'Maison Minimalist Reel',
-        titleAr: 'ريل لعلامة فاخرة',
-        titleFr: 'Maison Reel Minimaliste',
+        titleEn: 'Safer Roads, Shared Together',
+        titleAr: 'طرق أكثر أماناً للجميع',
+        titleFr: 'Des routes plus sûres, ensemble',
         category: 'CONTENT',
         year: '2026',
-        src: 'assets/images/content/content-01.jpg',
-        videoSrc: 'assets/videos/content/reel-01.mp4',
+        src: 'assets/images/content/content-01.mp4',
+        videoSrc: 'assets/images/content/content-01.mp4',
         isVideo: true,
         spanClass: 'tile-span-4-portrait'
       },
       {
         id: 'w2',
-        titleEn: 'Twilight Vows',
-        titleAr: 'مراسم وقت الغروب',
-        titleFr: 'Vœux au Crépuscule',
+        titleEn: 'The Newlyweds’ Exit',
+        titleAr: 'خروج العروسين',
+        titleFr: 'La sortie des mariés',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-02.jpg',
@@ -2652,9 +2873,9 @@
       },
       {
         id: 's2',
-        titleEn: 'Shadow & Ivory Portrait',
-        titleAr: 'بورتريه الظل والعاج',
-        titleFr: 'Ombre & Portrait Ivoire',
+        titleEn: 'Portrait in Soft Light',
+        titleAr: 'بورتريه بضوء ناعم',
+        titleFr: 'Portrait en lumière douce',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-02.jpg',
@@ -2663,20 +2884,21 @@
       },
       {
         id: 'c2',
-        titleEn: 'Sensory Product Study',
-        titleAr: 'دراسة بصرية لمنتج',
-        titleFr: 'Étude Sensorielle de Produit',
+        titleEn: 'Ride Together',
+        titleAr: 'نركب معاً',
+        titleFr: 'Rouler ensemble',
         category: 'CONTENT',
         year: '2026',
-        src: 'assets/images/content/content-02.jpg',
-        isVideo: false,
+        src: 'assets/images/content/content-02.mp4',
+        videoSrc: 'assets/images/content/content-02.mp4',
+        isVideo: true,
         spanClass: 'tile-span-6-tall'
       },
       {
         id: 'w3',
-        titleEn: 'Twilight Reception (Motion)',
-        titleAr: 'حفل الاستقبال المسائي (فيديو)',
-        titleFr: 'Réception au Crépuscule (Vidéo)',
+        titleEn: 'A Promise at Dusk',
+        titleAr: 'وعد عند الغروب',
+        titleFr: 'Une promesse au crépuscule',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-03.mp4',
@@ -2686,9 +2908,9 @@
       },
       {
         id: 's3',
-        titleEn: 'Editorial Movement',
-        titleAr: 'حركة تحريرية حرة',
-        titleFr: 'Mouvement Éditorial',
+        titleEn: 'Rhythm in Green',
+        titleAr: 'إيقاع باللون الأخضر',
+        titleFr: 'Rythme en vert',
         category: 'SHOOTING',
         year: '2026',
         src: 'assets/images/shooting/shoot-03.jpg',
@@ -2696,26 +2918,95 @@
         spanClass: 'tile-span-4-portrait'
       },
       {
-        id: 'c3',
-        titleEn: 'Digital Story Series',
-        titleAr: 'سلسلة قصص رقمية',
-        titleFr: 'Série Récit Numérique',
-        category: 'CONTENT',
+        id: 's4',
+        titleEn: 'Monochrome on the Runway',
+        titleAr: 'إطلالة أحادية على منصة العرض',
+        titleFr: 'Silhouette monochrome sur le podium',
+        category: 'SHOOTING',
         year: '2026',
-        src: 'assets/images/content/content-03.jpg',
+        src: 'assets/images/shooting/shoot-04.jpg',
         isVideo: false,
         spanClass: 'tile-span-4-portrait'
       },
       {
+        id: 'c3',
+        titleEn: 'Crossing Safely',
+        titleAr: 'عبور آمن',
+        titleFr: 'Traverser en toute sécurité',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-03.mp4',
+        videoSrc: 'assets/images/content/content-03.mp4',
+        isVideo: true,
+        spanClass: 'tile-span-4-portrait'
+      },
+      {
         id: 'w4',
-        titleEn: 'The First Dance',
-        titleAr: 'الرقصة الأولى',
-        titleFr: 'La Première Danse',
+        titleEn: 'A Dance of Joy',
+        titleAr: 'رقصة فرح',
+        titleFr: 'Une danse de joie',
         category: 'WEDDINGS',
         year: '2026',
         src: 'assets/images/weddings/wedding-04.jpg',
         isVideo: false,
         spanClass: 'tile-span-4-portrait'
+      },
+      {
+        id: 'w5',
+        titleEn: 'A Quiet Blessing',
+        titleAr: 'لحظة مباركة',
+        titleFr: 'Une bénédiction tout en douceur',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-05.jpg',
+        isVideo: false,
+        spanClass: 'tile-span-6-tall'
+      },
+      {
+        id: 'w6',
+        titleEn: 'The Bridal Crown',
+        titleAr: 'تاج العروس',
+        titleFr: 'La couronne de la mariée',
+        category: 'WEDDINGS',
+        year: '2026',
+        src: 'assets/images/weddings/wedding-06.mp4',
+        videoSrc: 'assets/images/weddings/wedding-06.mp4',
+        isVideo: true,
+        spanClass: 'tile-span-6-tall'
+      },
+      {
+        id: 'c4',
+        titleEn: 'Ideas Around the Table',
+        titleAr: 'أفكار حول الطاولة',
+        titleFr: 'Des idées autour de la table',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-04.mp4',
+        videoSrc: 'assets/images/content/content-04.mp4',
+        isVideo: true,
+        spanClass: 'tile-span-4-portrait'
+      },
+      {
+        id: 'c5',
+        titleEn: 'A World in Color',
+        titleAr: 'عالم من الألوان',
+        titleFr: 'Un monde en couleurs',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-05.webp',
+        isVideo: false,
+        spanClass: 'tile-span-6-square'
+      },
+      {
+        id: 'c6',
+        titleEn: 'The Joy of the Game',
+        titleAr: 'فرحة اللعب',
+        titleFr: 'La joie du jeu',
+        category: 'CONTENT',
+        year: '2026',
+        src: 'assets/images/content/content-06.webp',
+        isVideo: false,
+        spanClass: 'tile-span-6-square'
       }
     ];
 
@@ -2739,16 +3030,16 @@
         heroRole1: 'PHOTOGRAPHER',
         heroRole2: 'VISUAL STORYTELLER',
         heroMetaPhotographer: 'PHOTOGRAPHER',
-        heroMetaName: '[PHOTOGRAPHER NAME]',
+        heroMetaName: 'Nouhaila Ait Oufquir',
         heroMetaLocation: 'BASED IN',
-        heroMetaCity: '[LOCATION]',
-        heroDescription: '[SHORT PERSONAL DESCRIPTION — An intimate, editorial perspective capturing authentic human emotion, quiet elegance, and timeless visual poetry.]',
+        heroMetaCity: 'Marrakesh, Morocco',
+        heroDescription: 'My name is Nouhaila Ait Oufquir, I am 23 years old, and I am a Specialized Technician in Audiovisual. Passionate about images and visual storytelling, I express ideas and emotions through photography, video, and directing. I enjoy turning creative ideas into meaningful visual content and creating images that communicate emotions and tell stories with authenticity.',
         heroCtaWork: 'VIEW SELECTED WORK',
         heroCtaInquire: 'BOOK A SESSION',
         heroScroll: 'SCROLL',
         heroPortraitTitle: 'Photographer Portrait',
-        heroFloatingTitle: 'Natural Light & Intimacy',
-        heroFloatingText: '[LOCATION] · WORLDWIDE',
+        heroFloatingTitle: 'Stories Told with Feeling',
+        heroFloatingText: 'MARRAKESH, MOROCCO · WORLDWIDE',
 
         weddingsKicker: '01 — WEDDINGS',
         weddingsTitle: 'WEDDINGS',
@@ -2786,9 +3077,8 @@
         aboutTitle: 'BEHIND THE LENS',
         aboutSubtitle: 'AN EDITORIAL DIALOGUE OF LIGHT AND EMOTION',
         aboutPhilosophy: '"Photography is not about forcing perfection, but about honouring the quiet, unscripted truth of human emotion."',
-        aboutBio: '[SHORT BIOGRAPHY — Dedicated to crafting visual narratives that balance contemporary editorial poise with profound vulnerability. Working with couples, discerning creators, and distinctive brands across the globe to produce imagery that stands timeless.]',
-        aboutLabelName: 'NAME',
-        aboutLabelBase: 'STUDIO & LOCATION',
+        aboutBio: 'I see every project as a new opportunity to explore creativity and transform ideas and emotions into visual stories. Through photography, video, and filmmaking, I aim to capture moments, express feelings, and tell stories in an authentic and meaningful way. For me, creating is about more than simply capturing an image; it is about giving each image a purpose and a story to tell.',
+        aboutSlogan: 'Create. Capture. Tell.',
         aboutPortraitTitle: 'Behind the Lens',
 
         servicesKicker: 'COMMISSIONS',
@@ -2807,9 +3097,8 @@
         contactLabelInsta: 'INSTAGRAM',
         contactValInsta: '@noulprod',
         contactLabelWhatsApp: 'WHATSAPP',
-        contactValWhatsApp: '[WHATSAPP]',
         contactLabelEmail: 'DIRECT EMAIL',
-        contactValEmail: '[EMAIL]',
+        contactValEmail: 'aitoufquirnouhaila@gmail.com',
         contactLabelLocation: 'LOCATION',
 
         footerCopy: '© 2026 NOUL PRODUCTION. ALL RIGHTS RESERVED.',
@@ -2843,16 +3132,16 @@
         heroRole1: 'مصورة فوتوغرافية',
         heroRole2: 'راوية بصرية',
         heroMetaPhotographer: 'المصورة',
-        heroMetaName: '[اسم المصورة]',
+        heroMetaName: 'نهيلة آيت أوفقير',
         heroMetaLocation: 'المقر الرئيسي',
-        heroMetaCity: '[الموقع]',
-        heroDescription: '[نبذة شخصية موجزة — رؤية فنية حالمة تلتقط المشاعر الإنسانية الصادقة، والرقي الهادئ، وشاعرية اللحظات الخالدة.]',
+        heroMetaCity: 'مراكش، المغرب',
+        heroDescription: 'اسمي نهيلة آيت أوفقير، أبلغ من العمر ٢٣ عاماً، وأنا تقنية متخصصة في مجال السمعي البصري. شغوفة بالصور والسرد البصري، وأعبّر عن الأفكار والمشاعر من خلال التصوير الفوتوغرافي والفيديو والإخراج. أحب تحويل الأفكار الإبداعية إلى محتوى بصري هادف، وإنشاء صور تنقل المشاعر وتحكي القصص بصدق.',
         heroCtaWork: 'استعراض الأعمال المختارة',
         heroCtaInquire: 'حجز جلسة تصوير',
         heroScroll: 'تمرير',
         heroPortraitTitle: 'بورتريه المصورة',
-        heroFloatingTitle: 'الضوء الطبيعي والعفوية',
-        heroFloatingText: '[الموقع] · حول العالم',
+        heroFloatingTitle: 'حكايات تُروى بإحساس',
+        heroFloatingText: 'مراكش، المغرب · حول العالم',
 
         weddingsKicker: '٠١ — حفلات الزفاف',
         weddingsTitle: 'حفلات الزفاف',
@@ -2890,9 +3179,8 @@
         aboutTitle: 'خلف العدسة',
         aboutSubtitle: 'حوار بصري بين الضوء والوجدان',
         aboutPhilosophy: '"التصوير الفوتوغرافي ليس محاولة لفرض الكمال، بل هو احتفاء بالحقيقة الصادقة الهادئة للمشاعر الإنسانية."',
-        aboutBio: '[سيرة شخصية موجزة — مكرسة لصياغة حكايات بصرية تجمع بين الرقي العصري والعفوية الصادقة. أتعاون مع المقبلين على الزواج، والمبدعين، والعلامات الراقية لإنتاج صور تعيش طويلاً.]',
-        aboutLabelName: 'الاسم',
-        aboutLabelBase: 'الاستوديو والموقع',
+        aboutBio: 'أرى في كل مشروع فرصة جديدة لاستكشاف الإبداع وتحويل الأفكار والمشاعر إلى قصص بصرية. من خلال التصوير الفوتوغرافي والفيديو وصناعة الأفلام، أسعى إلى التقاط اللحظات والتعبير عن المشاعر وسرد القصص بطريقة صادقة وذات معنى. فالإبداع بالنسبة إليّ يتجاوز مجرد التقاط صورة؛ إنه منح كل صورة هدفاً وقصة ترويها.',
+        aboutSlogan: 'ابتكر. التقط. اروِ.',
         aboutPortraitTitle: 'خلف العدسة',
 
         servicesKicker: 'المشاريع والخدمات',
@@ -2911,9 +3199,8 @@
         contactLabelInsta: 'إنستغرام',
         contactValInsta: '@noulprod',
         contactLabelWhatsApp: 'واتساب',
-        contactValWhatsApp: '[واتساب]',
         contactLabelEmail: 'البريد الإلكتروني',
-        contactValEmail: '[البريد الإلكتروني]',
+        contactValEmail: 'aitoufquirnouhaila@gmail.com',
         contactLabelLocation: 'الموقع',
 
         footerCopy: '© ٢٠٢٦ نول برودكشن. جميع الحقوق محفوظة.',
@@ -2947,16 +3234,16 @@
         heroRole1: 'PHOTOGRAPHE',
         heroRole2: 'RÉCITS VISUELS',
         heroMetaPhotographer: 'PHOTOGRAPHE',
-        heroMetaName: '[NOM DU PHOTOGRAPHE]',
+        heroMetaName: 'Nouhaila Ait Oufquir',
         heroMetaLocation: 'BASÉ À',
-        heroMetaCity: '[LIEU]',
-        heroDescription: '[COURTE DESCRIPTION PERSONNELLE — Une vision éditoriale sensible, capturant la vérité des émotions humaines, une élégance feutrée et une poésie intemporelle.]',
+        heroMetaCity: 'Marrakech, Maroc',
+        heroDescription: 'Je m’appelle Nouhaila Ait Oufquir, j’ai 23 ans et je suis technicienne spécialisée en audiovisuel. Passionnée par l’image et le récit visuel, j’exprime des idées et des émotions à travers la photographie, la vidéo et la réalisation. J’aime transformer des idées créatives en contenus visuels porteurs de sens et créer des images qui transmettent des émotions et racontent des histoires avec authenticité.',
         heroCtaWork: 'DÉCOUVRIR LE PORTFOLIO',
         heroCtaInquire: 'RÉSERVER UNE SÉANCE',
         heroScroll: 'DÉFILER',
         heroPortraitTitle: 'Portrait du Photographe',
-        heroFloatingTitle: 'Lumière Naturelle & Intimité',
-        heroFloatingText: '[LIEU] · DANS LE MONDE ENTIER',
+        heroFloatingTitle: 'Des histoires pleines d’émotion',
+        heroFloatingText: 'MARRAKECH, MAROC · DANS LE MONDE ENTIER',
 
         weddingsKicker: '01 — MARIAGES',
         weddingsTitle: 'MARIAGES',
@@ -2994,9 +3281,8 @@
         aboutTitle: 'DERRIÈRE L’OBJECTIF',
         aboutSubtitle: 'UN DIALOGUE ÉDITORIAL ENTRE LUMIÈRE ET ÉMOTION',
         aboutPhilosophy: '"La photographie ne cherche pas à imposer la perfection, mais à honorer la vérité silencieuse et spontanée du sentiment humain."',
-        aboutBio: '[COURTE BIOGRAPHIE — Dédiée à la création de récits visuels mêlant grâce contemporaine et sincérité profonde. En collaboration avec des couples, des créateurs exigeants et des marques prestigieuses à travers le monde.]',
-        aboutLabelName: 'NOM',
-        aboutLabelBase: 'STUDIO & ATELIER',
+        aboutBio: 'Je vois chaque projet comme une nouvelle occasion d’explorer la créativité et de transformer les idées et les émotions en récits visuels. À travers la photographie, la vidéo et la réalisation, je cherche à saisir des instants, exprimer des émotions et raconter des histoires de manière authentique et profonde. Pour moi, créer ne consiste pas seulement à prendre une image : c’est donner à chaque image un but et une histoire à raconter.',
+        aboutSlogan: 'Créer. Capturer. Raconter.',
         aboutPortraitTitle: 'Derrière l’Objectif',
 
         servicesKicker: 'COMMANDES',
@@ -3015,9 +3301,8 @@
         contactLabelInsta: 'INSTAGRAM',
         contactValInsta: '@noulprod',
         contactLabelWhatsApp: 'WHATSAPP',
-        contactValWhatsApp: '[WHATSAPP]',
         contactLabelEmail: 'EMAIL DIRECT',
-        contactValEmail: '[EMAIL]',
+        contactValEmail: 'aitoufquirnouhaila@gmail.com',
         contactLabelLocation: 'LOCALISATION',
 
         footerCopy: '© 2026 NOUL PRODUCTION. TOUS DROITS RÉSERVÉS.',
@@ -3107,6 +3392,8 @@
       const container = document.getElementById('galleryGridRoot');
       if (!container) return;
 
+      container.dataset.filter = currentFilter;
+
       filteredPortfolioItems = currentFilter === 'ALL'
         ? PORTFOLIO_DATA
         : PORTFOLIO_DATA.filter(item => item.category === currentFilter);
@@ -3122,7 +3409,7 @@
         const catText = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
 
         tile.innerHTML = `
-          <div class="photo-frame" style="width: 100%; height: 100%;">
+          <div class="photo-frame">
             ${item.isVideo ? `
               <video 
                 class="photo-img" 
@@ -3476,6 +3763,7 @@
       mobileDrawer.classList.add('open');
       drawerOverlay.classList.add('open');
       mobileMenuBtn.classList.add('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
 
@@ -3483,8 +3771,49 @@
       mobileDrawer.classList.remove('open');
       drawerOverlay.classList.remove('open');
       mobileMenuBtn.classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
+
+    const serviceAccordionQuery = window.matchMedia('(max-width: 1024px)');
+    const serviceRows = [...document.querySelectorAll('.service-row')];
+
+    function setServiceRowOpen(row, open) {
+      const toggle = row.querySelector('.service-toggle');
+      const description = row.querySelector('.service-description');
+      row.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      description.setAttribute('aria-hidden', String(!open));
+    }
+
+    function syncServiceAccordion() {
+      const accordionEnabled = serviceAccordionQuery.matches;
+      serviceRows.forEach(row => {
+        row.querySelector('.service-toggle').disabled = !accordionEnabled;
+        setServiceRowOpen(row, !accordionEnabled);
+      });
+    }
+
+    serviceRows.forEach(row => {
+      row.querySelector('.service-toggle').addEventListener('click', () => {
+        if (!serviceAccordionQuery.matches) return;
+        const open = !row.classList.contains('open');
+        if (open && serviceAccordionQuery.matches) {
+          serviceRows.forEach(otherRow => setServiceRowOpen(otherRow, false));
+        }
+        setServiceRowOpen(row, open);
+      });
+    });
+
+    syncServiceAccordion();
+    serviceAccordionQuery.addEventListener('change', syncServiceAccordion);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        closeMobileMenu();
+        mobileMenuBtn.focus();
+      }
+    });
 
     /* ==========================================================================
        INQUIRY MODAL (EDITORIAL DRAWER)
@@ -3512,7 +3841,7 @@
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCategory: ${cat}\n\nMessage:\n${msg}`);
 
       // Open email client with pre-filled details
-      window.location.href = `mailto:contact@noulproduction.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:aitoufquirnouhaila@gmail.com?subject=${subject}&body=${body}`;
       closeInquiryModal();
     }
 
