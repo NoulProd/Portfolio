@@ -1528,6 +1528,15 @@
       gap: 0.2rem;
     }
 
+    .contact-phone-number {
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    html[dir="rtl"] .contact-phone-number {
+      text-align: right;
+    }
+
     .btn-contact-action {
       display: inline-flex;
       align-items: center;
@@ -2177,8 +2186,8 @@
       <div style="font-size: 0.88rem; color: var(--text-light-secondary); line-height: 1.6;">
         <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold-subtle); text-decoration: underline; font-weight: 500;">@noulprod on Instagram &rarr;</a><br />
         <a href="mailto:aitoufquirnouhaila@gmail.com" style="color: var(--text-light-secondary);">aitoufquirnouhaila@gmail.com</a>
-        <a href="tel:+212656448893" style="color: var(--text-light-secondary);">+212 656 448 893</a>
-        <a href="tel:+212669587666" style="color: var(--text-light-secondary);">+212 669 587 666</a>
+        <a href="tel:+212656448893" class="contact-phone-number" style="color: var(--text-light-secondary);">+212 656 448 893</a>
+        <a href="tel:+212669587666" class="contact-phone-number" style="color: var(--text-light-secondary);">+212 669 587 666</a>
       </div>
     </div>
   </aside>
@@ -2686,8 +2695,8 @@
         <div class="contact-channel-item">
           <span class="contact-channel-label" data-i18n="contactLabelWhatsApp">WHATSAPP</span>
           <div class="contact-phone-links">
-            <a href="https://wa.me/212656448893" target="_blank" rel="noopener noreferrer" class="contact-channel-value">+212 656 448 893</a>
-            <a href="https://wa.me/212669587666" target="_blank" rel="noopener noreferrer" class="contact-channel-value">+212 669 587 666</a>
+            <a href="https://wa.me/212656448893" target="_blank" rel="noopener noreferrer" class="contact-channel-value contact-phone-number">+212 656 448 893</a>
+            <a href="https://wa.me/212669587666" target="_blank" rel="noopener noreferrer" class="contact-channel-value contact-phone-number">+212 669 587 666</a>
           </div>
         </div>
 
