@@ -1,3899 +1,672 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOUL PRODUCTION — Photographer & Visual Storyteller</title>
-  <meta name="description" content="Official portfolio of NOUL PRODUCTION – Premium personal photography, editorial weddings, artistic shooting sessions, and bespoke visual content creation." />
-  <meta property="og:title" content="NOUL PRODUCTION — Photographer & Visual Storyteller" />
-  <meta property="og:description" content="Official portfolio of NOUL PRODUCTION – Premium personal photography, editorial weddings, artistic shooting sessions, and bespoke visual content creation." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Google Fonts: Editorial Serif (Cormorant Garamond) + Clean Modern Sans (Plus Jakarta Sans) + Premium Arabic (Tajawal & IBM Plex Sans Arabic) -->
+  <meta name="theme-color" content="#11100e" />
+  <title>NOUL PRODUCTION — Photographer &amp; Visual Storyteller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "NOUL PRODUCTION",
-    "description": "Editorial wedding photography, artistic personal portraits, fashion shooting sessions, and bespoke brand visual content creation.",
-    "category": "Photography",
-    "sameAs": [
-      "https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
-    ],
-    "telephone": ["+212 656 448 893", "+212 669 587 666"],
-    "email": "aitoufquirnouhaila@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Marrakesh",
-      "addressCountry": "MA"
-    },
-    "url": "https://noulproduction.com",
-    "priceRange": "$$$$"
-  }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet" />
   <style>
-    /* ==========================================================================
-       NOUL PRODUCTION — LUXURY EDITORIAL PHOTOGRAPHY DESIGN SYSTEM
-       ========================================================================== */
     :root {
-      /* Color System */
-      --bg-ivory: #FAF8F5;
-      --bg-warm-white: #FDFCF7;
-      --bg-cream: #F5F2EB;
-      --bg-soft-beige: #EFECE6;
-      --bg-champagne: #E6DFD5;
-      --color-gold-subtle: #C5A880;
-      --color-gold-hover: #D8BD97;
-
-      --bg-deep-black: #0A0A0C;
-      --bg-charcoal: #121215;
-      --bg-dark-navy: #0D131B;
-      --bg-dark-surface: #171C24;
-
-      --text-dark-primary: #121214;
-      --text-dark-secondary: #58575B;
-      --text-dark-muted: #8C8A90;
-
-      --text-light-primary: #F8F6F2;
-      --text-light-secondary: #B6B4BC;
-      --text-light-muted: #7E7C85;
-
-      --border-light: rgba(18, 18, 20, 0.08);
-      --border-dark: rgba(255, 255, 255, 0.1);
-
-      /* Typography */
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-arabic-serif: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
-      --font-arabic-sans: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
-
-      /* Transitions */
-      --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-base: 0.35s var(--ease-editorial);
+      --rail: 82px;
+      --ink: #11110f;
+      --paper: #efede7;
+      --dark: #171714;
+      --muted: #77766f;
+      --line: rgba(17,17,15,.14);
+      --serif: "Italiana", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
     }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body.menu-open { overflow: hidden; }
+    img, video { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
 
-    /* RTL adaptations */
-    html[dir="rtl"] {
-      --font-serif: 'Tajawal', 'IBM Plex Sans Arabic', serif;
-      --font-sans: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+    .rail {
+      position: fixed;
+      z-index: 80;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--rail);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      background: #11110f;
+      color: #fff;
+      border-right: 1px solid rgba(255,255,255,.08);
     }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-color: var(--bg-ivory);
-      color: var(--text-dark-primary);
-    }
-
-    body {
-      font-family: var(--font-sans);
+    .rail-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.18);
+      font-family: var(--serif);
       font-size: 15px;
-      line-height: 1.65;
-      letter-spacing: -0.01em;
-      overflow-x: hidden;
-      background-color: var(--bg-ivory);
+      letter-spacing: .08em;
     }
-
-    img, video {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color var(--transition-base), opacity var(--transition-base);
-    }
-
-    button {
-      font-family: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: inherit;
-      outline: none;
-    }
-
-    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
-      outline: 2px solid var(--color-gold-subtle);
-      outline-offset: 3px;
-    }
-
-    /* Global Container */
-    .container {
-      width: 100%;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: clamp(1.25rem, 4vw, 3.5rem);
-      padding-right: clamp(1.25rem, 4vw, 3.5rem);
-    }
-
-    /* Typography Utilities */
-    .font-serif {
-      font-family: var(--font-serif);
-      font-feature-settings: 'cv01' on, 'cv02' on;
-    }
-
-    .font-sans {
-      font-family: var(--font-sans);
-    }
-
-    .editorial-heading {
-      font-family: var(--font-serif);
-      font-weight: 300;
-      letter-spacing: -0.025em;
-      line-height: 1.05;
-      text-wrap: balance;
-    }
-
-    .editorial-kicker {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-weight: 500;
-      opacity: 0.8;
-      display: inline-flex;
+    .rail-nav {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
+      gap: 26px;
+    }
+    .rail-nav a {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      opacity: .58;
+      transition: .2s ease;
+    }
+    .rail-nav a:hover, .rail-nav a.active { opacity: 1; }
+    .rail-social {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 8px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .7;
     }
 
-    html[dir="rtl"] .editorial-kicker {
-      letter-spacing: 0.05em;
-    }
-
-    /* Editorial Section Dividers */
-    .section-hairline {
-      height: 1px;
-      width: 100%;
-      background: var(--border-light);
-    }
-
-    .section-hairline-dark {
-      height: 1px;
-      width: 100%;
-      background: var(--border-dark);
-    }
-
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
-    .site-header {
+    .menu-button {
       position: fixed;
-      top: 0;
+      z-index: 90;
+      right: 24px;
+      top: 24px;
+      width: 58px;
+      height: 58px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(17,17,15,.7);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+    .menu-button span {
+      position: relative;
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+    }
+    .menu-button span::before, .menu-button span::after {
+      content: "";
+      position: absolute;
       left: 0;
-      width: 100%;
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+    }
+    .menu-button span::before { top: -7px; }
+    .menu-button span::after { top: 7px; }
+    .mobile-menu {
+      position: fixed;
       z-index: 100;
-      transition: background-color 0.4s var(--ease-editorial),
-                  backdrop-filter 0.4s var(--ease-editorial),
-                  border-color 0.4s var(--ease-editorial),
-                  padding 0.4s var(--ease-editorial),
-                  box-shadow 0.4s var(--ease-editorial);
-      padding: 1.75rem 0;
-      border-bottom: 1px solid transparent;
-    }
-
-    .site-header.scrolled {
-      padding: 1.1rem 0;
-      background-color: rgba(250, 248, 245, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom-color: rgba(18, 18, 20, 0.06);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    }
-
-    .site-header.dark-mode {
-      color: var(--text-light-primary);
-    }
-
-    .site-header.dark-mode.scrolled {
-      background-color: rgba(13, 19, 27, 0.92);
-      border-bottom-color: rgba(255, 255, 255, 0.07);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .header-inner {
+      inset: 0;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
-      gap: clamp(2rem, 4vw, 5rem);
+      padding: 24px;
+      background: #11110f;
+      color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transition: .35s ease;
     }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-top { display: flex; align-items: center; justify-content: space-between; }
+    .mobile-close { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.18); background: transparent; color: #fff; font-size: 24px; }
+    .mobile-links { display: flex; flex-direction: column; }
+    .mobile-links a { padding: 8px 0; font-family: var(--serif); font-size: 48px; line-height: 1; }
 
-    /* Brand Wordmark with generous breathing room */
-    .brand-link {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-      margin-inline-end: clamp(2.5rem, 5vw, 6rem);
-    }
+    #app { margin-left: var(--rail); min-height: 100vh; }
 
-    .brand-wordmark {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 1.5vw, 1.45rem);
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: inherit;
-      transition: opacity var(--transition-base), color var(--transition-base);
-      white-space: nowrap;
-    }
-
-    .brand-link:hover .brand-wordmark {
-      opacity: 0.75;
-    }
-
-    /* Desktop Navigation */
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: clamp(1.25rem, 2vw, 2.25rem);
-      flex-wrap: nowrap;
-    }
-
-    .nav-link {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .hero {
       position: relative;
-      padding: 0.35rem 0;
-      opacity: 0.78;
-      transition: opacity var(--transition-base), color var(--transition-base);
-      white-space: nowrap;
+      height: 100svh;
+      min-height: 680px;
+      overflow: hidden;
+      background: #161614;
+      color: #fff;
     }
-
-    html[dir="rtl"] .nav-link {
-      letter-spacing: 0.04em;
-    }
-
-    .nav-link::after {
-      content: '';
+    .hero-media { position: absolute; inset: 0; }
+    .hero-media img { height: 100%; object-fit: cover; object-position: center 34%; animation: heroReveal 1.6s cubic-bezier(.16,1,.3,1) both; }
+    .hero::after {
+      content: "";
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 1px;
-      background-color: currentColor;
-      transition: width 0.3s var(--ease-editorial);
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,8,7,.7), rgba(8,8,7,.06) 58%, rgba(8,8,7,.22)), linear-gradient(180deg, rgba(8,8,7,.08) 45%, rgba(8,8,7,.72));
     }
-
-    html[dir="rtl"] .nav-link::after {
-      left: auto;
-      right: 0;
+    .hero-inner {
+      position: absolute;
+      z-index: 2;
+      left: clamp(28px, 5vw, 72px);
+      right: clamp(28px, 5vw, 72px);
+      bottom: clamp(44px, 8vh, 82px);
     }
-
-    .nav-link:hover {
-      opacity: 1;
-    }
-
-    .nav-link:hover::after, .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      opacity: 1;
-    }
-
-    /* Header Actions: Language Switcher */
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-shrink: 0;
-      margin-inline-start: clamp(0.5rem, 1vw, 1rem);
-    }
-
-    .lang-switcher {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
+    .hero-kicker {
+      margin: 0 0 12px;
+      font-size: 11px;
       font-weight: 600;
-      padding: 0.35rem 0.65rem;
-      border: 1px solid rgba(18, 18, 20, 0.15);
-      border-radius: 2px;
-      transition: border-color var(--transition-base), background-color var(--transition-base);
-    }
-
-    .site-header.dark-mode .lang-switcher {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .lang-btn {
-      padding: 0.1rem 0.25rem;
-      opacity: 0.5;
-      transition: opacity var(--transition-base), color var(--transition-base);
-    }
-
-    .lang-btn.active {
-      opacity: 1;
-      color: var(--color-gold-subtle);
-    }
-
-    .lang-divider {
-      opacity: 0.3;
-      margin: 0 0.2rem;
-    }
-
-    /* Mobile Menu Toggle */
-    .mobile-menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      gap: 5px;
-      z-index: 110;
-    }
-
-    .hamburger-line {
-      width: 22px;
-      height: 1.5px;
-      background-color: currentColor;
-      transition: transform 0.3s var(--ease-editorial), opacity 0.3s var(--ease-editorial);
-    }
-
-    .mobile-menu-btn.open .hamburger-line:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg);
-    }
-    .mobile-menu-btn.open .hamburger-line:nth-child(2) {
-      opacity: 0;
-    }
-    .mobile-menu-btn.open .hamburger-line:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg);
-    }
-
-    /* Mobile Drawer */
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      max-width: 420px;
-      height: 100vh;
-      height: 100dvh;
-      background-color: var(--bg-deep-black);
-      color: var(--text-light-primary);
-      z-index: 105;
-      padding: 5.5rem 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 2.5rem;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      transform: translateX(100%);
-      transition: transform 0.45s var(--ease-editorial);
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .mobile-drawer-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--text-light-primary);
-      z-index: 1;
-    }
-
-    .mobile-drawer-close:hover {
-      color: var(--color-gold-subtle);
-      border-color: var(--color-gold-subtle);
-    }
-
-    html[dir="rtl"] .mobile-drawer {
-      right: auto;
-      left: 0;
-      transform: translateX(-100%);
-    }
-
-    html[dir="rtl"] .mobile-drawer-close {
-      right: auto;
-      left: 1rem;
-    }
-
-    .mobile-drawer.open {
-      transform: translateX(0);
-    }
-
-    html[dir="rtl"] .mobile-drawer.open {
-      transform: translateX(0);
-    }
-
-    .mobile-drawer-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 104;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-    }
-
-    .mobile-drawer-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .mobile-nav-link {
-      font-family: var(--font-serif);
-      font-size: 1.85rem;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      opacity: 0.85;
-      transition: opacity 0.25s, color 0.25s, padding-left 0.25s;
-    }
-
-    html[dir="rtl"] .mobile-nav-link {
-      letter-spacing: 0.01em;
-    }
-
-    .mobile-nav-link:hover {
-      opacity: 1;
-      color: var(--color-gold-subtle);
-      padding-left: 0.5rem;
-    }
-
-    html[dir="rtl"] .mobile-nav-link:hover {
-      padding-left: 0;
-      padding-right: 0.5rem;
-    }
-
-    /* ==========================================================================
-       MEDIA / PHOTO WRAPPER & RESILIENT PLACEHOLDER FALLBACK
-       ========================================================================== */
-    .photo-frame {
-      position: relative;
-      overflow: hidden;
-      background-color: #EAE6DF;
-      border-radius: 1px;
-    }
-
-    .photo-frame.dark-theme {
-      background-color: #171B22;
-    }
-
-    .photo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.85s var(--ease-editorial), filter 0.85s var(--ease-editorial);
-      display: block;
-    }
-
-    .photo-frame:hover .photo-img {
-      transform: scale(1.035);
-    }
-
-    /* Fallback overlay when local file is yet to be placed */
-    .photo-placeholder-box {
-      position: absolute;
-      inset: 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      background: radial-gradient(circle at center, #F4EFE6 0%, #E7E0D3 100%);
-      color: var(--text-dark-primary);
-      border: 1px dashed rgba(18, 18, 20, 0.15);
-      z-index: 2;
-    }
-
-    .photo-frame.dark-theme .photo-placeholder-box {
-      background: radial-gradient(circle at center, #18202C 0%, #0E131B 100%);
-      color: var(--text-light-primary);
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .placeholder-icon {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0.85rem;
-      opacity: 0.45;
-      stroke: currentColor;
-    }
-
-    .placeholder-title {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.35rem;
-    }
-
-    .placeholder-path {
-      font-family: monospace;
-      font-size: 0.68rem;
-      opacity: 0.6;
-      background: rgba(0, 0, 0, 0.05);
-      padding: 0.2rem 0.5rem;
-      border-radius: 2px;
-      word-break: break-all;
-      max-width: 90%;
-    }
-
-    .photo-frame.dark-theme .placeholder-path {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .placeholder-action {
-      margin-top: 0.65rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      letter-spacing: .24em;
       text-transform: uppercase;
-      opacity: 0.75;
-      color: var(--color-gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      cursor: pointer;
-      padding: 0.25rem 0.65rem;
-      border: 1px dashed rgba(197, 160, 89, 0.5);
-      border-radius: 2px;
-      transition: all 0.25s ease;
-      background: rgba(197, 160, 89, 0.06);
     }
-
-    .placeholder-action:hover {
-      opacity: 1;
-      background: rgba(197, 160, 89, 0.18);
-      border-color: var(--color-gold);
-      transform: translateY(-1px);
-    }
-
-    .photo-frame.drag-target {
-      outline: 2px dashed var(--color-gold) !important;
-      outline-offset: -4px;
-    }
-
-    /* ==========================================================================
-       SECTION 0: HERO / COVER (THE PHOTOGRAPHER)
-       ========================================================================== */
-    .hero-section {
-      min-height: 100vh;
-      background-color: var(--bg-ivory);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 7.5rem;
-      padding-bottom: 4rem;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      align-items: center;
-      gap: clamp(2rem, 5vw, 6rem);
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      z-index: 2;
-    }
-
-    .hero-kicker-row {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title {
-      font-size: clamp(3.2rem, 7.5vw, 6.2rem);
-      font-weight: 300;
-      line-height: 0.95;
-      margin-bottom: 1.75rem;
-      color: var(--text-dark-primary);
-    }
-
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-title-production {
-      font-style: italic;
-      color: var(--color-gold-subtle);
+    .hero h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: var(--serif);
+      font-size: clamp(82px, 9.2vw, 150px);
       font-weight: 400;
-    }
-
-    .hero-roles {
-      font-size: clamp(0.78rem, 1.2vw, 0.9rem);
-      letter-spacing: 0.22em;
+      line-height: .78;
+      letter-spacing: -.04em;
       text-transform: uppercase;
-      font-weight: 600;
-      color: var(--text-dark-secondary);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: revealUp .9s .2s cubic-bezier(.16,1,.3,1) forwards;
     }
-
-    html[dir="rtl"] .hero-roles {
-      letter-spacing: 0.06em;
-    }
-
-    .hero-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid var(--border-light);
-      margin-bottom: 2.25rem;
-    }
-
-    .hero-meta-item-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0.55;
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-    }
-
-    .hero-meta-item-value {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text-dark-primary);
-    }
-
-    .hero-description {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--text-dark-secondary);
-      margin-bottom: 2.5rem;
-      max-width: 48ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    /* Editorial Action Buttons */
-    .btn-editorial-primary {
+    .hero-actions { display: flex; gap: 12px; margin-top: 30px; }
+    .button {
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      justify-content: center;
+      gap: 20px;
+      border: 1px solid currentColor;
+      padding: 0 20px;
+      font-size: 10px;
       font-weight: 600;
-      padding: 1rem 2rem;
-      background-color: var(--text-dark-primary);
-      color: var(--bg-ivory);
-      border: 1px solid var(--text-dark-primary);
-      transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
-    }
-
-    html[dir="rtl"] .btn-editorial-primary {
-      letter-spacing: 0.04em;
-    }
-
-    .btn-editorial-primary:hover {
-      background-color: transparent;
-      color: var(--text-dark-primary);
-    }
-
-    .btn-editorial-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      font-weight: 600;
-      padding: 1rem 0;
-      position: relative;
     }
-
-    .btn-editorial-ghost::after {
-      content: '';
+    .button.light { background: #fff; color: var(--ink); border-color: #fff; }
+    .hero-scroll {
       position: absolute;
-      bottom: 0.75rem;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: currentColor;
-      transition: width var(--transition-base);
+      z-index: 3;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
 
-    /* Hero Portrait Visual Frame */
-    .hero-portrait-col {
-      position: relative;
+    .section { padding: 110px clamp(28px, 5vw, 72px); }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
     }
+    .eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .19em; text-transform: uppercase; }
+    .section-title { margin: 0; font-family: var(--serif); font-size: clamp(46px, 6vw, 74px); line-height: .95; font-weight: 400; }
+    .view-link { border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .mobile-view-link { display: none; }
 
-    .hero-portrait-wrapper {
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .media-card {
       position: relative;
-      width: 100%;
+      height: clamp(300px, 34vw, 520px);
+      overflow: hidden;
+      background: #1c1c1a;
+      color: #fff;
+      cursor: pointer;
+    }
+    .media-card img, .media-card video { height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.16,1,.3,1); }
+    .media-card:hover img, .media-card:hover video { transform: scale(1.025); }
+    .media-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.72)); }
+    .media-meta { position: absolute; z-index: 2; left: 20px; right: 20px; bottom: 18px; }
+    .media-meta span { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; opacity: .75; }
+    .media-meta h3 { margin: 5px 0 0; font-family: var(--serif); font-size: 27px; font-weight: 400; }
+
+    .services { background: #151513; color: #fff; }
+    .services .eyebrow { color: rgba(255,255,255,.55); }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .service-heading { margin: 0 0 14px; font-family: var(--serif); font-size: 34px; font-weight: 400; }
+    .service-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .service-item {
+      min-height: 154px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .service-item span { color: rgba(255,255,255,.5); font-size: 9px; letter-spacing: .14em; }
+    .service-item h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .service-item p { margin: 0; color: rgba(255,255,255,.58); font-size: 11px; line-height: 1.55; }
+
+    .cta { min-height: 520px; display: grid; align-items: end; background: #d8d4ca; }
+    .cta-inner { width: 100%; }
+    .cta h2 { max-width: 900px; margin: 10px 0 38px; font-family: var(--serif); font-size: clamp(62px, 8vw, 112px); line-height: .86; font-weight: 400; letter-spacing: -.04em; }
+    .cta-bottom { display: flex; justify-content: space-between; align-items: end; border-top: 1px solid var(--line); padding-top: 22px; }
+    .cta p { max-width: 500px; color: #606057; line-height: 1.7; }
+    .cta .button { background: var(--ink); color: #fff; }
+
+    footer { background: #11110f; color: rgba(255,255,255,.68); }
+    .footer-inner { min-height: 140px; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 30px; }
+    .footer-brand { color: #fff; font-family: var(--serif); font-size: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-copy { justify-self: end; font-size: 9px; }
+
+    .page-hero {
+      position: relative;
+      height: 300px;
+      min-height: 300px;
+      display: flex;
+      align-items: end;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+    .page-hero img { display: none; }
+    .page-hero::after { display: none; }
+    .page-hero-inner { position: relative; z-index: 2; width: 100%; padding: 0 clamp(28px,5vw,72px) clamp(38px,7vh,70px); }
+    .page-hero h1 { margin: 8px 0 0; font-family: var(--serif); font-size: clamp(72px,9vw,130px); font-weight: 400; line-height: .82; }
+    .page-hero p { margin: 12px 0 0; max-width: 620px; color: var(--muted); }
+
+    .filter-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter { flex: 0 0 auto; min-height: 38px; padding: 0 14px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: 9px; font-weight: 600; letter-spacing: .12em; }
+    .filter.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery-item { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #ddd; cursor: pointer; }
+    .gallery-item.hidden { display: none; }
+    .gallery-item img, .gallery-item video { height: 100%; object-fit: cover; object-position: var(--position, 50% 50%); transition: transform .6s ease; }
+    .gallery-item:hover img, .gallery-item:hover video { transform: scale(1.02); }
+    .gallery-caption { position: absolute; left: 16px; right: 16px; bottom: 14px; color: #fff; opacity: 0; transition: .25s ease; text-shadow: 0 2px 12px #000; }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-caption strong { display: block; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .gallery-caption span { font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+
+    .about-copy { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px,8vw,110px); align-items: start; }
+    .about-copy img { height: 680px; object-fit: cover; object-position: 50% 42%; }
+    .about-copy h2 { margin: 0 0 22px; }
+    .about-copy p { color: #55554f; line-height: 1.85; }
+    .quote { padding: 90px clamp(28px,5vw,72px); background: #d8d4ca; font-family: var(--serif); font-size: clamp(38px,5vw,72px); line-height: 1.08; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px,7vw,90px); }
+    .contact-grid h1 { margin: 8px 0 20px; font-family: var(--serif); font-size: clamp(56px,7vw,96px); line-height: .92; font-weight: 400; }
+    .contact-form { display: grid; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: grid; gap: 6px; }
+    .field label { font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .field input, .field textarea, .field select { width: 100%; min-height: 48px; border: 1px solid var(--line); background: #f7f5ef; padding: 12px; outline: none; }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .contact-channels { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 40px; }
+    .channel { border-top: 1px solid var(--line); padding-top: 14px; }
+    .channel span { display: block; margin-bottom: 6px; color: var(--muted); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+    .whatsapp-panel {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      background: #d8d4ca;
+      padding: clamp(28px, 4vw, 48px);
+    }
+    .whatsapp-panel h2 {
       max-width: 520px;
-      margin-left: auto;
-    }
-
-    html[dir="rtl"] .hero-portrait-wrapper {
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    .hero-portrait-frame {
-      aspect-ratio: 4 / 5.4;
-      box-shadow: 0 25px 60px rgba(18, 18, 20, 0.08);
-    }
-
-    .hero-floating-caption {
-      position: absolute;
-      bottom: -1.75rem;
-      left: -2rem;
-      background-color: var(--bg-warm-white);
-      padding: 1.25rem 1.75rem;
-      border: 1px solid var(--border-light);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      z-index: 3;
-      max-width: 260px;
-    }
-
-    html[dir="rtl"] .hero-floating-caption {
-      left: auto;
-      right: -2rem;
-    }
-
-    .hero-floating-title {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-    }
-
-    .hero-floating-text {
-      font-size: 0.72rem;
-      opacity: 0.65;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    /* Scroll Indicator */
-    .hero-scroll-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--text-dark-muted);
-      margin-top: 3.5rem;
-      transition: color var(--transition-base);
-    }
-
-    .hero-scroll-indicator:hover {
-      color: var(--text-dark-primary);
-    }
-
-    .scroll-arrow-anim {
-      animation: bounceSubtle 2s infinite ease-in-out;
-    }
-
-    @keyframes bounceSubtle {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-
-    /* ==========================================================================
-       CHAPTER 01 — WEDDINGS (EMOTIONAL & TIMELESS / CINEMATIC TRANSITION)
-       ========================================================================== */
-    .weddings-section {
-      background-color: var(--bg-dark-navy);
-      color: var(--text-light-primary);
-      padding: clamp(5rem, 9vw, 9.5rem) 0;
-      position: relative;
-    }
-
-    .weddings-header-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: flex-end;
-      gap: 3rem;
-      margin-bottom: clamp(3rem, 6vw, 5.5rem);
-    }
-
-    .weddings-kicker {
-      color: var(--color-gold-subtle);
-    }
-
-    .weddings-title {
-      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-      margin-top: 0.75rem;
-      margin-bottom: 1.25rem;
-      color: var(--text-light-primary);
-    }
-
-    .weddings-tagline {
-      font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 2.2vw, 1.95rem);
-      font-style: italic;
-      color: #E2DDD5;
-      margin-bottom: 1rem;
-      line-height: 1.3;
-    }
-
-    .weddings-desc {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-light-secondary);
-      max-width: 48ch;
-      margin-bottom: 2rem;
-    }
-
-    /* Weddings Editorial Image Showcase */
-    .weddings-gallery-composition {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr 1fr;
-      gap: clamp(1.25rem, 2.5vw, 2.25rem);
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-
-    .weddings-frame-tall {
-      aspect-ratio: 3 / 4.4;
-    }
-
-    .weddings-frame-detail {
-      aspect-ratio: 1 / 1.15;
-      margin-bottom: clamp(1.25rem, 2.5vw, 2.25rem);
-    }
-
-    .weddings-frame-wide {
-      aspect-ratio: 16 / 10.5;
-    }
-
-    .weddings-frame-landscape {
-      aspect-ratio: 4 / 5.2;
-    }
-
-    .caption-editorial {
-      margin-top: 0.85rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.65;
-    }
-
-    .btn-weddings-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.84rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--text-light-primary);
-      padding: 0.75rem 0;
-      position: relative;
-      transition: color var(--transition-base);
-    }
-
-    .btn-weddings-cta::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: var(--color-gold-subtle);
-      transition: transform var(--transition-base);
-    }
-
-    .btn-weddings-cta:hover {
-      color: var(--color-gold-subtle);
-    }
-
-    /* ==========================================================================
-       CHAPTER 02 — SHOOTING (ARTISTIC & FASHION EDITORIAL / ATELIER LIGHT)
-       ========================================================================== */
-    .shooting-section {
-      background-color: var(--bg-cream);
-      color: var(--text-dark-primary);
-      padding: clamp(5rem, 9vw, 9.5rem) 0;
-      position: relative;
-    }
-
-    .shooting-asymmetric-layout {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: clamp(2.5rem, 6vw, 6.5rem);
-      align-items: center;
-    }
-
-    .shooting-hero-image-wrap {
-      position: relative;
-    }
-
-    .shooting-frame-main {
-      aspect-ratio: 3.5 / 5;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
-    }
-
-    .shooting-frame-offset {
-      position: absolute;
-      bottom: -3.5rem;
-      right: -2.5rem;
-      width: 52%;
-      aspect-ratio: 1 / 1.25;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-      border: 6px solid var(--bg-cream);
-    }
-
-    html[dir="rtl"] .shooting-frame-offset {
-      right: auto;
-      left: -2.5rem;
-    }
-
-    .shooting-content-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .shooting-title {
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      margin-top: 0.75rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark-primary);
-    }
-
-    .shooting-tagline {
-      font-family: var(--font-serif);
-      font-size: clamp(1.3rem, 2vw, 1.8rem);
-      font-style: italic;
-      color: var(--text-dark-secondary);
-      margin-bottom: 1.25rem;
-      line-height: 1.35;
-    }
-
-    .shooting-desc {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-dark-secondary);
-      margin-bottom: 2.25rem;
-      max-width: 50ch;
-    }
-
-    .shooting-categories-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.75rem;
-      margin-bottom: 2.75rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .shooting-category-item {
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--text-dark-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .shooting-category-item::before {
-      content: '·';
-      font-weight: bold;
-      color: var(--color-gold-subtle);
-    }
-
-    /* ==========================================================================
-       CHAPTER 03 — CONTENT CREATION (MODERN, DYNAMIC & SOCIAL STORYTELLING)
-       ========================================================================== */
-    .content-section {
-      background-color: var(--bg-deep-black);
-      color: var(--text-light-primary);
-      padding: clamp(5rem, 9vw, 9.5rem) 0;
-      position: relative;
-    }
-
-    .content-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: clamp(3rem, 5vw, 4.5rem);
-    }
-
-    .content-title {
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      margin-top: 0.75rem;
-      color: var(--text-light-primary);
-    }
-
-    .content-grid-composition {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .content-vertical-frame {
-      aspect-ratio: 9 / 16;
-      border: 1px solid var(--border-dark);
-      position: relative;
-    }
-
-    .content-pill-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background-color: rgba(10, 10, 12, 0.75);
-      backdrop-filter: blur(8px);
-      padding: 0.25rem 0.65rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-light-primary);
-      z-index: 3;
-    }
-
-    html[dir="rtl"] .content-pill-badge {
-      left: auto;
-      right: 1rem;
-    }
-
-    .reel-play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .content-vertical-frame:hover .reel-play-overlay,
-    .photo-frame:hover .reel-play-overlay {
-      background: rgba(0, 0, 0, 0.35);
-    }
-
-    .play-icon-circle {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s var(--ease-editorial);
-    }
-
-    .content-vertical-frame:hover .play-icon-circle {
-      transform: scale(1.12);
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* ==========================================================================
-       SELECTED WORK (EDITORIAL CURATED MASONRY & FILTER SYSTEM)
-       ========================================================================== */
-    .selected-work-section {
-      background-color: var(--bg-warm-white);
-      color: var(--text-dark-primary);
-      padding: clamp(5rem, 9vw, 9.5rem) 0;
-      position: relative;
-    }
-
-    .gallery-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .gallery-title {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      margin-top: 0.5rem;
-    }
-
-    /* Filter Controls */
-    .filter-group {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 0.55rem 1.1rem;
-      color: var(--text-dark-secondary);
-      border: 1px solid transparent;
-      transition: all var(--transition-base);
-    }
-
-    html[dir="rtl"] .filter-btn {
-      letter-spacing: 0.04em;
-    }
-
-    .filter-btn:hover {
-      color: var(--text-dark-primary);
-    }
-
-    .filter-btn.active {
-      color: var(--text-dark-primary);
-      border-color: var(--text-dark-primary);
-      background-color: var(--bg-ivory);
-    }
-
-    /* Editorial Masonry / Dynamic Grid */
-    .gallery-masonry-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: clamp(1.25rem, 2.5vw, 2.5rem);
-    }
-
-    .gallery-tile {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.4s var(--ease-editorial);
-    }
-
-    .gallery-tile > .photo-frame {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 5;
-    }
-
-    .gallery-tile:hover {
-      transform: translateY(-4px);
-    }
-
-    /* Tile Layout Variations for Editorial Rhythm */
-    .tile-span-6-tall {
-      grid-column: span 6;
-      aspect-ratio: 3.2 / 4;
-    }
-
-    .tile-span-6-square {
-      grid-column: span 6;
-      aspect-ratio: 1 / 1;
-    }
-
-    .tile-span-4-portrait {
-      grid-column: span 4;
-      aspect-ratio: 3 / 4.2;
-    }
-
-    .tile-span-8-landscape {
-      grid-column: span 8;
-      aspect-ratio: 16 / 10;
-    }
-
-    .tile-span-12-wide {
-      grid-column: span 12;
-      aspect-ratio: 21 / 9;
-    }
-
-    .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
-      grid-column: span 4;
-      aspect-ratio: auto;
-    }
-
-    .gallery-masonry-grid[data-filter="WEDDINGS"] .gallery-tile,
-    .gallery-masonry-grid[data-filter="SHOOTING"] .gallery-tile,
-    .gallery-masonry-grid[data-filter="CONTENT"] .gallery-tile {
-      grid-column: span 6;
-      aspect-ratio: auto;
-    }
-
-    .gallery-tile-meta {
-      margin-top: 0.85rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.75rem;
-      min-height: 2.6rem;
-    }
-
-    .tile-title {
-      flex: 1;
-      min-width: 0;
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--text-dark-primary);
-    }
-
-    .tile-category-year {
-      flex-shrink: 0;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dark-muted);
-      text-align: end;
-    }
-
-    /* ==========================================================================
-       ABOUT (BEHIND THE LENS / خلف العدسة)
-       ========================================================================== */
-    .about-section {
-      background-color: var(--bg-soft-beige);
-      color: var(--text-dark-primary);
-      padding: clamp(5rem, 9vw, 9.5rem) 0;
-      position: relative;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: clamp(2.5rem, 6vw, 6.5rem);
-      align-items: center;
-    }
-
-    .about-portrait-frame {
-      aspect-ratio: 3.5 / 4.8;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-    }
-
-    .about-title {
-      font-size: clamp(2.4rem, 5.2vw, 4.5rem);
-      margin-top: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .about-subtitle {
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--color-gold-subtle);
-      margin-bottom: 2rem;
-    }
-
-    .about-bio-text {
-      font-size: 1.02rem;
-      line-height: 1.85;
-      color: var(--text-dark-secondary);
-      margin-bottom: 2rem;
-    }
-
-    .about-slogan {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--text-dark-primary);
-    }
-
-    .about-philosophy-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 1.8vw, 1.55rem);
-      font-style: italic;
-      line-height: 1.45;
-      color: var(--text-dark-primary);
-      padding-left: 1.75rem;
-      border-left: 2px solid var(--color-gold-subtle);
-      margin-bottom: 2.5rem;
-    }
-
-    html[dir="rtl"] .about-philosophy-quote {
-      padding-left: 0;
-      padding-right: 1.75rem;
-      border-left: none;
-      border-right: 2px solid var(--color-gold-subtle);
-    }
-
-    .about-details-table {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    /* ==========================================================================
-       SERVICES (MINIMAL EDITORIAL DISCIPLINE)
-       ========================================================================== */
-    .services-section {
-      background-color: var(--bg-ivory);
-      color: var(--text-dark-primary);
-      padding: clamp(5rem, 8vw, 8rem) 0;
-    }
-
-    .services-header {
-      margin-bottom: 4rem;
-    }
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-row {
-      display: grid;
-      grid-template-columns: 0.6fr 1.4fr 1.6fr 0.4fr;
-      align-items: baseline;
-      padding: 2.75rem 0;
-      border-top: 1px solid var(--border-light);
-      transition: background-color var(--transition-base);
-    }
-
-    .service-row:last-child {
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .service-index {
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--color-gold-subtle);
-    }
-
-    .service-toggle {
-      display: grid;
-      grid-column: span 2;
-      grid-template-columns: 3rem minmax(0, 1fr);
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      text-align: start;
-      cursor: default;
-    }
-
-    .service-toggle:disabled {
-      color: inherit;
-      opacity: 1;
-    }
-
-    .service-toggle:disabled:focus-visible {
-      outline: none;
-    }
-
-    .service-name {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .service-description {
-      grid-column: 3;
-      font-size: 0.92rem;
-      line-height: 1.75;
-      color: var(--text-dark-secondary);
-      max-width: 50ch;
-    }
-
-    .service-description[aria-hidden="true"] {
-      display: none;
-    }
-
-    .service-action-arrow {
-      display: none;
-    }
-
-    .service-row::after {
-      content: '\2192';
-      grid-column: 4;
-      grid-row: 1;
-      justify-self: end;
-      align-self: center;
-      color: var(--text-dark-muted);
-      transition: color var(--transition-base), transform var(--transition-base);
-    }
-
-    .service-row:hover::after {
-      color: var(--color-gold-subtle);
-      transform: translateX(4px);
-    }
-
-    /* ==========================================================================
-       CONTACT (MEMORABLE EDITORIAL FINALE)
-       ========================================================================== */
-    .contact-section {
-      background-color: var(--bg-dark-navy);
-      color: var(--text-light-primary);
-      padding: clamp(6rem, 11vw, 11rem) 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: clamp(3rem, 7vw, 7rem);
-      align-items: flex-end;
-    }
-
-    .contact-heading-large {
-      font-size: clamp(3.2rem, 8vw, 6.8rem);
-      line-height: 0.95;
-      font-weight: 300;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    html[lang="fr"] .contact-heading-large {
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-    }
-
-    html[dir="rtl"] .contact-heading-final-line {
-      display: block;
-      margin-top: 0.12em;
-    }
-
-    .contact-lead {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-light-secondary);
-      max-width: 45ch;
-      margin-bottom: 3rem;
-    }
-
-    .contact-info-block {
-      display: flex;
-      flex-direction: column;
-      gap: 2.25rem;
-      padding: 3rem;
-      background-color: var(--bg-dark-surface);
-      border: 1px solid var(--border-dark);
-    }
-
-    .contact-channel-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .contact-channel-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-gold-subtle);
-      font-weight: 600;
-    }
-
-    .contact-channel-value {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      color: var(--text-light-primary);
-      transition: color var(--transition-base);
-    }
-
-    .contact-channel-value:hover {
-      color: var(--color-gold-subtle);
-    }
-
-    .contact-phone-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .contact-phone-number {
-      direction: ltr;
-      unicode-bidi: isolate;
-    }
-
-    html[dir="rtl"] .contact-phone-number {
-      text-align: right;
-    }
-
-    .btn-contact-action {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 1.25rem 2.25rem;
-      background-color: var(--color-gold-subtle);
-      color: var(--bg-deep-black);
-      transition: background-color var(--transition-base);
-      margin-top: 1rem;
-    }
-
-    .btn-contact-action:hover {
-      background-color: var(--color-gold-hover);
-    }
-
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
-    .site-footer {
-      background-color: #070709;
-      color: var(--text-light-muted);
-      padding: 3.5rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .footer-brand {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-light-primary);
-    }
-
-    .footer-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav a {
-      font-size: 0.76rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color var(--transition-base);
-    }
-
-    .footer-nav a:hover {
-      color: var(--text-light-primary);
-    }
-
-    .footer-copyright {
-      font-size: 0.74rem;
-      letter-spacing: 0.08em;
-      opacity: 0.6;
-    }
-
-    /* ==========================================================================
-       FULLSCREEN LIGHTBOX MODAL
-       ========================================================================== */
-    .lightbox-modal {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(6, 7, 10, 0.96);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s var(--ease-editorial);
-    }
-
-    .lightbox-modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2.5rem;
-      color: var(--text-light-primary);
-    }
-
-    .lightbox-brand-label {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-gold-subtle);
-    }
-
-    .lightbox-close-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-light-primary);
-      padding: 0.5rem;
-      cursor: pointer;
-      opacity: 0.75;
-      transition: opacity var(--transition-base);
-    }
-
-    .lightbox-close-btn:hover {
-      opacity: 1;
-    }
-
-    .lightbox-content-area {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 3rem;
-      position: relative;
-    }
-
-    .lightbox-media-container {
-      max-width: 90vw;
-      max-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox-media-container img,
-    .lightbox-media-container video {
-      max-width: 100%;
-      max-height: 75vh;
-      object-fit: contain;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    }
-
-    .lightbox-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 54px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-light-primary);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-      transition: background var(--transition-base), transform var(--transition-base);
-      z-index: 5;
-    }
-
-    .lightbox-arrow:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-50%) scale(1.06);
-    }
-
-    .lightbox-arrow.prev {
-      left: 2rem;
-    }
-
-    .lightbox-arrow.next {
-      right: 2rem;
-    }
-
-    .lightbox-bottombar {
-      padding: 1.5rem 2.5rem 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--text-light-primary);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .lightbox-meta-title {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
+      margin: 12px 0 24px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: .92;
       font-weight: 400;
     }
+    .whatsapp-panel p { max-width: 460px; color: #626159; line-height: 1.7; }
+    .whatsapp-links { display: grid; gap: 10px; }
+    .whatsapp-links .button { width: 100%; background: #11110f; color: #fff; border-color: #11110f; }
 
-    .lightbox-meta-info {
-      font-size: 0.76rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.6;
-    }
+    .lightbox { position: fixed; z-index: 120; inset: 0; display: none; place-items: center; background: rgba(10,10,9,.96); color: #fff; }
+    .lightbox.open { display: grid; }
+    .lightbox-inner { width: min(1100px, calc(100% - 48px)); }
+    .lightbox-media { max-height: 78vh; }
+    .lightbox-media img, .lightbox-media video { max-height: 78vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); background: transparent; color: #fff; font-size: 22px; }
 
-    /* ==========================================================================
-       CONTACT INQUIRY MODAL (EDITORIAL DRAWER)
-       ========================================================================== */
-    .inquiry-modal {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(6, 7, 10, 0.85);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-      padding: 1.5rem;
-    }
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: .8s cubic-bezier(.16,1,.3,1); }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroReveal { from { transform: scale(1.06); filter: brightness(.72); } to { transform: scale(1); filter: brightness(1); } }
 
-    .inquiry-modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .inquiry-card {
-      background-color: var(--bg-ivory);
-      color: var(--text-dark-primary);
-      width: 100%;
-      max-width: 580px;
-      padding: clamp(2rem, 5vw, 3.5rem);
-      position: relative;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-    }
-
-    .inquiry-close-btn {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      font-size: 1.25rem;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-
-    html[dir="rtl"] .inquiry-close-btn {
-      right: auto;
-      left: 1.5rem;
-    }
-
-    .inquiry-title {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-    }
-
-    .inquiry-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-dark-secondary);
-      margin-bottom: 2rem;
-    }
-
-    .inquiry-form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .inquiry-label {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--text-dark-secondary);
-    }
-
-    .inquiry-input, .inquiry-select, .inquiry-textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      background: var(--bg-warm-white);
-      border: 1px solid var(--border-light);
-      font-family: inherit;
-      font-size: 0.92rem;
-      color: var(--text-dark-primary);
-      transition: border-color 0.2s;
-    }
-
-    .inquiry-input:focus, .inquiry-select:focus, .inquiry-textarea:focus {
-      border-color: var(--text-dark-primary);
-    }
-
-    .inquiry-textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    /* ==========================================================================
-       RESPONSIVE DESIGN BREAKPOINTS
-       ========================================================================== */
-    @media (min-width: 1101px) and (max-width: 1400px) {
-      .header-inner {
-        gap: 1rem;
-      }
-      .brand-link {
-        margin-inline-end: 1rem;
-      }
-      .desktop-nav {
-        gap: clamp(0.75rem, 1vw, 1rem);
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-      }
-      .hero-portrait-wrapper {
-        margin: 0 auto;
-        max-width: 440px;
-      }
-      .weddings-header-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      .weddings-gallery-composition {
-        grid-template-columns: 1fr 1fr;
-      }
-      .shooting-asymmetric-layout {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-      .shooting-frame-offset {
-        position: relative;
-        inset: auto;
-        display: block;
-        width: min(68%, 320px);
-        margin: -3rem 0 0 auto;
-        z-index: 1;
-      }
-      html[dir="rtl"] .shooting-frame-offset {
-        inset: auto;
-        margin-left: 0;
-        margin-right: auto;
-      }
-      .content-grid-composition {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape {
-        grid-column: span 6;
-      }
-      .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
-        grid-column: span 6;
-        aspect-ratio: auto;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .desktop-nav {
-        display: none;
-      }
-      .mobile-menu-btn {
-        display: flex;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-section {
-        padding-top: 6.5rem;
-      }
-      .hero-floating-caption {
-        position: relative;
-        bottom: auto;
+    @media (min-width: 901px) {
+      .hero-media {
         left: auto;
-        right: auto;
-        margin-top: 1rem;
-        max-width: 100%;
+        right: 0;
+        width: 58%;
+        background: #dce3e3;
+        border-left: 1px solid rgba(255,255,255,.1);
       }
-      .weddings-gallery-composition {
-        grid-template-columns: 1fr;
+      .hero-media img {
+        width: 82%;
+        height: 92%;
+        margin: 8% auto 0;
+        object-fit: contain;
+        object-position: center bottom;
+        background: #dce3e3;
+        transform: translateY(2%);
+        transform-origin: center bottom;
+        animation: none;
       }
-      .content-grid-composition {
-        grid-template-columns: 1fr;
+      .hero::after {
+        background: linear-gradient(90deg, rgba(8,8,7,.78), rgba(8,8,7,.22) 52%, rgba(8,8,7,.08)), linear-gradient(180deg, rgba(8,8,7,.05) 45%, rgba(8,8,7,.55));
       }
-      .gallery-masonry-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .tile-span-6-tall, .tile-span-6-square, .tile-span-4-portrait, .tile-span-8-landscape, .tile-span-12-wide {
-        grid-column: span 1;
-        aspect-ratio: 4 / 5;
-      }
-      .gallery-masonry-grid[data-filter="WEDDINGS"] .gallery-tile,
-      .gallery-masonry-grid[data-filter="SHOOTING"] .gallery-tile,
-      .gallery-masonry-grid[data-filter="CONTENT"] .gallery-tile {
-        grid-column: span 1;
-      }
-      .gallery-masonry-grid[data-filter="ALL"] .gallery-tile {
-        grid-column: span 1;
-      }
-      .service-row {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0;
-        padding: 1.25rem 0;
-      }
-      .service-row::after {
-        display: none;
-      }
-      .service-toggle {
-        grid-column: 1;
-        grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
-        gap: 0.85rem;
-        min-height: 3.5rem;
-        cursor: pointer;
-      }
-      .service-toggle:disabled {
-        cursor: pointer;
-      }
-      .service-toggle:disabled:focus-visible {
-        outline: 2px solid var(--color-gold-subtle);
-      }
-      .service-index {
-        display: inline;
-        font-size: 1.05rem;
-      }
-      .service-name {
-        font-size: 1.65rem;
-        line-height: 1.15;
-      }
-      .service-description {
-        display: block;
-        grid-column: 1;
-        max-width: none;
-        padding-top: 0.65rem;
-        padding-inline-start: 3.35rem;
-        padding-inline-end: 0.5rem;
-        font-size: 0.9rem;
-        line-height: 1.75;
-      }
-      .service-row.open .service-description {
-        animation: serviceReveal 0.3s var(--ease-editorial) both;
-      }
-      .service-action-arrow {
+    }
+
+    @media (max-width: 900px) {
+      :root { --rail: 0px; }
+      .rail { display: none; }
+      .menu-button { display: flex; }
+      #app { margin-left: 0; }
+      .hero { height: 92svh; min-height: 620px; }
+      .hero-media img { object-position: 58% center; }
+      .hero-inner { left: 20px; right: 20px; bottom: 38px; }
+      .hero h1 { font-size: clamp(64px,16vw,100px); }
+      .hero-scroll { display: none; }
+      .section { padding: 72px 20px; }
+      .media-grid { grid-template-columns: 1fr; }
+      .media-card { height: 520px; }
+      .service-grid, .about-copy, .contact-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2,1fr); }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; padding: 32px 20px; }
+      .footer-links, .footer-copy { justify-self: center; }
+      .cta-bottom { align-items: start; flex-direction: column; gap: 22px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: clamp(58px,17vw,76px); }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .button { width: 100%; padding-inline: 10px; }
+      .section-head { align-items: start; }
+      .section-title { font-size: 48px; }
+      .view-link { display: none; }
+      .mobile-view-link {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        width: 2.25rem;
-        height: 2.25rem;
-        color: var(--color-gold-subtle);
-        border: 1px solid var(--border-light);
-        transition: border-color var(--transition-base), color var(--transition-base);
+        min-height: 42px;
+        margin-top: 18px;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 4px;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: .13em;
+        text-transform: uppercase;
       }
-      .service-action-arrow svg {
-        width: 16px;
-        height: 16px;
-        transition: transform var(--transition-base);
-      }
-      .service-toggle[aria-expanded="true"] .service-action-arrow svg {
-        transform: rotate(180deg);
-      }
-      .contact-info-block {
-        padding: 2rem 1.5rem;
-      }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-      .lightbox-arrow {
-        width: 42px;
-        height: 42px;
-      }
-      .lightbox-arrow.prev {
-        left: 0.5rem;
-      }
-      .lightbox-arrow.next {
-        right: 0.5rem;
-      }
-      .mobile-drawer {
-        padding: 5rem 1.5rem 1.5rem;
-        gap: 2rem;
-      }
+      .media-card { height: 420px; }
+      .service-list { grid-template-columns: 1fr; }
+      .gallery { gap: 8px; }
+      .gallery-item { aspect-ratio: 4/5; }
+      .gallery-caption { opacity: 1; left: 10px; right: 10px; bottom: 10px; }
+      .gallery-caption strong { font-size: 17px; }
+      .page-hero { height: 230px; min-height: 230px; }
+      .page-hero-inner { padding-inline: 20px; }
+      .page-hero h1 { font-size: 68px; }
+      .about-copy img { height: 460px; }
+      .quote { padding: 64px 20px; }
+      .form-row, .contact-channels { grid-template-columns: 1fr; }
+      .cta { min-height: 520px; }
+      .cta h2 { font-size: 58px; }
     }
-
-    @media (max-width: 480px) {
-      .header-inner {
-        gap: 0.5rem;
-      }
-      .brand-link {
-        margin-inline-end: 0;
-      }
-      .brand-wordmark {
-        font-size: 1rem;
-        letter-spacing: 0.1em;
-      }
-      .header-actions {
-        gap: 0.35rem;
-        margin-inline-start: 0;
-      }
-      .lang-switcher {
-        font-size: 0.68rem;
-        letter-spacing: 0.08em;
-        padding: 0.2rem 0.3rem;
-      }
-      .lang-btn {
-        padding: 0.08rem 0.12rem;
-      }
-      .lang-divider {
-        margin: 0 0.1rem;
-      }
-      .mobile-menu-btn {
-        width: 34px;
-        height: 34px;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .container {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-      }
-      .brand-wordmark {
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
-      }
-      .header-inner {
-        gap: 0.1rem;
-      }
-      .header-actions {
-        gap: 0.15rem;
-      }
-      .lang-switcher {
-        padding: 0.15rem 0.2rem;
-      }
-      .lang-btn {
-        padding: 0.06rem 0.08rem;
-      }
-      .mobile-menu-btn {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    @keyframes serviceReveal {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-
-  <!-- ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <!-- Brand Wordmark -->
-      <a href="#home" class="brand-link" aria-label="NOUL PRODUCTION Home">
-        <span class="brand-wordmark">NOUL PRODUCTION</span>
-      </a>
-
-      <!-- Desktop Navigation (Clean single-line text links) -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
-        <a href="#home" class="nav-link active" data-i18n="navHome">HOME</a>
-        <a href="#weddings" class="nav-link" data-i18n="navWeddings">WEDDINGS</a>
-        <a href="#shooting" class="nav-link" data-i18n="navShooting">SHOOTING</a>
-        <a href="#content" class="nav-link" data-i18n="navContent">CONTENT</a>
-        <a href="#work" class="nav-link" data-i18n="navWork">SELECTED WORK</a>
-        <a href="#about" class="nav-link" data-i18n="navAbout">ABOUT</a>
-        <a href="#contact" class="nav-link" data-i18n="navContact">CONTACT</a>
-      </nav>
-
-      <!-- Language Switcher & Mobile Trigger -->
-      <div class="header-actions">
-        <div class="lang-switcher" aria-label="Language Selector">
-          <button class="lang-btn active" id="btnEn" onclick="switchLanguage('en')">EN</button>
-          <span class="lang-divider">|</span>
-          <button class="lang-btn" id="btnFr" onclick="switchLanguage('fr')">FR</button>
-          <span class="lang-divider">|</span>
-          <button class="lang-btn" id="btnAr" onclick="switchLanguage('ar')">AR</button>
-        </div>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="closeMobileMenu()"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <button class="mobile-drawer-close" type="button" onclick="closeMobileMenu()" aria-label="Close Navigation Menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <div>
-      <div style="padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;">
-        <div style="font-family: var(--font-serif); font-size: 1.45rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light-primary);">NOUL PRODUCTION</div>
-      </div>
-
-      <div class="mobile-nav-links">
-        <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navHome">HOME</a>
-        <a href="#weddings" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWeddings">WEDDINGS</a>
-        <a href="#shooting" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navShooting">SHOOTING</a>
-        <a href="#content" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContent">CONTENT</a>
-        <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navWork">SELECTED WORK</a>
-        <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navAbout">ABOUT</a>
-        <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="navContact">CONTACT</a>
-      </div>
-
-      <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 0.75rem;">
-        <span style="font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light-muted);">LANG</span>
-        <div class="lang-switcher" style="border-color: rgba(255,255,255,0.2);">
-          <button class="lang-btn" id="mBtnEn" onclick="switchLanguage('en')">EN</button>
-          <span class="lang-divider">|</span>
-          <button class="lang-btn" id="mBtnFr" onclick="switchLanguage('fr')">FR</button>
-          <span class="lang-divider">|</span>
-          <button class="lang-btn" id="mBtnAr" onclick="switchLanguage('ar')">AR</button>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold-subtle); margin-bottom: 0.6rem;" data-i18n="mobileContactPrompt">
-        DIRECT INQUIRIES
-      </div>
-      <div style="font-size: 0.88rem; color: var(--text-light-secondary); line-height: 1.6;">
-        <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold-subtle); text-decoration: underline; font-weight: 500;">@noulprod on Instagram &rarr;</a><br />
-        <a href="mailto:aitoufquirnouhaila@gmail.com" style="color: var(--text-light-secondary);">aitoufquirnouhaila@gmail.com</a>
-        <a href="tel:+212656448893" class="contact-phone-number" style="color: var(--text-light-secondary);">+212 656 448 893</a>
-        <a href="tel:+212669587666" class="contact-phone-number" style="color: var(--text-light-secondary);">+212 669 587 666</a>
-      </div>
-    </div>
+  <aside class="rail" aria-label="Primary">
+    <a class="rail-mark" href="#/" aria-label="NOUL home">NP</a>
+    <nav class="rail-nav">
+      <a href="#/">Home</a>
+      <a href="#/stills">Portfolio</a>
+      <a href="#/services">Services</a>
+      <a href="#/about">About</a>
+      <a href="#/contact">Contact</a>
+    </nav>
+    <a class="rail-social" href="https://www.instagram.com/noulprod" target="_blank" rel="noopener">Instagram</a>
   </aside>
-
-  <!-- ==========================================================================
-       SECTION 0: THE PHOTOGRAPHER (HERO / COVER)
-       ========================================================================== -->
-  <section class="hero-section" id="home">
-    <div class="container hero-grid">
-      <!-- Left: Editorial Typography & Metadata -->
-      <div class="hero-content">
-        <div class="hero-kicker-row">
-          <span class="editorial-kicker" data-i18n="heroKicker">EDITORIAL ARCHIVE 2026</span>
-          <span style="height: 1px; width: 40px; background-color: var(--border-light);"></span>
-        </div>
-
-        <h1 class="editorial-heading hero-title">
-          <span>NOUL</span>
-          <span class="hero-title-production">PRODUCTION</span>
-        </h1>
-
-        <!-- Photographer Metadata Placeholders -->
-        <div class="hero-meta-grid">
-          <div>
-            <div class="hero-meta-item-label" data-i18n="heroMetaPhotographer">PHOTOGRAPHER</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaName">Nouhaila Ait Oufquir</div>
-          </div>
-          <div>
-            <div class="hero-meta-item-label" data-i18n="heroMetaLocation">BASED IN</div>
-            <div class="hero-meta-item-value" data-i18n="heroMetaCity">Marrakesh, Morocco</div>
-          </div>
-        </div>
-
-        <p class="hero-description" data-i18n="heroDescription">
-          My name is Nouhaila Ait Oufquir, I am 23 years old, and I am a Specialized Technician in Audiovisual. Passionate about images and visual storytelling, I express ideas and emotions through photography, video, and directing. I enjoy turning creative ideas into meaningful visual content and creating images that communicate emotions and tell stories with authenticity.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#work" class="btn-editorial-primary" data-i18n="heroCtaWork">
-            <span>VIEW SELECTED WORK</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-editorial-ghost" data-i18n="heroCtaInquire">
-            <span>BOOK A SESSION</span>
-          </a>
-        </div>
-
-        <a href="#weddings" class="hero-scroll-indicator" aria-label="Scroll to Weddings">
-          <span data-i18n="heroScroll">SCROLL</span>
-          <span class="scroll-arrow-anim">&darr;</span>
-        </a>
-      </div>
-
-      <!-- Right: Editorial Portrait -->
-      <div class="hero-portrait-col">
-        <div class="hero-portrait-wrapper">
-          <div class="photo-frame hero-portrait-frame">
-            <img 
-              src="assets/images/photographer/portrait.jpg" 
-              alt="Portrait of the Photographer — NOUL PRODUCTION" 
-              class="photo-img" 
-              loading="eager"
-              referrerpolicy="no-referrer"
-              onerror="handleImgError(this, 'assets/images/photographer/portrait.jpg', 'Portrait Placeholder')"
-            />
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
-              </svg>
-              <div class="placeholder-title" data-i18n="heroPortraitTitle">Photographer Portrait</div>
-              <div class="placeholder-path">assets/images/photographer/portrait.jpg</div>
-            </div>
-          </div>
-
-          <div class="hero-floating-caption">
-            <div class="hero-floating-title" data-i18n="heroFloatingTitle">Stories Told with Feeling</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CHAPTER 01 — WEDDINGS
-       ========================================================================== -->
-  <section class="weddings-section" id="weddings">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="weddings-header-grid">
-        <div>
-          <span class="editorial-kicker weddings-kicker" data-i18n="weddingsKicker">01 &mdash; WEDDINGS</span>
-          <h2 class="editorial-heading weddings-title" data-i18n="weddingsTitle">WEDDINGS</h2>
-          <div class="weddings-tagline" data-i18n="weddingsTagline">Love stories, honestly captured.</div>
-        </div>
-        <div>
-          <p class="weddings-desc" data-i18n="weddingsDesc">
-            Preserving unguarded intimacy, quiet glances, and celebratory grandeur. We approach your day with editorial sensitivity and timeless warmth&mdash;creating photographs that hold their breath for generations.
-          </p>
-          <a href="#work" onclick="filterGallery('WEDDINGS')" class="btn-weddings-cta" data-i18n="weddingsCta">
-            <span>EXPLORE WEDDINGS</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Editorial Image Composition (Asymmetric Full Visuals) -->
-      <div class="weddings-gallery-composition">
-        <!-- Tall Emotional Portrait -->
-        <div class="photo-frame dark-theme weddings-frame-tall" onclick="openLightboxBySrc('assets/images/weddings/wedding-01.jpg', 'The Bridal Heirloom', 'Weddings', '2026')">
-          <img 
-            src="assets/images/weddings/wedding-01.jpg" 
-            alt="Bride wearing an ornate jeweled headpiece" 
-            class="photo-img" 
-            loading="lazy"
-            referrerpolicy="no-referrer"
-            onerror="handleImgError(this, 'assets/images/weddings/wedding-01.jpg', 'The Bridal Heirloom')"
-          />
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-            <div class="placeholder-title">The Bridal Heirloom</div>
-            <div class="placeholder-path">assets/images/weddings/wedding-01.jpg</div>
-          </div>
-        </div>
-
-        <!-- Middle Column: Detail + Film Preview -->
-        <div>
-          <div class="photo-frame dark-theme weddings-frame-detail" onclick="openLightboxBySrc('assets/images/weddings/wedding-02.jpg', 'The Newlyweds’ Exit', 'Weddings', '2026')">
-            <img 
-              src="assets/images/weddings/wedding-02.jpg" 
-              alt="Newlyweds walking together after the ceremony" 
-              class="photo-img" 
-              loading="lazy"
-              onerror="handleImgError(this, 'assets/images/weddings/wedding-02.jpg', 'The Newlyweds’ Exit')"
-            />
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
-              </svg>
-              <div class="placeholder-title">The Newlyweds’ Exit</div>
-              <div class="placeholder-path">assets/images/weddings/wedding-02.jpg</div>
-            </div>
-          </div>
-
-          <div class="photo-frame dark-theme weddings-frame-wide" onclick="openLightboxBySrc('assets/images/weddings/wedding-03.mp4', 'A Promise at Dusk', 'Weddings', '2026', true)">
-            <video 
-              class="photo-img" 
-              autoplay 
-              loop 
-              muted 
-              playsinline
-              preload="auto"
-              style="width: 100%; height: 100%; object-fit: cover;"
-            >
-              <source src="assets/images/weddings/wedding-03.mp4" type="video/mp4" />
-            </video>
-            <div class="reel-play-overlay">
-              <div class="play-icon-circle">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                </svg>
-              </div>
-            </div>
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="10 8 16 12 10 16 10 8"></polygon>
-              </svg>
-              <div class="placeholder-title">A Promise at Dusk</div>
-              <div class="placeholder-path">assets/images/weddings/wedding-03.mp4</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Couple In Motion -->
-        <div class="photo-frame dark-theme weddings-frame-landscape" onclick="openLightboxBySrc('assets/images/weddings/wedding-04.jpg', 'A Dance of Joy', 'Weddings', '2026')">
-          <img 
-            src="assets/images/weddings/wedding-04.jpg" 
-            alt="Bride celebrating with guests at her wedding" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/images/weddings/wedding-04.jpg', 'A Dance of Joy')"
-          />
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
-            </svg>
-            <div class="placeholder-title">A Dance of Joy</div>
-            <div class="placeholder-path">assets/images/weddings/wedding-04.jpg</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CHAPTER 02 — SHOOTING
-       ========================================================================== -->
-  <section class="shooting-section" id="shooting">
-    <div class="container">
-      <div class="shooting-asymmetric-layout">
-        <!-- Visual Composition: Overlapping Atelier Frames -->
-        <div class="shooting-hero-image-wrap">
-          <div class="photo-frame shooting-frame-main" onclick="openLightboxBySrc('assets/images/shooting/shoot-01.jpg', 'A Gown in Evening Light', 'Shooting', '2026')">
-            <img 
-              src="assets/images/shooting/shoot-01.jpg" 
-              alt="Model posing in a flowing peach gown at dusk" 
-              class="photo-img" 
-              loading="lazy"
-              onerror="handleImgError(this, 'assets/images/shooting/shoot-01.jpg', 'A Gown in Evening Light')"
-            />
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              <div class="placeholder-title">A Gown in Evening Light</div>
-              <div class="placeholder-path">assets/images/shooting/shoot-01.jpg</div>
-            </div>
-          </div>
-
-          <div class="photo-frame shooting-frame-offset" onclick="openLightboxBySrc('assets/images/shooting/shoot-02.jpg', 'Portrait in Soft Light', 'Shooting', '2026')">
-            <img 
-              src="assets/images/shooting/shoot-02.jpg" 
-              alt="Thoughtful portrait in soft natural light" 
-              class="photo-img" 
-              loading="lazy"
-              onerror="handleImgError(this, 'assets/images/shooting/shoot-02.jpg', 'Portrait in Soft Light')"
-            />
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
-              </svg>
-              <div class="placeholder-title">Portrait in Soft Light</div>
-              <div class="placeholder-path">assets/images/shooting/shoot-02.jpg</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Text & Editorial Identity -->
-        <div class="shooting-content-col">
-          <span class="editorial-kicker" data-i18n="shootingKicker">02 &mdash; SHOOTING</span>
-          <h2 class="editorial-heading shooting-title" data-i18n="shootingTitle">SHOOTING</h2>
-          <div class="shooting-tagline" data-i18n="shootingTagline">Form, light, and artistic presence.</div>
-          
-          <p class="shooting-desc" data-i18n="shootingDesc">
-            High-fashion editorials, intimate personal sessions, and creative portrait commissions. Crafted through deliberate light sculpting, compositional asymmetry, and an organic collaboration with the subject.
-          </p>
-
-          <div class="shooting-categories-list">
-            <span class="shooting-category-item" data-i18n="shootingCat1">PORTRAITURE</span>
-            <span class="shooting-category-item" data-i18n="shootingCat2">FASHION & EDITORIAL</span>
-            <span class="shooting-category-item" data-i18n="shootingCat3">CREATIVE SESSIONS</span>
-            <span class="shooting-category-item" data-i18n="shootingCat4">LIFESTYLE ATELIER</span>
-          </div>
-
-          <div>
-            <a href="#work" onclick="filterGallery('SHOOTING')" class="btn-editorial-primary" data-i18n="shootingCta">
-              <span>EXPLORE SHOOTING</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CHAPTER 03 — CONTENT CREATION
-       ========================================================================== -->
-  <section class="content-section" id="content">
-    <div class="container">
-      <div class="content-header">
-        <div>
-          <span class="editorial-kicker" style="color: var(--color-gold-subtle);" data-i18n="contentKicker">03 &mdash; CONTENT CREATION</span>
-          <h2 class="editorial-heading content-title" data-i18n="contentTitle">CONTENT CREATION</h2>
-        </div>
-        <p style="max-width: 48ch; font-size: 0.95rem; line-height: 1.8; color: var(--text-light-secondary);" data-i18n="contentDesc">
-          Contemporary visual language for distinguished personal brands, tactile products, and digital platforms. Vertical imagery, rhythmic motion, and tailored aesthetic direction.
-        </p>
-      </div>
-
-      <!-- Vertical Social & Reel Showcase Composition -->
-      <div class="content-grid-composition">
-        <!-- Vertical Reel Slots -->
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-01.mp4', 'Safer Roads, Shared Together', 'Content', '2026', true)">
-          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
-          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-01.mp4', 'Safer Roads, Shared Together')">
-            <source src="assets/images/content/content-01.mp4" type="video/mp4" />
-          </video>
-          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <div class="placeholder-title">Safer Roads, Shared Together</div>
-            <div class="placeholder-path">assets/images/content/content-01.mp4</div>
-          </div>
-        </div>
-
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-02.mp4', 'Ride Together', 'Content', '2026', true)">
-          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
-          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-02.mp4', 'Ride Together')">
-            <source src="assets/images/content/content-02.mp4" type="video/mp4" />
-          </video>
-          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <div class="placeholder-title">Ride Together</div>
-            <div class="placeholder-path">assets/images/content/content-02.mp4</div>
-          </div>
-        </div>
-
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-03.mp4', 'Crossing Safely', 'Content', '2026', true)">
-          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
-          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-03.mp4', 'Crossing Safely')">
-            <source src="assets/images/content/content-03.mp4" type="video/mp4" />
-          </video>
-          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <div class="placeholder-title">Crossing Safely</div>
-            <div class="placeholder-path">assets/images/content/content-03.mp4</div>
-          </div>
-        </div>
-
-        <div class="photo-frame dark-theme content-vertical-frame" onclick="openLightboxBySrc('assets/images/content/content-04.mp4', 'Ideas Around the Table', 'Content', '2026', true)">
-          <span class="content-pill-badge" data-i18n="contentBadgeReel">REEL &middot; 4K</span>
-          <video class="photo-img" autoplay loop muted playsinline preload="metadata" onerror="handleImgError(this, 'assets/images/content/content-04.mp4', 'Ideas Around the Table')">
-            <source src="assets/images/content/content-04.mp4" type="video/mp4" />
-          </video>
-          <div class="reel-play-overlay"><div class="play-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div>
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <div class="placeholder-title">Ideas Around the Table</div>
-            <div class="placeholder-path">assets/images/content/content-04.mp4</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center;">
-        <a href="#work" onclick="filterGallery('CONTENT')" class="btn-weddings-cta" data-i18n="contentCta">
-          <span>EXPLORE CONTENT CREATION</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SELECTED WORK (CURATED EXHIBITION & LIGHTBOX)
-       ========================================================================== -->
-  <section class="selected-work-section" id="work">
-    <div class="container">
-      <div class="gallery-top-bar">
-        <div>
-          <span class="editorial-kicker" data-i18n="galleryKicker">CURATED EXHIBITION</span>
-          <h2 class="editorial-heading gallery-title" data-i18n="galleryTitle">SELECTED WORK</h2>
-        </div>
-
-        <!-- Filter Buttons (ALL, WEDDINGS, SHOOTING, CONTENT) -->
-        <div class="filter-group" role="tablist" aria-label="Portfolio Filters">
-          <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterGallery('ALL')" id="filter-ALL" data-i18n="filterAll">ALL</button>
-          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('WEDDINGS')" id="filter-WEDDINGS" data-i18n="filterWeddings">WEDDINGS</button>
-          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('SHOOTING')" id="filter-SHOOTING" data-i18n="filterShooting">SHOOTING</button>
-          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterGallery('CONTENT')" id="filter-CONTENT" data-i18n="filterContent">CONTENT</button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid Root (Populated via PORTFOLIO_DATA in JavaScript) -->
-      <div class="gallery-masonry-grid" id="galleryGridRoot">
-        <!-- Dynamically rendered items -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       ABOUT (BEHIND THE LENS / خلف العدسة)
-       ========================================================================== -->
-  <section class="about-section" id="about">
-    <div class="container about-grid">
-      <!-- Portrait -->
-      <div>
-        <div class="photo-frame about-portrait-frame">
-          <img 
-            src="assets/images/photographer/about.jpg" 
-            alt="Photographer at work — NOUL PRODUCTION" 
-            class="photo-img" 
-            loading="lazy"
-            onerror="handleImgError(this, 'assets/images/photographer/about.jpg', 'Photographer in Atelier')"
-          />
-          <div class="photo-placeholder-box">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
-            </svg>
-            <div class="placeholder-title" data-i18n="aboutPortraitTitle">Behind the Lens</div>
-            <div class="placeholder-path">assets/images/photographer/about.jpg</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Philosophy & Biography -->
-      <div>
-        <span class="editorial-kicker" data-i18n="aboutKicker">THE ARTIST</span>
-        <h2 class="editorial-heading about-title" data-i18n="aboutTitle">BEHIND THE LENS</h2>
-        <div class="about-subtitle" data-i18n="aboutSubtitle">AN EDITORIAL DIALOGUE OF LIGHT AND EMOTION</div>
-
-        <div class="about-philosophy-quote" data-i18n="aboutPhilosophy">
-          "Photography is not about forcing perfection, but about honouring the quiet, unscripted truth of human emotion."
-        </div>
-
-        <p class="about-bio-text" data-i18n="aboutBio">
-          I see every project as a new opportunity to explore creativity and transform ideas and emotions into visual stories. Through photography, video, and filmmaking, I aim to capture moments, express feelings, and tell stories in an authentic and meaningful way. For me, creating is about more than simply capturing an image; it is about giving each image a purpose and a story to tell.
-        </p>
-        <p class="about-slogan" data-i18n="aboutSlogan">Create. Capture. Tell.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SERVICES (REFINED EDITORIAL CATALOGUE)
-       ========================================================================== -->
-  <section class="services-section">
-    <div class="container">
-      <div class="services-header">
-        <span class="editorial-kicker" data-i18n="servicesKicker">COMMISSIONS</span>
-        <h2 class="editorial-heading" style="font-size: clamp(2.4rem, 4.5vw, 4rem); margin-top: 0.5rem;" data-i18n="servicesTitle">SERVICES</h2>
-      </div>
-
-      <div class="services-list">
-        <!-- Service 01 -->
-        <div class="service-row">
-          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionWeddings">
-            <span class="service-index">01</span>
-            <span class="service-name" data-i18n="serviceWeddingsTitle">WEDDINGS</span>
-            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-          </button>
-          <p class="service-description" id="serviceDescriptionWeddings" data-i18n="serviceWeddingsDesc">
-            Full-day & destination coverage, analogue stills, ceremony intimacy, and timeless emotional chronicles.
-          </p>
-        </div>
-
-        <!-- Service 02 -->
-        <div class="service-row">
-          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionShooting">
-            <span class="service-index">02</span>
-            <span class="service-name" data-i18n="serviceShootingTitle">SHOOTING</span>
-            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-          </button>
-          <p class="service-description" id="serviceDescriptionShooting" data-i18n="serviceShootingDesc">
-            Fashion editorials, private portraiture sessions, creative portfolio development, and personal styling sessions.
-          </p>
-        </div>
-
-        <!-- Service 03 -->
-        <div class="service-row">
-          <button class="service-toggle" type="button" aria-expanded="true" aria-controls="serviceDescriptionContent">
-            <span class="service-index">03</span>
-            <span class="service-name" data-i18n="serviceContentTitle">CONTENT CREATION</span>
-            <span class="service-action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-          </button>
-          <p class="service-description" id="serviceDescriptionContent" data-i18n="serviceContentDesc">
-            Bespoke visual identity for modern brands, 4K vertical reels, tactile product still life, and creative brand campaigns.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CONTACT (MEMORABLE EDITORIAL FINALE)
-       ========================================================================== -->
-  <section class="contact-section" id="contact">
-    <div class="container contact-grid">
-      <div>
-        <span class="editorial-kicker" style="color: var(--color-gold-subtle);" data-i18n="contactKicker">GET IN TOUCH</span>
-        <h2 class="editorial-heading contact-heading-large" data-i18n="contactHeading">
-          LET'S CREATE<br />SOMETHING<br />BEAUTIFUL.
-        </h2>
-        <p class="contact-lead" data-i18n="contactSubtitle">
-          Currently accepting commissions for upcoming wedding dates, fashion editorials, and selective brand partnerships.
-        </p>
-
-        <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-contact-action" data-i18n="contactCta">
-          <span>START A CONVERSATION</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Contact Coordinates -->
-      <div class="contact-info-block">
-        <div class="contact-channel-item">
-          <span class="contact-channel-label" data-i18n="contactLabelInsta">INSTAGRAM</span>
-          <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="contact-channel-value" data-i18n="contactValInsta">
-            @noulprod
-          </a>
-        </div>
-
-        <div class="contact-channel-item">
-          <span class="contact-channel-label" data-i18n="contactLabelWhatsApp">WHATSAPP</span>
-          <div class="contact-phone-links">
-            <a href="https://wa.me/212656448893" target="_blank" rel="noopener noreferrer" class="contact-channel-value contact-phone-number">+212 656 448 893</a>
-            <a href="https://wa.me/212669587666" target="_blank" rel="noopener noreferrer" class="contact-channel-value contact-phone-number">+212 669 587 666</a>
-          </div>
-        </div>
-
-        <div class="contact-channel-item">
-          <span class="contact-channel-label" data-i18n="contactLabelEmail">DIRECT EMAIL</span>
-          <a href="mailto:aitoufquirnouhaila@gmail.com" class="contact-channel-value" data-i18n="contactValEmail">
-            aitoufquirnouhaila@gmail.com
-          </a>
-        </div>
-
-        <div class="contact-channel-item">
-          <span class="contact-channel-label" data-i18n="contactLabelLocation">LOCATION</span>
-          <span class="contact-channel-value" data-i18n="heroMetaCity">Marrakesh, Morocco</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">NOUL PRODUCTION</div>
-
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="#home" data-i18n="navHome">HOME</a>
-        <a href="#weddings" data-i18n="navWeddings">WEDDINGS</a>
-        <a href="#shooting" data-i18n="navShooting">SHOOTING</a>
-        <a href="#content" data-i18n="navContent">CONTENT</a>
-        <a href="#about" data-i18n="navAbout">ABOUT</a>
-        <a href="#contact" data-i18n="navContact">CONTACT</a>
-        <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold-subtle);">INSTAGRAM (@noulprod)</a>
-      </nav>
-
-      <div class="footer-copyright" data-i18n="footerCopy">
-        &copy; 2026 NOUL PRODUCTION. ALL RIGHTS RESERVED.
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==========================================================================
-       FULLSCREEN LIGHTBOX MODAL
-       ========================================================================== -->
-  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Media Lightbox">
-    <div class="lightbox-topbar">
-      <div class="lightbox-brand-label">NOUL PRODUCTION</div>
-      <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox (Escape)">
-        <span data-i18n="lightboxClose">CLOSE</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <div class="lightbox-content-area">
-      <button class="lightbox-arrow prev" onclick="lightboxPrev()" aria-label="Previous Image (Left Arrow)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-
-      <div class="lightbox-media-container" id="lightboxMediaSlot">
-        <!-- Rendered Image or Video Element -->
-      </div>
-
-      <button class="lightbox-arrow next" onclick="lightboxNext()" aria-label="Next Image (Right Arrow)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </div>
-
-    <div class="lightbox-bottombar">
-      <div class="lightbox-meta-title" id="lightboxTitle">Project Title</div>
-      <div class="lightbox-meta-info" id="lightboxInfo">Category &middot; 2026</div>
-    </div>
+  <button class="menu-button" id="menuButton" aria-label="Open menu"><span></span></button>
+  <aside class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top"><a class="rail-mark" href="#/">NP</a><button class="mobile-close" id="menuClose" aria-label="Close menu">×</button></div>
+    <nav class="mobile-links">
+      <a href="#/">Home</a><a href="#/stills">Portfolio</a><a href="#/services">Services</a><a href="#/about">About</a><a href="#/contact">Contact</a>
+    </nav>
+    <a href="https://www.instagram.com/noulprod" target="_blank" rel="noopener">@noulprod</a>
+  </aside>
+  <main id="app"></main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <div class="lightbox-inner"><div class="lightbox-media" id="lightboxMedia"></div></div>
   </div>
-
-  <!-- ==========================================================================
-       EDITORIAL INQUIRY MODAL
-       ========================================================================== -->
-  <div class="inquiry-modal" id="inquiryModal" role="dialog" aria-modal="true" aria-label="Direct Inquiry">
-    <div class="inquiry-card">
-      <button class="inquiry-close-btn" onclick="closeInquiryModal()" aria-label="Close Modal">&times;</button>
-      <h3 class="inquiry-title" data-i18n="inquiryTitle">Direct Inquiry</h3>
-      <p class="inquiry-subtitle" data-i18n="inquirySubtitle">Share your vision, date, and project specifications.</p>
-
-      <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
-        <div class="inquiry-form-group">
-          <label class="inquiry-label" for="inqName" data-i18n="inqNameLabel">Your Name</label>
-          <input type="text" id="inqName" required class="inquiry-input" placeholder="e.g. Elena Rostova" />
-        </div>
-
-        <div class="inquiry-form-group">
-          <label class="inquiry-label" for="inqEmail" data-i18n="inqEmailLabel">Email Address</label>
-          <input type="email" id="inqEmail" required class="inquiry-input" placeholder="elena@example.com" />
-        </div>
-
-        <div class="inquiry-form-group">
-          <label class="inquiry-label" for="inqCategory" data-i18n="inqCategoryLabel">Commission Category</label>
-          <select id="inqCategory" class="inquiry-select">
-            <option value="Weddings" data-i18n="inqOptWeddings">Weddings</option>
-            <option value="Shooting" data-i18n="inqOptShooting">Shooting / Editorial Portrait</option>
-            <option value="Content Creation" data-i18n="inqOptContent">Content Creation & Reels</option>
-          </select>
-        </div>
-
-        <div class="inquiry-form-group">
-          <label class="inquiry-label" for="inqMessage" data-i18n="inqMessageLabel">Message & Details</label>
-          <textarea id="inqMessage" class="inquiry-textarea" placeholder="Tell us about your date, location, and aesthetic preferences..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-editorial-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" data-i18n="inqSubmitBtn">
-          <span>SEND INQUIRY</span>
-          <span aria-hidden="true">&rarr;</span>
-        </button>
-
-        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-light); text-align: center;">
-          <span style="font-size: 0.78rem; opacity: 0.7;" data-i18n="inqInstaAlternative">Prefer direct messaging?</span>
-          <a href="https://www.instagram.com/noulprod?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="display: block; margin-top: 0.35rem; font-size: 0.86rem; font-weight: 600; color: var(--color-gold-subtle); text-decoration: underline;">
-            Message @noulprod on Instagram &rarr;
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       ALL SCRIPTS IN ONE CONCISE, ROBUST ENGINE
-       ========================================================================== -->
   <script>
-    /* ==========================================================================
-       PORTFOLIO ITEMS DATA SECTION (EASILY EDITABLE FOR THE PHOTOGRAPHER)
-       To add, remove or modify projects, simply edit this array:
-       ========================================================================== */
-    const PORTFOLIO_DATA = [
-      {
-        id: 'w1',
-        titleEn: 'The Bridal Heirloom',
-        titleAr: 'زينة العروس',
-        titleFr: 'La parure de la mariée',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-01.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-6-tall'
-      },
-      {
-        id: 's1',
-        titleEn: 'A Gown in Evening Light',
-        titleAr: 'فستان بضوء الغروب',
-        titleFr: 'Une robe au crépuscule',
-        category: 'SHOOTING',
-        year: '2026',
-        src: 'assets/images/shooting/shoot-01.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-6-square'
-      },
-      {
-        id: 'c1',
-        titleEn: 'Safer Roads, Shared Together',
-        titleAr: 'طرق أكثر أماناً للجميع',
-        titleFr: 'Des routes plus sûres, ensemble',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-01.mp4',
-        videoSrc: 'assets/images/content/content-01.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 'w2',
-        titleEn: 'The Newlyweds’ Exit',
-        titleAr: 'خروج العروسين',
-        titleFr: 'La sortie des mariés',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-02.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-8-landscape'
-      },
-      {
-        id: 's2',
-        titleEn: 'Portrait in Soft Light',
-        titleAr: 'بورتريه بضوء ناعم',
-        titleFr: 'Portrait en lumière douce',
-        category: 'SHOOTING',
-        year: '2026',
-        src: 'assets/images/shooting/shoot-02.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-6-square'
-      },
-      {
-        id: 'c2',
-        titleEn: 'Ride Together',
-        titleAr: 'نركب معاً',
-        titleFr: 'Rouler ensemble',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-02.mp4',
-        videoSrc: 'assets/images/content/content-02.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-6-tall'
-      },
-      {
-        id: 'w3',
-        titleEn: 'A Promise at Dusk',
-        titleAr: 'وعد عند الغروب',
-        titleFr: 'Une promesse au crépuscule',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-03.mp4',
-        videoSrc: 'assets/images/weddings/wedding-03.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-12-wide'
-      },
-      {
-        id: 's3',
-        titleEn: 'Rhythm in Green',
-        titleAr: 'إيقاع باللون الأخضر',
-        titleFr: 'Rythme en vert',
-        category: 'SHOOTING',
-        year: '2026',
-        src: 'assets/images/shooting/shoot-03.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 's4',
-        titleEn: 'Monochrome on the Runway',
-        titleAr: 'إطلالة أحادية على منصة العرض',
-        titleFr: 'Silhouette monochrome sur le podium',
-        category: 'SHOOTING',
-        year: '2026',
-        src: 'assets/images/shooting/shoot-04.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 'c3',
-        titleEn: 'Crossing Safely',
-        titleAr: 'عبور آمن',
-        titleFr: 'Traverser en toute sécurité',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-03.mp4',
-        videoSrc: 'assets/images/content/content-03.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 'w4',
-        titleEn: 'A Dance of Joy',
-        titleAr: 'رقصة فرح',
-        titleFr: 'Une danse de joie',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-04.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 'w5',
-        titleEn: 'A Quiet Blessing',
-        titleAr: 'لحظة مباركة',
-        titleFr: 'Une bénédiction tout en douceur',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-05.jpg',
-        isVideo: false,
-        spanClass: 'tile-span-6-tall'
-      },
-      {
-        id: 'w6',
-        titleEn: 'The Bridal Crown',
-        titleAr: 'تاج العروس',
-        titleFr: 'La couronne de la mariée',
-        category: 'WEDDINGS',
-        year: '2026',
-        src: 'assets/images/weddings/wedding-06.mp4',
-        videoSrc: 'assets/images/weddings/wedding-06.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-6-tall'
-      },
-      {
-        id: 'c4',
-        titleEn: 'Ideas Around the Table',
-        titleAr: 'أفكار حول الطاولة',
-        titleFr: 'Des idées autour de la table',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-04.mp4',
-        videoSrc: 'assets/images/content/content-04.mp4',
-        isVideo: true,
-        spanClass: 'tile-span-4-portrait'
-      },
-      {
-        id: 'c5',
-        titleEn: 'A World in Color',
-        titleAr: 'عالم من الألوان',
-        titleFr: 'Un monde en couleurs',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-05.webp',
-        isVideo: false,
-        spanClass: 'tile-span-6-square'
-      },
-      {
-        id: 'c6',
-        titleEn: 'The Joy of the Game',
-        titleAr: 'فرحة اللعب',
-        titleFr: 'La joie du jeu',
-        category: 'CONTENT',
-        year: '2026',
-        src: 'assets/images/content/content-06.webp',
-        isVideo: false,
-        spanClass: 'tile-span-6-square'
-      }
-    ];
+    const app = document.getElementByState = document.getElementById("app");
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuClose = document.getElementById("menuClose");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxMedia = document.getElementById("lightboxMedia");
 
-    /* ==========================================================================
-       BILINGUAL LOCALIZATION (ENGLISH & ARABIC)
-       ========================================================================== */
-    const I18N = {
-      en: {
-        pageTitle: 'NOUL PRODUCTION — Photographer & Visual Storyteller',
-        headerSubtitle: 'PHOTOGRAPHER & VISUAL STORYTELLER',
-        navHome: 'HOME',
-        navWeddings: 'WEDDINGS',
-        navShooting: 'SHOOTING',
-        navContent: 'CONTENT',
-        navWork: 'SELECTED WORK',
-        navAbout: 'ABOUT',
-        navContact: 'CONTACT',
-        mobileContactPrompt: 'DIRECT INQUIRIES',
+    function setMenu(open) {
+      mobileMenu.classList.toggle("open", open);
+      document.body.classList.toggle("menu-open", open);
+    }
+    menuButton.onclick = () => setMenu(true);
+    menuClose.onclick = () => setMenu(false);
+    mobileMenu.querySelectorAll("a").forEach(a => a.onclick = () => setMenu(false));
+    document.getElementById("lightboxClose").onclick = closeLightbox;
+    lightbox.onclick = event => { if (event.target === lightbox) closeLightbox(); };
+    function closeLightbox() { lightbox.classList.remove("open"); lightboxMedia.innerHTML = ""; }
+    document.onkeydown = event => { if (event.key === "Escape") closeLightbox(); };
 
-        heroKicker: 'EDITORIAL ARCHIVE 2026',
-        heroRole1: 'PHOTOGRAPHER',
-        heroRole2: 'VISUAL STORYTELLER',
-        heroMetaPhotographer: 'PHOTOGRAPHER',
-        heroMetaName: 'Nouhaila Ait Oufquir',
-        heroMetaLocation: 'BASED IN',
-        heroMetaCity: 'Marrakesh, Morocco',
-        heroDescription: 'My name is Nouhaila Ait Oufquir, I am 23 years old, and I am a Specialized Technician in Audiovisual. Passionate about images and visual storytelling, I express ideas and emotions through photography, video, and directing. I enjoy turning creative ideas into meaningful visual content and creating images that communicate emotions and tell stories with authenticity.',
-        heroCtaWork: 'VIEW SELECTED WORK',
-        heroCtaInquire: 'BOOK A SESSION',
-        heroScroll: 'SCROLL',
-        heroPortraitTitle: 'Photographer Portrait',
-        heroFloatingTitle: 'Stories Told with Feeling',
+    const footer = () => `
+      <footer><div class="footer-inner section" style="min-height:140px;padding-top:32px;padding-bottom:32px">
+        <a class="footer-brand" href="#/">NOUL PRODUCTION</a>
+        <nav class="footer-links"><a href="#/stills">Portfolio</a><a href="#/about">About</a><a href="#/services">Services</a><a href="#/contact">Contact</a></nav>
+        <span class="footer-copy">© 2026 NOUL PRODUCTION</span>
+      </div></footer>`;
 
-        weddingsKicker: '01 — WEDDINGS',
-        weddingsTitle: 'WEDDINGS',
-        weddingsTagline: 'Love stories, honestly captured.',
-        weddingsDesc: 'Preserving unguarded intimacy, quiet glances, and celebratory grandeur. We approach your day with editorial sensitivity and timeless warmth—creating photographs that hold their breath for generations.',
-        weddingsCta: 'EXPLORE WEDDINGS',
+    const home = () => `
+      <section class="hero" id="home">
+        <div class="hero-media"><img src="/assets/images/photographer/portrait.jpg" alt="NOUL PRODUCTION portrait" /></div>
+        <div class="hero-inner">
+          <p class="hero-kicker">Photographer &amp; Visual Storyteller</p>
+          <h1>NOUL<br/>PRODUCTION</h1>
+          <div class="hero-actions"><a class="button light" href="#/stills">View Portfolio <span>→</span></a><a class="button" href="#/contact">Get In Touch</a></div>
+        </div>
+      </section>
+      <section class="section" id="projects">
+        <div class="section-head" data-reveal><div><p class="eyebrow">Selected Visuals</p><h2 class="section-title">Latest Projects</h2></div><a class="view-link" href="#/stills">View All Work</a></div>
+        <div class="media-grid" data-reveal>
+          ${mediaCard("/assets/images/weddings/wedding-03.mp4","Wedding","A Promise at Dusk","video")}
+          ${mediaCard("/assets/images/weddings/wedding-06.mp4","Wedding","Wedding Moment","video")}
+          ${mediaCard("/assets/images/content/content-02.mp4","Content","Ride Together","video")}
+        </div>
+        <a class="mobile-view-link" href="#/stills">View All Work</a>
+      </section>
+      <section class="section" id="reels">
+        <div class="section-head" data-reveal><div><p class="eyebrow">Short Form</p><h2 class="section-title">Visual Stories</h2></div><a class="view-link" href="#/stills">View All Visuals</a></div>
+        <div class="media-grid" data-reveal>
+          ${mediaCard("/assets/images/content/content-01.mp4","Reel","Motion 01","video")}
+          ${mediaCard("/assets/images/content/content-03.mp4","Reel","Motion 03","video")}
+          ${mediaCard("/assets/images/content/content-04.mp4","Reel","Motion 04","video")}
+        </div>
+        <a class="mobile-view-link" href="#/stills">View All Visuals</a>
+      </section>
+      <section class="section" id="stills">
+        <div class="section-head" data-reveal><div><p class="eyebrow">Photography</p><h2 class="section-title">Featured Photography</h2></div><a class="view-link" href="#/stills">View All Photography</a></div>
+        <div class="media-grid" data-reveal>
+          ${mediaCard("/assets/images/weddings/wedding-01.jpg","Wedding","The Bridal Heirloom","image")}
+          ${mediaCard("/assets/images/shooting/shoot-02.jpg","Shooting","Soft Light","image")}
+          ${mediaCard("/assets/images/shooting/shoot-03.jpg","Shooting","Rhythm in Green","image")}
+          ${mediaCard("/assets/images/weddings/wedding-07.jpg","Wedding","The Rings","image")}
+          ${mediaCard("/assets/images/shooting/shoot-10.jpg","Shooting","A Shared Smile","image")}
+          ${mediaCard("/assets/images/weddings/wedding-12.jpg","Wedding","Wedding Portrait","image")}
+        </div>
+        <a class="mobile-view-link" href="#/stills">View All Photography</a>
+      </section>
+      <section class="section services" id="services">
+        <div class="section-head" data-reveal><div><p class="eyebrow">Expertise</p><h2 class="section-title">Services</h2></div></div>
+        <p style="max-width:560px;color:rgba(255,255,255,.62);margin:-12px 0 38px">Comprehensive visual storytelling solutions tailored to your vision</p>
+        <div class="service-grid" data-reveal>
+          <div><h3 class="service-heading">Celebrations</h3><div class="service-list">${service("Weddings","Elegant coverage of your ceremony and celebration")}${service("Portraits","Personal and professional portrait sessions")}${service("Fashion","Editorial and commercial fashion")}</div></div>
+          <div><h3 class="service-heading">Brands &amp; Spaces</h3><div class="service-list">${service("Restaurants","Food, ambience, and interior photography")}${service("Real Estate","Architectural and property presentation")}${service("Products","Detailed commercial and product imagery")}</div></div>
+        </div>
+      </section>
+      <section class="section cta"><div class="cta-inner" data-reveal><p class="eyebrow">Let's Work Together</p><h2>Ready to Collaborate?</h2><div class="cta-bottom"><p>Let's create something beautiful together. Reach out to discuss your project or book a session.</p><a class="button" href="#/contact">Get In Touch →</a></div></div></section>
+      ${footer()}`;
 
-        shootingKicker: '02 — SHOOTING',
-        shootingTitle: 'SHOOTING',
-        shootingTagline: 'Form, light, and artistic presence.',
-        shootingDesc: 'High-fashion editorials, intimate personal sessions, and creative portrait commissions. Crafted through deliberate light sculpting, compositional asymmetry, and an organic collaboration with the subject.',
-        shootingCat1: 'PORTRAITURE',
-        shootingCat2: 'FASHION & EDITORIAL',
-        shootingCat3: 'CREATIVE SESSIONS',
-        shootingCat4: 'LIFESTYLE ATELIER',
-        shootingCta: 'EXPLORE SHOOTING',
-
-        contentKicker: '03 — CONTENT CREATION',
-        contentTitle: 'CONTENT CREATION',
-        contentDesc: 'Contemporary visual language for distinguished personal brands, tactile products, and digital platforms. Vertical imagery, rhythmic motion, and tailored aesthetic direction.',
-        contentBadgeVisual: 'VISUAL STORY',
-        contentBadgeReel: 'REEL · 4K',
-        contentBadgeProduct: 'STILL LIFE',
-        contentBadgeEditorial: 'INFLUENCE',
-        contentCta: 'EXPLORE CONTENT CREATION',
-
-        galleryKicker: 'CURATED EXHIBITION',
-        galleryTitle: 'SELECTED WORK',
-        filterAll: 'ALL',
-        filterWeddings: 'WEDDINGS',
-        filterShooting: 'SHOOTING',
-        filterContent: 'CONTENT',
-
-        aboutKicker: 'THE ARTIST',
-        aboutTitle: 'BEHIND THE LENS',
-        aboutSubtitle: 'AN EDITORIAL DIALOGUE OF LIGHT AND EMOTION',
-        aboutPhilosophy: '"Photography is not about forcing perfection, but about honouring the quiet, unscripted truth of human emotion."',
-        aboutBio: 'I see every project as a new opportunity to explore creativity and transform ideas and emotions into visual stories. Through photography, video, and filmmaking, I aim to capture moments, express feelings, and tell stories in an authentic and meaningful way. For me, creating is about more than simply capturing an image; it is about giving each image a purpose and a story to tell.',
-        aboutSlogan: 'Create. Capture. Tell.',
-        aboutPortraitTitle: 'Behind the Lens',
-
-        servicesKicker: 'COMMISSIONS',
-        servicesTitle: 'SERVICES',
-        serviceWeddingsTitle: 'WEDDINGS',
-        serviceWeddingsDesc: 'Full-day & destination coverage, analogue stills, ceremony intimacy, and timeless emotional chronicles.',
-        serviceShootingTitle: 'SHOOTING',
-        serviceShootingDesc: 'Fashion editorials, private portraiture sessions, creative portfolio development, and personal styling sessions.',
-        serviceContentTitle: 'CONTENT CREATION',
-        serviceContentDesc: 'Bespoke visual identity for modern brands, 4K vertical reels, tactile product still life, and creative brand campaigns.',
-
-        contactKicker: 'GET IN TOUCH',
-        contactHeading: "LET'S CREATE<br />SOMETHING<br />BEAUTIFUL.",
-        contactSubtitle: 'Currently accepting commissions for upcoming wedding dates, fashion editorials, and selective brand partnerships.',
-        contactCta: 'START A CONVERSATION',
-        contactLabelInsta: 'INSTAGRAM',
-        contactValInsta: '@noulprod',
-        contactLabelWhatsApp: 'WHATSAPP',
-        contactLabelEmail: 'DIRECT EMAIL',
-        contactValEmail: 'aitoufquirnouhaila@gmail.com',
-        contactLabelLocation: 'LOCATION',
-
-        footerCopy: '© 2026 NOUL PRODUCTION. ALL RIGHTS RESERVED.',
-        lightboxClose: 'CLOSE',
-
-        inquiryTitle: 'Direct Inquiry',
-        inquirySubtitle: 'Share your vision, date, and project specifications.',
-        inqNameLabel: 'Your Name',
-        inqEmailLabel: 'Email Address',
-        inqCategoryLabel: 'Commission Category',
-        inqOptWeddings: 'Weddings',
-        inqOptShooting: 'Shooting / Editorial Portrait',
-        inqOptContent: 'Content Creation & Reels',
-        inqMessageLabel: 'Message & Details',
-        inqSubmitBtn: 'SEND INQUIRY',
-        inqInstaAlternative: 'Prefer direct messaging?'
-      },
-      ar: {
-        pageTitle: 'نول برودكشن — مصورة فوتوغرافية وراوية بصرية',
-        headerSubtitle: 'مصورة فوتوغرافية · راوية بصرية',
-        navHome: 'الرئيسية',
-        navWeddings: 'حفلات الزفاف',
-        navShooting: 'جلسات التصوير',
-        navContent: 'صناعة المحتوى',
-        navWork: 'أعمال مختارة',
-        navAbout: 'من نحن',
-        navContact: 'تواصل معنا',
-        mobileContactPrompt: 'للتواصل المباشر',
-
-        heroKicker: 'أرشيف الأعمال ٢٠٢٦',
-        heroRole1: 'مصورة فوتوغرافية',
-        heroRole2: 'راوية بصرية',
-        heroMetaPhotographer: 'المصورة',
-        heroMetaName: 'نهيلة آيت أوفقير',
-        heroMetaLocation: 'المقر الرئيسي',
-        heroMetaCity: 'مراكش، المغرب',
-        heroDescription: 'اسمي نهيلة آيت أوفقير، أبلغ من العمر ٢٣ عاماً، وأنا تقنية متخصصة في مجال السمعي البصري. شغوفة بالصور والسرد البصري، وأعبّر عن الأفكار والمشاعر من خلال التصوير الفوتوغرافي والفيديو والإخراج. أحب تحويل الأفكار الإبداعية إلى محتوى بصري هادف، وإنشاء صور تنقل المشاعر وتحكي القصص بصدق.',
-        heroCtaWork: 'استعراض الأعمال المختارة',
-        heroCtaInquire: 'حجز جلسة تصوير',
-        heroScroll: 'تمرير',
-        heroPortraitTitle: 'بورتريه المصورة',
-        heroFloatingTitle: 'حكايات تُروى بإحساس',
-
-        weddingsKicker: '٠١ — حفلات الزفاف',
-        weddingsTitle: 'حفلات الزفاف',
-        weddingsTagline: 'قصص حب تُروى بصدق وعفوية.',
-        weddingsDesc: 'توثيق أصدق المشاعر، النظرات العفوية، وبهجة الاحتفال الكبير. نتعامل مع يومكم الخاص بحس تحريري راقٍ ودفء دائم—لنصنع صوراً تحفظ جمالها عبر الأجيال.',
-        weddingsCta: 'اكتشف حفلات الزفاف',
-
-        shootingKicker: '٠٢ — جلسات التصوير',
-        shootingTitle: 'جلسات التصوير',
-        shootingTagline: 'الشكل، الضوء، والحضور الفني.',
-        shootingDesc: 'جلسات أزياء تحريرية، بورتريهات شخصية خاصة، ومشاريع بصرية مبتكرة. تولد عبر نحت الضوء بعناية، والتوازن البصري الجريء، والتناغم الإنساني العميق مع الشخصية.',
-        shootingCat1: 'بورتريه شخصي',
-        shootingCat2: 'أزياء وتحريري',
-        shootingCat3: 'جلسات إبداعية',
-        shootingCat4: 'أسلوب حياة',
-        shootingCta: 'اكتشف جلسات التصوير',
-
-        contentKicker: '٠٣ — صناعة المحتوى',
-        contentTitle: 'صناعة المحتوى',
-        contentDesc: 'لغة بصرية معاصرة للعلامات التجارية المتميزة، وتصوير المنتجات، والمنصات الرقمية. صور طولية، حركة إيقاعية، وتوجيه بصري مخصص.',
-        contentBadgeVisual: 'قصة بصرية',
-        contentBadgeReel: 'ريلز · 4K',
-        contentBadgeProduct: 'تصوير منتجات',
-        contentBadgeEditorial: 'محتوى مؤثر',
-        contentCta: 'اكتشف صناعة المحتوى',
-
-        galleryKicker: 'معرض منتقى',
-        galleryTitle: 'أعمال مختارة',
-        filterAll: 'الكل',
-        filterWeddings: 'حفلات الزفاف',
-        filterShooting: 'جلسات التصوير',
-        filterContent: 'صناعة المحتوى',
-
-        aboutKicker: 'الفنانة',
-        aboutTitle: 'خلف العدسة',
-        aboutSubtitle: 'حوار بصري بين الضوء والوجدان',
-        aboutPhilosophy: '"التصوير الفوتوغرافي ليس محاولة لفرض الكمال، بل هو احتفاء بالحقيقة الصادقة الهادئة للمشاعر الإنسانية."',
-        aboutBio: 'أرى في كل مشروع فرصة جديدة لاستكشاف الإبداع وتحويل الأفكار والمشاعر إلى قصص بصرية. من خلال التصوير الفوتوغرافي والفيديو وصناعة الأفلام، أسعى إلى التقاط اللحظات والتعبير عن المشاعر وسرد القصص بطريقة صادقة وذات معنى. فالإبداع بالنسبة إليّ يتجاوز مجرد التقاط صورة؛ إنه منح كل صورة هدفاً وقصة ترويها.',
-        aboutSlogan: 'ابتكر. التقط. اروِ.',
-        aboutPortraitTitle: 'خلف العدسة',
-
-        servicesKicker: 'المشاريع والخدمات',
-        servicesTitle: 'الخدمات المقدمة',
-        serviceWeddingsTitle: 'حفلات الزفاف',
-        serviceWeddingsDesc: 'تغطية كاملة وشاملة، صور كلاسيكية ورقمية، وتوثيق المناسبات الخاصة بأعلى معايير الإتقان.',
-        serviceShootingTitle: 'جلسات التصوير',
-        serviceShootingDesc: 'جلسات أزياء تحريرية، بورتريه شخصي راقٍ، وتطوير هوية بصرية للشخصيات.',
-        serviceContentTitle: 'صناعة المحتوى',
-        serviceContentDesc: 'هوية بصرية مصممة للمنصات الحديثة، مقاطع ريلز 4K، وتصوير منتجات بأسلوب فني رفيع.',
-
-        contactKicker: 'تواصل معنا',
-        contactHeading: 'لنصنع شيئاً<br />جميلاً<br /><span class="contact-heading-final-line">معاً.</span>',
-        contactSubtitle: 'نستقبل حالياً الحجوزات لمواعيد الأعراس القادمة، وجلسات التصوير التحريرية، والشراكات المختارة.',
-        contactCta: 'ابدأ المحادثة',
-        contactLabelInsta: 'إنستغرام',
-        contactValInsta: '@noulprod',
-        contactLabelWhatsApp: 'واتساب',
-        contactLabelEmail: 'البريد الإلكتروني',
-        contactValEmail: 'aitoufquirnouhaila@gmail.com',
-        contactLabelLocation: 'الموقع',
-
-        footerCopy: '© ٢٠٢٦ نول برودكشن. جميع الحقوق محفوظة.',
-        lightboxClose: 'إغلاق',
-
-        inquiryTitle: 'طلب حجز واستفسار',
-        inquirySubtitle: 'شاركينا رؤيتك، الموعد المقترح، وتفاصيل المناسبة.',
-        inqNameLabel: 'الاسم الكريم',
-        inqEmailLabel: 'البريد الإلكتروني',
-        inqCategoryLabel: 'نوع الجلسة أو المشروع',
-        inqOptWeddings: 'حفلات الزفاف',
-        inqOptShooting: 'جلسات تصوير / بورتريه',
-        inqOptContent: 'صناعة محتوى وريلز',
-        inqMessageLabel: 'تفاصيل الرسالة',
-        inqSubmitBtn: 'إرسال الاستفسار',
-        inqInstaAlternative: 'هل تفضل المراسلة المباشرة؟'
-      },
-      fr: {
-        pageTitle: 'NOUL PRODUCTION — Photographe & Récits Visuels',
-        headerSubtitle: 'PHOTOGRAPHE & RÉCITS VISUELS',
-        navHome: 'ACCUEIL',
-        navWeddings: 'MARIAGES',
-        navShooting: 'SHOOTING',
-        navContent: 'CONTENU',
-        navWork: 'ŒUVRES',
-        navAbout: 'À PROPOS',
-        navContact: 'CONTACT',
-        mobileContactPrompt: 'DEMANDES DIRECTES',
-
-        heroKicker: 'ARCHIVES ÉDITORIALES 2026',
-        heroRole1: 'PHOTOGRAPHE',
-        heroRole2: 'RÉCITS VISUELS',
-        heroMetaPhotographer: 'PHOTOGRAPHE',
-        heroMetaName: 'Nouhaila Ait Oufquir',
-        heroMetaLocation: 'BASÉ À',
-        heroMetaCity: 'Marrakech, Maroc',
-        heroDescription: 'Je m’appelle Nouhaila Ait Oufquir, j’ai 23 ans et je suis technicienne spécialisée en audiovisuel. Passionnée par l’image et le récit visuel, j’exprime des idées et des émotions à travers la photographie, la vidéo et la réalisation. J’aime transformer des idées créatives en contenus visuels porteurs de sens et créer des images qui transmettent des émotions et racontent des histoires avec authenticité.',
-        heroCtaWork: 'DÉCOUVRIR LE PORTFOLIO',
-        heroCtaInquire: 'RÉSERVER UNE SÉANCE',
-        heroScroll: 'DÉFILER',
-        heroPortraitTitle: 'Portrait du Photographe',
-        heroFloatingTitle: 'Des histoires pleines d’émotion',
-
-        weddingsKicker: '01 — MARIAGES',
-        weddingsTitle: 'MARIAGES',
-        weddingsTagline: 'Histoires d’amour, capturées avec authenticité.',
-        weddingsDesc: 'Préserver l’intimité spontanée, les regards silencieux et la grâce de vos célébrations. Une approche éditoriale et chaleureuse pour créer des images intemporelles qui traversent les générations.',
-        weddingsCta: 'DÉCOUVRIR LES MARIAGES',
-
-        shootingKicker: '02 — SHOOTING',
-        shootingTitle: 'SHOOTING',
-        shootingTagline: 'Forme, lumière et présence artistique.',
-        shootingDesc: 'Éditoriaux de haute couture, portraits intimes et commandes artistiques. Façonnés par un travail délicat de la lumière, une asymétrie de composition et une complicité organique avec le sujet.',
-        shootingCat1: 'PORTRAIT D’ART',
-        shootingCat2: 'MODE & ÉDITORIAL',
-        shootingCat3: 'SÉANCES CRÉATIVES',
-        shootingCat4: 'ATELIER ART DE VIVRE',
-        shootingCta: 'DÉCOUVRIR SHOOTING',
-
-        contentKicker: '03 — CRÉATION DE CONTENU',
-        contentTitle: 'CRÉATION DE CONTENU',
-        contentDesc: 'Un langage visuel contemporain pour marques d’exception, produits raffinés et plateformes digitales. Formats verticaux, dynamique rythmée et direction artistique sur mesure.',
-        contentBadgeVisual: 'HISTOIRE VISUELLE',
-        contentBadgeReel: 'REEL · 4K',
-        contentBadgeProduct: 'NATURE MORTE',
-        contentBadgeEditorial: 'INFLUENCE',
-        contentCta: 'DÉCOUVRIR LE CONTENU',
-
-        galleryKicker: 'EXPOSITION CURATÉE',
-        galleryTitle: 'ŒUVRES SÉLECTIONNÉES',
-        filterAll: 'TOUS',
-        filterWeddings: 'MARIAGES',
-        filterShooting: 'SHOOTING',
-        filterContent: 'CONTENU',
-
-        aboutKicker: 'L’ARTISTE',
-        aboutTitle: 'DERRIÈRE L’OBJECTIF',
-        aboutSubtitle: 'UN DIALOGUE ÉDITORIAL ENTRE LUMIÈRE ET ÉMOTION',
-        aboutPhilosophy: '"La photographie ne cherche pas à imposer la perfection, mais à honorer la vérité silencieuse et spontanée du sentiment humain."',
-        aboutBio: 'Je vois chaque projet comme une nouvelle occasion d’explorer la créativité et de transformer les idées et les émotions en récits visuels. À travers la photographie, la vidéo et la réalisation, je cherche à saisir des instants, exprimer des émotions et raconter des histoires de manière authentique et profonde. Pour moi, créer ne consiste pas seulement à prendre une image : c’est donner à chaque image un but et une histoire à raconter.',
-        aboutSlogan: 'Créer. Capturer. Raconter.',
-        aboutPortraitTitle: 'Derrière l’Objectif',
-
-        servicesKicker: 'COMMANDES',
-        servicesTitle: 'SERVICES',
-        serviceWeddingsTitle: 'MARIAGES',
-        serviceWeddingsDesc: 'Couverture intégrale et mariages à destination, photographies argentiques et numériques, et chroniques émouvantes de vos journées uniques.',
-        serviceShootingTitle: 'SHOOTING',
-        serviceShootingDesc: 'Éditoriaux mode, portraits privés d’exception, développement de portfolios artistiques et stylisme visuel personnalisé.',
-        serviceContentTitle: 'CRÉATION DE CONTENU',
-        serviceContentDesc: 'Identité visuelle sur mesure pour marques de prestige, reels verticaux 4K, natures mortes de produits et campagnes signatures.',
-
-        contactKicker: 'CONTACT',
-        contactHeading: 'CRÉONS ENSEMBLE<br />QUELQUE CHOSE<br />DE SUBLIME.',
-        contactSubtitle: 'Disponibilités ouvertes pour les mariages à venir, les éditoriaux de mode et les collaborations de marque exclusives.',
-        contactCta: 'INITIER UN ÉCHANGE',
-        contactLabelInsta: 'INSTAGRAM',
-        contactValInsta: '@noulprod',
-        contactLabelWhatsApp: 'WHATSAPP',
-        contactLabelEmail: 'EMAIL DIRECT',
-        contactValEmail: 'aitoufquirnouhaila@gmail.com',
-        contactLabelLocation: 'LOCALISATION',
-
-        footerCopy: '© 2026 NOUL PRODUCTION. TOUS DROITS RÉSERVÉS.',
-        lightboxClose: 'FERMER',
-
-        inquiryTitle: 'Demande de Réservation',
-        inquirySubtitle: 'Partagez votre vision, vos dates et les détails de votre projet.',
-        inqNameLabel: 'Votre Nom',
-        inqEmailLabel: 'Adresse Email',
-        inqCategoryLabel: 'Catégorie de Prestation',
-        inqOptWeddings: 'Mariages',
-        inqOptShooting: 'Shooting / Portrait éditorial',
-        inqOptContent: 'Création de Contenu & Reels',
-        inqMessageLabel: 'Message & Détails',
-        inqSubmitBtn: 'ENVOYER LA DEMANDE',
-        inqInstaAlternative: 'Vous préférez un échange direct ?'
-      }
-    };
-
-    let currentLang = 'en';
-    let currentFilter = 'ALL';
-    let activeLightboxIndex = 0;
-    let filteredPortfolioItems = [...PORTFOLIO_DATA];
-
-    /* ==========================================================================
-       LANGUAGE SWITCHER ENGINE (PRESERVES EXACT SCROLL POSITION)
-       ========================================================================== */
-    function switchLanguage(lang) {
-      if (lang === currentLang && document.documentElement.getAttribute('lang') === lang) return;
-      currentLang = lang;
-
-      // Retain exact scroll position
-      const scrollY = window.scrollY;
-
-      // Update HTML root attributes
-      const htmlEl = document.documentElement;
-      htmlEl.setAttribute('lang', lang);
-      htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-      // Update button visual states for both desktop and mobile switchers
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        const isTarget = btn.id.toLowerCase().endsWith(lang.toLowerCase());
-        btn.classList.toggle('active', isTarget);
-      });
-
-      // Update Document Title
-      if (I18N[lang] && I18N[lang].pageTitle) {
-        document.title = I18N[lang].pageTitle;
-      }
-
-      // Replace text of all data-i18n elements
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (I18N[lang] && I18N[lang][key]) {
-          if (I18N[lang][key].includes('<br')) {
-            el.innerHTML = I18N[lang][key];
-          } else {
-            el.textContent = I18N[lang][key];
-          }
-        }
-      });
-
-      // Re-render gallery items with localized titles
-      renderGallery();
-
-      // Restore scroll position seamlessly
-      window.scrollTo({ top: scrollY, behavior: 'instant' });
-
-      // Persist in localStorage
-      try {
-        localStorage.setItem('noul_preferred_lang', lang);
-      } catch (e) {}
+    function service(title, description) {
+      return `<article class="service-item"><span>NOUL</span><div><h4>${title}</h4><p>${description}</p></div></article>`;
+    }
+    function mediaCard(src, category, title, type) {
+      const media = type === "video"
+        ? `<video src="${src}" muted autoplay loop playsinline preload="metadata"></video>`
+        : `<img src="${src}" alt="${title}" loading="lazy" />`;
+      return `<article class="media-card" data-lightbox="${src}" data-type="${type}" data-title="${title}">${media}<div class="media-meta"><span>${category}</span><h3>${title}</h3></div></article>`;
     }
 
-    /* Initialize stored language preference */
-    try {
-      const savedLang = localStorage.getItem('noul_preferred_lang');
-      if (savedLang && (savedLang === 'ar' || savedLang === 'fr')) {
-        switchLanguage(savedLang);
-      }
-    } catch (e) {}
-
-    /* ==========================================================================
-       GALLERY RENDERING & FILTERING
-       ========================================================================== */
-    function renderGallery() {
-      const container = document.getElementById('galleryGridRoot');
-      if (!container) return;
-
-      container.dataset.filter = currentFilter;
-
-      filteredPortfolioItems = currentFilter === 'ALL'
-        ? PORTFOLIO_DATA
-        : PORTFOLIO_DATA.filter(item => item.category === currentFilter);
-
-      container.innerHTML = '';
-
-      filteredPortfolioItems.forEach((item, index) => {
-        const tile = document.createElement('div');
-        tile.className = `gallery-tile ${item.spanClass}`;
-        tile.onclick = () => openLightboxByIndex(index);
-
-        const titleText = currentLang === 'ar' ? item.titleAr : (currentLang === 'fr' ? (item.titleFr || item.titleEn) : item.titleEn);
-        const catText = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
-
-        tile.innerHTML = `
-          <div class="photo-frame">
-            ${item.isVideo ? `
-              <video 
-                class="photo-img" 
-                autoplay 
-                loop 
-                muted 
-                playsinline 
-                preload="auto"
-                style="width: 100%; height: 100%; object-fit: cover;"
-              >
-                <source src="${item.videoSrc || item.src}" type="video/mp4" />
-              </video>
-            ` : `
-              <img 
-                src="${item.src}" 
-                alt="${titleText}" 
-                class="photo-img" 
-                loading="lazy" 
-                referrerpolicy="no-referrer"
-                onerror="handleImgError(this, '${item.src}', '${titleText}')"
-              />
-            `}
-            <div class="photo-placeholder-box">
-              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"></path>
-              </svg>
-              <div class="placeholder-title">${titleText}</div>
-              <div class="placeholder-path">${item.src}</div>
-            </div>
-            ${item.isVideo ? `
-              <div class="reel-play-overlay">
-                <div class="play-icon-circle">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                  </svg>
-                </div>
-              </div>` : ''}
-          </div>
-          <div class="gallery-tile-meta">
-            <span class="tile-title">${titleText}</span>
-            <span class="tile-category-year">${catText} &middot; ${item.year}</span>
-          </div>
-        `;
-
-        container.appendChild(tile);
-      });
-      setupAllFramesDragDrop();
-      if (typeof ensureAutoplayVideos === 'function') {
-        ensureAutoplayVideos();
-      }
+    function pageHero(title, subtitle, image) {
+      return `<section class="page-hero"><img src="${image}" alt="" /><div class="page-hero-inner"><p class="eyebrow" style="color:rgba(255,255,255,.65)">NOUL PRODUCTION</p><h1>${title}</h1><p>${subtitle}</p></div></section>`;
     }
 
-    function filterGallery(category) {
-      currentFilter = category;
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.id === `filter-${category}`);
-        btn.setAttribute('aria-selected', btn.id === `filter-${category}`);
-      });
-      renderGallery();
+    function galleryPage() {
+      const items = [
+        ["/assets/images/weddings/wedding-01.jpg","WEDDINGS","The Bridal Heirloom","image"],
+        ["/assets/images/shooting/shoot-01.jpg","SHOOTING","Evening Light","image"],
+        ["/assets/images/content/content-01.mp4","CONTENT","Motion 01","video"],
+        ["/assets/images/weddings/wedding-04.jpg","WEDDINGS","The Newlyweds","image"],
+        ["/assets/images/shooting/shoot-05.jpg","SHOOTING","Blue Hour Portrait","image"],
+        ["/assets/images/weddings/wedding-02.jpg","WEDDINGS","The Celebration","image"],
+        ["/assets/images/content/content-02.mp4","CONTENT","Motion 02","video"],
+        ["/assets/images/shooting/shoot-09.jpg","SHOOTING","Together at Home","image"],
+        ["/assets/images/weddings/wedding-05.jpg","WEDDINGS","A Quiet Blessing","image"],
+        ["/assets/images/shooting/shoot-03.jpg","SHOOTING","Rhythm in Green","image"],
+        ["/assets/images/content/content-03.mp4","CONTENT","Motion 03","video"],
+        ["/assets/images/weddings/wedding-03.mp4","WEDDINGS","A Promise at Dusk","video"],
+        ["/assets/images/shooting/shoot-07.jpg","SHOOTING","Modern Portrait","image"],
+        ["/assets/images/content/content-04.mp4","CONTENT","Motion 04","video"],
+        ["/assets/images/shooting/shoot-02.jpg","SHOOTING","Soft Light","image"],
+        ["/assets/images/shooting/shoot-10.jpg","SHOOTING","A Shared Smile","image","50% 38%"],
+        ["/assets/images/weddings/wedding-07.jpg","WEDDINGS","The Rings","image","50% 52%"],
+        ["/assets/images/weddings/wedding-06.mp4","WEDDINGS","Wedding in Motion","video"],
+        ["/assets/images/shooting/shoot-06.jpg","SHOOTING","Blue Frame","image"],
+        ["/assets/images/content/content-06.webp","CONTENT","Visual 06","image"],
+        ["/assets/images/shooting/shoot-04.jpg","SHOOTING","The Editorial","image"],
+        ["/assets/images/shooting/shoot-08.jpg","SHOOTING","Night Portrait","image"],
+        ["/assets/images/weddings/wedding-08.jpg","WEDDINGS","Celebration Dance","image","50% 35%"],
+        ["/assets/images/shooting/shoot-11.jpg","SHOOTING","The Conversation","image","50% 38%"],
+        ["/assets/images/weddings/wedding-09.jpg","WEDDINGS","The Bride","image","50% 34%"],
+        ["/assets/images/shooting/shoot-12.jpg","SHOOTING","The Ceremony Exchange","image","50% 38%"],
+        ["/assets/images/weddings/wedding-10.jpg","WEDDINGS","Together Forever","image","50% 36%"],
+        ["/assets/images/weddings/wedding-11.jpg","WEDDINGS","Vows in the Garden","image","50% 42%"],
+        ["/assets/images/weddings/wedding-12.jpg","WEDDINGS","Wedding Portrait","image","50% 34%"],
+        ["/assets/images/content/content-05.webp","CONTENT","Visual 05","image"]
+      ];
+      return `${pageHero("Photography","A curated collection of moments, emotions, and stories captured through the lens.","/assets/images/photographer/portrait.jpg")}
+      <section class="section"><div class="section-head" data-reveal><div><p class="eyebrow">NOUL PRODUCTION — Photography</p><h2 class="section-title">Selected Work</h2></div></div>
+      <div class="filter-row" data-reveal><button class="filter active" data-filter="ALL">ALL</button><button class="filter" data-filter="WEDDINGS">WEDDINGS</button><button class="filter" data-filter="SHOOTING">SHOOTING</button><button class="filter" data-filter="CONTENT">CONTENT</button></div>
+      <div class="gallery" data-reveal style="margin-top:24px">${items.map(i => {
+        const media = i[3] === "video" ? `<video src="${i[0]}" muted loop playsinline preload="metadata"></video>` : `<img src="${i[0]}" alt="${i[2]}" loading="lazy" />`;
+        const position = i[4] ? ` style="--position:${i[4]}"` : "";
+        return `<article class="gallery-item" data-category="${i[1]}" data-lightbox="${i[0]}" data-type="${i[3]}" data-title="${i[2]}"${position}>${media}<div class="gallery-caption"><strong>${i[2]}</strong><span>${i[1]}</span></div></article>`;
+      }).join("")}</div></section>${footer()}`;
     }
 
-    /* ==========================================================================
-       IMAGE & LOGO RESILIENT ERROR HANDLERS (ZERO BROKEN IMAGES)
-       ========================================================================== */
-    function handleImgError(imgEl, originalPath, titleFallback) {
-      imgEl.style.display = 'none';
-      const frame = imgEl.parentElement;
-      const placeholder = frame ? frame.querySelector('.photo-placeholder-box') : null;
-      if (placeholder) {
-        placeholder.style.display = 'flex';
-        // Add interactive local preview button if not yet created
-        if (!placeholder.querySelector('.placeholder-action')) {
-          const actionBtn = document.createElement('div');
-          actionBtn.className = 'placeholder-action';
-          actionBtn.innerHTML = `
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="17 8 12 3 7 8"></polyline>
-              <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
-            <span>Preview Local File</span>
-          `;
-          actionBtn.onclick = (e) => {
-            e.stopPropagation();
-            promptFileForFrame(frame);
-          };
-          placeholder.appendChild(actionBtn);
-        }
-      }
+    function aboutPage() {
+      return `${pageHero("About","Learn more about my journey, approach, and philosophy as a visual storyteller.","/assets/images/photographer/about.jpg")}
+      <section class="section about-copy" data-reveal><img src="/assets/images/photographer/about.jpg" alt="Nouhaila working with a camera" /><div><p class="eyebrow">Biography</p><h2 class="section-title">The Story Behind the Lens</h2><p>I'm Nouhaila Ait Oufquir, a photographer passionate about visual storytelling. Through photography and creative direction, I create images that communicate emotions and preserve meaningful moments.</p><p>My journey began with curiosity and grew into a multidisciplinary practice shaped by weddings, portraits, fashion, and creative content.</p><p>I see every collaboration as a shared process — built on trust, clarity, and a desire to create something honest and memorable.</p></div></section>
+      <section class="section services"><div class="section-head" data-reveal><div><p class="eyebrow">Principles</p><h2 class="section-title">Creative Philosophy</h2></div></div><div class="service-grid" data-reveal>${service("Authentic Storytelling","Capturing genuine moments and emotions.")}${service("Technical Excellence","Using craft and precision to bring the vision to life.")}${service("Collaborative Vision","Building the strongest work through communication.")}${service("Ethical Approach","Respectful, thoughtful, and honest creative practice.")}</div></section>${footer()}`;
     }
 
-    function promptFileForFrame(frame) {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*,video/*';
-      input.onchange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-          applyFileToFrame(frame, e.target.files[0]);
-        }
-      };
-      input.click();
+    function servicesPage() {
+      return `${pageHero("Services","Comprehensive visual storytelling solutions tailored to your vision.","/assets/images/shooting/shoot-02.jpg")}
+      <section class="section services"><div class="section-grid"><div class="service-grid" data-reveal>
+        <div><h3 class="service-heading">Celebrations</h3><div class="service-list">${service("Weddings","Elegant coverage of your ceremony, portraits, and celebration.")}${service("Engagements","Authentic couples sessions before the wedding day.")}</div></div>
+        <div><h3 class="service-heading">Portrait &amp; Fashion</h3><div class="service-list">${service("Portraits","Personal, editorial, and professional portrait sessions.")}${service("Fashion","Runway, lookbooks, editorial and commercial fashion.")}</div></div>
+        <div><h3 class="service-heading">Hospitality &amp; Space</h3><div class="service-list">${service("Restaurants","Food, ambience, interiors, and signature dining details.")}${service("Real Estate","Architectural, interior, and property presentation.")}</div></div>
+        <div><h3 class="service-heading">Brands &amp; Events</h3><div class="service-list">${service("Events","Corporate, social, and cultural event coverage.")}${service("Brands","Campaign imagery, product stories, and brand identity.")}</div></div>
+        <div><h3 class="service-heading">Action &amp; Lifestyle</h3><div class="service-list">${service("Sports","Dynamic action and athletic storytelling.")}${service("Lifestyle","Natural lifestyle sessions and personal stories.")}</div></div>
+        <div><h3 class="service-heading">Creative Production</h3><div class="service-list">${service("Products","Clean, detailed product and commercial photography.")}${service("Content","Visual campaigns and tailored social media content.")}</div></div>
+      </div></div></section>${footer()}`;
     }
 
-    function applyFileToFrame(frame, file) {
-      const url = URL.createObjectURL(file);
-      const isVideo = file.type.startsWith('video/') || file.name.match(/\.(mp4|mov|webm)$/i);
-      
-      const placeholder = frame.querySelector('.photo-placeholder-box');
-      if (placeholder) placeholder.style.display = 'none';
-
-      let img = frame.querySelector('.photo-img');
-      let vid = frame.querySelector('video.photo-vid');
-
-      if (isVideo) {
-        if (img) img.style.display = 'none';
-        if (!vid) {
-          vid = document.createElement('video');
-          vid.className = 'photo-img photo-vid';
-          vid.autoplay = true;
-          vid.loop = true;
-          vid.muted = true;
-          vid.playsInline = true;
-          frame.appendChild(vid);
-        }
-        vid.src = url;
-        vid.style.display = 'block';
-        vid.play().catch(() => {});
-        frame.dataset.customVideo = url;
-      } else {
-        if (vid) vid.style.display = 'none';
-        if (!img) {
-          img = document.createElement('img');
-          img.className = 'photo-img';
-          frame.appendChild(img);
-        }
-        img.src = url;
-        img.style.display = 'block';
-        frame.dataset.customImage = url;
-      }
+    function contactPage() {
+      return `${pageHero("Contact","Based in Marrakesh, Morocco","/assets/images/photographer/about.jpg")}
+      <section class="section"><div class="contact-grid"><div data-reveal><p class="eyebrow">[ COLLAB // STATUS: OPEN ]</p><h1>Let's create something extraordinary</h1><p>Weddings, commercial, editorial and personal photography.</p><div class="contact-channels"><div class="channel"><span>Location</span>Marrakesh, Morocco</div><div class="channel"><span>Email</span><a href="mailto:aitoufquirnouhaila@gmail.com">aitoufquirnouhaila@gmail.com</a></div><div class="channel"><span>Instagram</span><a href="https://www.instagram.com/noulprod" target="_blank" rel="noopener">@noulprod</a></div><div class="channel"><span>Response</span>Within 24 hours</div></div></div>
+      <aside class="whatsapp-panel" data-reveal><div><p class="eyebrow">Direct Booking</p><h2>Start your project on WhatsApp</h2><p>Send a short message with your project, preferred date, location, and what you would like to create.</p></div><div class="whatsapp-links"><a class="button" href="https://wa.me/212656448893?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp · +212 656 448 893 <span>→</span></a><a class="button" href="https://wa.me/212669587666?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp · +212 669 587 666 <span>→</span></a></div></aside></div></section>${footer()}`;
     }
 
-    function setupAllFramesDragDrop() {
-      document.querySelectorAll('.photo-frame').forEach(frame => {
-        if (frame.dataset.dndReady) return;
-        frame.dataset.dndReady = 'true';
-        frame.addEventListener('dragover', (e) => {
-          e.preventDefault();
-          frame.classList.add('drag-target');
-        });
-        frame.addEventListener('dragleave', () => {
-          frame.classList.remove('drag-target');
-        });
-        frame.addEventListener('drop', (e) => {
-          e.preventDefault();
-          frame.classList.remove('drag-target');
-          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
-            applyFileToFrame(frame, e.dataTransfer.files[0]);
-          }
-        });
-      });
-    }
-
-    function handleLogoError(imgEl) {
-      imgEl.style.display = 'none';
-      const fallback = document.getElementById('logoFallback');
-      if (fallback) {
-        fallback.style.display = 'flex';
-      }
-    }
-
-    /* ==========================================================================
-       FULLSCREEN LIGHTBOX MODAL & KEYBOARD CONTROLS
-       ========================================================================== */
-    const lightboxModal = document.getElementById('lightboxModal');
-    const lightboxMediaSlot = document.getElementById('lightboxMediaSlot');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxInfo = document.getElementById('lightboxInfo');
-
-    function openLightboxByIndex(index) {
-      activeLightboxIndex = index;
-      const item = filteredPortfolioItems[index];
-      if (!item) return;
-
-      const tile = document.querySelectorAll('.gallery-tile')[index];
-      const frame = tile ? tile.querySelector('.photo-frame') : null;
-      const customImg = frame ? frame.dataset.customImage : null;
-      const customVid = frame ? frame.dataset.customVideo : null;
-
-      const title = currentLang === 'ar' ? item.titleAr : (currentLang === 'fr' ? (item.titleFr || item.titleEn) : item.titleEn);
-      const cat = I18N[currentLang][`filter${item.category.charAt(0) + item.category.slice(1).toLowerCase()}`] || item.category;
-
-      lightboxTitle.textContent = title;
-      lightboxInfo.textContent = `${cat} · ${item.year}`;
-
-      lightboxMediaSlot.innerHTML = '';
-      if (customVid || (item.isVideo && item.videoSrc)) {
-        const video = document.createElement('video');
-        video.src = customVid || item.videoSrc;
-        video.controls = true;
-        video.autoplay = true;
-        video.muted = false;
-        video.playsInline = true;
-        video.onerror = () => {
-          lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
-            <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
-            <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${item.videoSrc}</div>
-          </div>`;
-        };
-        lightboxMediaSlot.appendChild(video);
-      } else {
-        const img = document.createElement('img');
-        img.src = customImg || item.src;
-        img.alt = title;
-        img.onerror = () => {
-          lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
-            <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
-            <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${item.src}</div>
-          </div>`;
-        };
-        lightboxMediaSlot.appendChild(img);
-      }
-
-      lightboxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openLightboxBySrc(src, title, category, year, isVideo = false) {
-      const frame = document.querySelector(`.photo-frame[onclick*="${src}"]`);
-      const customImg = frame ? frame.dataset.customImage : null;
-      const customVid = frame ? frame.dataset.customVideo : null;
-      if (customImg) src = customImg;
-      if (customVid) { src = customVid; isVideo = true; }
-
-      const foundIndex = filteredPortfolioItems.findIndex(i => i.src === src || i.videoSrc === src);
-      if (foundIndex >= 0) {
-        openLightboxByIndex(foundIndex);
-      } else {
-        // Direct ad-hoc opening
-        lightboxTitle.textContent = title;
-        lightboxInfo.textContent = `${category} · ${year}`;
-        lightboxMediaSlot.innerHTML = '';
-
+    function setupMedia() {
+      document.querySelectorAll("[data-lightbox]").forEach(card => card.onclick = () => {
+        const isVideo = card.dataset.type === "video";
+        lightboxMedia.innerHTML = isVideo
+          ? `<video src="${card.dataset.lightbox}" controls playsinline muted autoplay loop></video>`
+          : `<img src="${card.dataset.lightbox}" alt="${card.dataset.title || ""}" />`;
+        lightbox.classList.add("open");
         if (isVideo) {
-          const video = document.createElement('video');
-          video.src = src;
-          video.controls = true;
-          video.autoplay = true;
-          video.muted = false;
-          lightboxMediaSlot.appendChild(video);
-        } else {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = title;
-          img.onerror = () => {
-            lightboxMediaSlot.innerHTML = `<div style="color:#FFF;text-align:center;padding:2rem;">
-              <div style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem;">${title}</div>
-              <div style="font-family:monospace;font-size:0.75rem;opacity:0.6;">${src}</div>
-            </div>`;
+          const video = lightboxMedia.querySelector("video");
+          video.muted = true;
+          video.play().catch(() => {});
+          video.onclick = () => {
+            video.muted = false;
+            video.play().catch(() => {});
           };
-          lightboxMediaSlot.appendChild(img);
-        }
-
-        lightboxModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeLightbox() {
-      lightboxModal.classList.remove('active');
-      lightboxMediaSlot.innerHTML = '';
-      document.body.style.overflow = '';
-    }
-
-    function lightboxPrev() {
-      if (filteredPortfolioItems.length === 0) return;
-      activeLightboxIndex = (activeLightboxIndex - 1 + filteredPortfolioItems.length) % filteredPortfolioItems.length;
-      openLightboxByIndex(activeLightboxIndex);
-    }
-
-    function lightboxNext() {
-      if (filteredPortfolioItems.length === 0) return;
-      activeLightboxIndex = (activeLightboxIndex + 1) % filteredPortfolioItems.length;
-      openLightboxByIndex(activeLightboxIndex);
-    }
-
-    // Keyboard navigation (Escape, ArrowLeft, ArrowRight)
-    window.addEventListener('keydown', (e) => {
-      if (lightboxModal.classList.contains('active')) {
-        if (e.key === 'Escape') {
-          closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-          if (document.documentElement.dir === 'rtl') lightboxNext();
-          else lightboxPrev();
-        } else if (e.key === 'ArrowRight') {
-          if (document.documentElement.dir === 'rtl') lightboxPrev();
-          else lightboxNext();
-        }
-      }
-    });
-
-    /* ==========================================================================
-       HEADER SCROLL RECOGNITION (ADAPTIVE HEADER)
-       ========================================================================== */
-    const siteHeader = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        siteHeader.classList.add('scrolled');
-      } else {
-        siteHeader.classList.remove('scrolled');
-      }
-
-      // Check section under scroll to adapt header contrast
-      const weddingsSec = document.getElementById('weddings');
-      const contentSec = document.getElementById('content');
-      const contactSec = document.getElementById('contact');
-
-      const scrollPos = window.scrollY + 80;
-      let inDarkZone = false;
-
-      [weddingsSec, contentSec, contactSec].forEach(sec => {
-        if (sec) {
-          const top = sec.offsetTop;
-          const bottom = top + sec.offsetHeight;
-          if (scrollPos >= top && scrollPos <= bottom) {
-            inDarkZone = true;
-          }
         }
       });
-
-      siteHeader.classList.toggle('dark-mode', inDarkZone);
-    }, { passive: true });
-
-    /* ==========================================================================
-       MOBILE DRAWER CONTROLS
-       ========================================================================== */
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
-
-    function openMobileMenu() {
-      mobileDrawer.classList.add('open');
-      drawerOverlay.classList.add('open');
-      mobileMenuBtn.classList.add('open');
-      mobileMenuBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-      mobileDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('open');
-      mobileMenuBtn.classList.remove('open');
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    const serviceAccordionQuery = window.matchMedia('(max-width: 1024px)');
-    const serviceRows = [...document.querySelectorAll('.service-row')];
-
-    function setServiceRowOpen(row, open) {
-      const toggle = row.querySelector('.service-toggle');
-      const description = row.querySelector('.service-description');
-      row.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      description.setAttribute('aria-hidden', String(!open));
-    }
-
-    function syncServiceAccordion() {
-      const accordionEnabled = serviceAccordionQuery.matches;
-      serviceRows.forEach(row => {
-        row.querySelector('.service-toggle').disabled = !accordionEnabled;
-        setServiceRowOpen(row, !accordionEnabled);
+      document.querySelectorAll(".media-card video, .gallery-item video").forEach(video => {
+        video.muted = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.play().catch(() => {});
+        video.parentElement.onmouseenter = () => video.play().catch(() => {});
+        video.parentElement.onmouseleave = () => {
+          if (matchMedia("(hover: none)").matches) video.play().catch(() => {});
+        };
+      });
+      document.querySelectorAll("[data-reveal]").forEach(el => {
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add("revealed"); observer.unobserve(entry.target); }
+          }), { threshold: .12 });
+          observer.observe(el);
+        } else el.classList.add("revealed");
+      });
+      document.querySelectorAll(".filter").forEach(button => button.onclick = () => {
+        document.querySelectorAll(".filter").forEach(b => b.classList.toggle("active", b === button));
+        const filter = button.dataset.filter;
+        document.querySelectorAll(".gallery-item").forEach(item => item.classList.toggle("hidden", filter !== "ALL" && item.dataset.category !== filter));
       });
     }
 
-    serviceRows.forEach(row => {
-      row.querySelector('.service-toggle').addEventListener('click', () => {
-        if (!serviceAccordionQuery.matches) return;
-        const open = !row.classList.contains('open');
-        if (open && serviceAccordionQuery.matches) {
-          serviceRows.forEach(otherRow => setServiceRowOpen(otherRow, false));
-        }
-        setServiceRowOpen(row, open);
-      });
-    });
-
-    syncServiceAccordion();
-    serviceAccordionQuery.addEventListener('change', syncServiceAccordion);
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
-        closeMobileMenu();
-        mobileMenuBtn.focus();
-      }
-    });
-
-    /* ==========================================================================
-       INQUIRY MODAL (EDITORIAL DRAWER)
-       ========================================================================== */
-    const inquiryModal = document.getElementById('inquiryModal');
-
-    function openInquiryModal() {
-      inquiryModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    function route() {
+      const path = location.hash.replace("#","");
+      document.querySelectorAll(".rail-nav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${path === "" ? "/" : path}`));
+      if (path === "/" || path === "") app.innerHTML = home();
+      else if (path === "/stills") app.innerHTML = galleryPage();
+      else if (path === "/about") app.innerHTML = aboutPage();
+      else if (path === "/services") app.innerHTML = servicesPage();
+      else if (path === "/contact") app.innerHTML = contactPage();
+      else app.innerHTML = home();
+      window.scrollTo({ top: 0, behavior: "instant" });
+      setupMedia();
     }
-
-    function closeInquiryModal() {
-      inquiryModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function handleInquirySubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('inqName').value;
-      const email = document.getElementById('inqEmail').value;
-      const cat = document.getElementById('inqCategory').value;
-      const msg = document.getElementById('inqMessage').value;
-
-      const subject = encodeURIComponent(`Portfolio Inquiry: ${cat} — ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCategory: ${cat}\n\nMessage:\n${msg}`);
-
-      // Open email client with pre-filled details
-      window.location.href = `mailto:aitoufquirnouhaila@gmail.com?subject=${subject}&body=${body}`;
-      closeInquiryModal();
-    }
-
-    // Close inquiry modal with Escape
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && inquiryModal.classList.contains('active')) {
-        closeInquiryModal();
-      }
-    });
-
-    /* Autoplay helper to guarantee video playback across all browsers */
-    function ensureAutoplayVideos() {
-      document.querySelectorAll('video[autoplay]').forEach(vid => {
-        vid.muted = true;
-        vid.playsInline = true;
-        const playPromise = vid.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            const startPlayOnUserGesture = () => {
-              vid.play().catch(() => {});
-              window.removeEventListener('click', startPlayOnUserGesture);
-              window.removeEventListener('touchstart', startPlayOnUserGesture);
-              window.removeEventListener('scroll', startPlayOnUserGesture);
-            };
-            window.addEventListener('click', startPlayOnUserGesture, { once: true });
-            window.addEventListener('touchstart', startPlayOnUserGesture, { once: true });
-            window.addEventListener('scroll', startPlayOnUserGesture, { once: true });
-          });
-        }
-      });
-    }
-
-    /* Initial Gallery Render & Frame Drag Drop */
-    renderGallery();
-    setupAllFramesDragDrop();
-    ensureAutoplayVideos();
-    document.addEventListener('DOMContentLoaded', ensureAutoplayVideos);
-    window.addEventListener('load', ensureAutoplayVideos);
+    window.addEventListener("hashchange", route);
+    route();
   </script>
 </body>
 </html>
