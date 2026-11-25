@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#11100e" />
-  <title>NOUL PRODUCTION â€” Photographer &amp; Visual Storyteller</title>
+  <title>NOUL PRODUCTION - Photographer &amp; Visual Storyteller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --rail: 82px;
@@ -81,6 +81,31 @@
       text-transform: uppercase;
       opacity: .7;
     }
+    .language-switch {
+      position: fixed;
+      z-index: 110;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      gap: 3px;
+      padding: 4px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(17,17,15,.72);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+    .language-switch button {
+      min-width: 38px;
+      min-height: 36px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+    .language-switch button[aria-pressed="true"] { background: #fff; color: var(--ink); }
 
     .menu-button {
       position: fixed;
@@ -373,6 +398,7 @@
       :root { --rail: 0px; }
       .rail { display: none; }
       .menu-button { display: flex; }
+      .language-switch { top: 24px; left: 20px; right: auto; }
       #app { margin-left: 0; }
       .hero { height: 92svh; min-height: 620px; }
       .hero-media img { object-position: 58% center; }
@@ -425,9 +451,36 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
+    html[lang="ar"] body { font-family: "Noto Sans Arabic", var(--sans); }
+    html[lang="ar"] .hero h1,
+    html[lang="ar"] .section-title,
+    html[lang="ar"] .page-hero h1,
+    html[lang="ar"] .media-meta h3,
+    html[lang="ar"] .gallery-caption strong,
+    html[lang="ar"] .service-heading,
+    html[lang="ar"] .service-item h4,
+    html[lang="ar"] .cta h2,
+    html[lang="ar"] .quote,
+    html[lang="ar"] .whatsapp-panel h2,
+    html[lang="ar"] .mobile-links a { font-family: "Noto Sans Arabic", var(--sans); }
+    html[dir="rtl"] .rail { right: 0; left: auto; }
+    html[dir="rtl"] #app { margin-left: 0; margin-right: var(--rail); }
+    html[dir="rtl"] .hero-media { right: auto; left: 0; }
+    html[dir="rtl"] .hero-inner { text-align: right; }
+    html[dir="rtl"] .hero-actions { justify-content: flex-start; }
+    @media (max-width: 900px) {
+      html[dir="rtl"] #app { margin-right: 0; }
+      html[dir="rtl"] .hero-media { left: 0; right: 0; }
+      html[dir="rtl"] .language-switch { left: 20px; right: auto; }
+    }
   </style>
 </head>
 <body>
+  <div class="language-switch" role="group" aria-label="Select language">
+    <button type="button" data-language="en" aria-label="English" aria-pressed="true">EN</button>
+    <button type="button" data-language="fr" aria-label="French" aria-pressed="false">FR</button>
+    <button type="button" data-language="ar" aria-label="Arabic" aria-pressed="false">AR</button>
+  </div>
   <aside class="rail" aria-label="Primary">
     <a class="rail-mark" href="#/" aria-label="NOUL home">NP</a>
     <nav class="rail-nav">
@@ -441,7 +494,7 @@
   </aside>
   <button class="menu-button" id="menuButton" aria-label="Open menu"><span></span></button>
   <aside class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-top"><a class="rail-mark" href="#/">NP</a><button class="mobile-close" id="menuClose" aria-label="Close menu">Ã—</button></div>
+    <div class="mobile-menu-top"><a class="rail-mark" href="#/">NP</a><button class="mobile-close" id="menuClose" aria-label="Close menu">&times;</button></div>
     <nav class="mobile-links">
       <a href="#/">Home</a><a href="#/stills">Portfolio</a><a href="#/services">Services</a><a href="#/about">About</a><a href="#/contact">Contact</a>
     </nav>
@@ -449,16 +502,261 @@
   </aside>
   <main id="app"></main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-    <button class="lightbox-close" id="lightboxClose">Ã—</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
     <div class="lightbox-inner"><div class="lightbox-media" id="lightboxMedia"></div></div>
   </div>
   <script>
-    const app = document.getElementByState = document.getElementById("app");
+    const app = document.getElementById("app");
     const menuButton = document.getElementById("menuButton");
     const mobileMenu = document.getElementById("mobileMenu");
     const menuClose = document.getElementById("menuClose");
     const lightbox = document.getElementById("lightbox");
     const lightboxMedia = document.getElementById("lightboxMedia");
+    const languageNames = { en: "English", fr: "French", ar: "Arabic" };
+    const translations = {
+      fr: {
+        "NOUL PRODUCTION - Photographer & Visual Storyteller": "NOUL PRODUCTION - Photographe et conteuse visuelle",
+        "Select language": "Choisir la langue", "Primary": "Navigation principale",
+        "NOUL home": "Accueil NOUL", "Open menu": "Ouvrir le menu", "Close menu": "Fermer le menu",
+        "Close image": "Fermer l'image", "Home": "Accueil", "Portfolio": "Portfolio",
+        "Services": "Services", "About": "À propos", "Contact": "Contact",
+        "Photographer & Visual Storyteller": "Photographe et conteuse visuelle",
+        "View Portfolio": "Voir le portfolio", "Get In Touch": "Me contacter",
+        "Selected Visuals": "Sélection visuelle", "Latest Projects": "Derniers projets",
+        "View All Work": "Voir tous les projets", "Explore All Services": "Découvrir tous les services",
+        "Short Form": "Formats courts",
+        "Visual Stories": "Histoires visuelles", "View All Visuals": "Voir tous les visuels",
+        "Photography": "Photographie", "Featured Photography": "Photographies à la une",
+        "View All Photography": "Voir toutes les photos", "Expertise": "Expertise",
+        "Celebrations": "Célébrations", "Weddings": "Mariages",
+        "Elegant coverage of your ceremony and celebration": "Une couverture élégante de votre cérémonie et de votre célébration",
+        "Elegant coverage of your ceremony, portraits, and celebration.": "Une couverture élégante de votre cérémonie, de vos portraits et de votre célébration.",
+        "Portraits": "Portraits", "Personal and professional portrait sessions": "Séances de portraits personnels et professionnels",
+        "Fashion": "Mode", "Editorial and commercial fashion": "Photographie de mode éditoriale et commerciale",
+        "Brands & Spaces": "Marques et lieux", "Restaurants": "Restaurants",
+        "Food, ambience, and interior photography": "Photographie culinaire, d'ambiance et d'intérieur",
+        "Real Estate": "Immobilier", "Architectural and property presentation": "Mise en valeur architecturale et immobilière",
+        "Products": "Produits", "Detailed commercial and product imagery": "Photographie commerciale et de produits détaillée",
+        "Let's Work Together": "Travaillons ensemble", "Ready to Collaborate?": "Prête à collaborer ?",
+        "Let's create something beautiful together. Reach out to discuss your project or book a session.": "Créons ensemble de belles images. Parlons de votre projet ou réservons une séance.",
+        "Get In Touch →": "Me contacter →", "ALL": "TOUT", "WEDDINGS": "MARIAGES",
+        "Wedding": "Mariage", "Shooting": "Séance photo", "Reel": "Vidéo courte",
+        "SHOOTING": "PORTRAITS", "CONTENT": "CONTENU", "Selected Work": "Sélection",
+        "NOUL PRODUCTION — Photography": "NOUL PRODUCTION - Photographie",
+        "A curated collection of moments, emotions, and stories captured through the lens.": "Une sélection de moments, d'émotions et d'histoires capturés à travers l'objectif.",
+        "About": "À propos", "Learn more about my journey, approach, and philosophy as a visual storyteller.": "Découvrez mon parcours, mon approche et ma vision de la narration visuelle.",
+        "Biography": "Biographie", "The Story Behind the Lens": "L'histoire derrière l'objectif",
+        "I'm Nouhaila Ait Oufquir, a photographer passionate about visual storytelling. Through photography and creative direction, I create images that communicate emotions and preserve meaningful moments.": "Je suis Nouhaila Ait Oufquir, photographe passionnée par la narration visuelle. Grâce à la photographie et à la direction artistique, je crée des images qui transmettent des émotions et préservent les moments précieux.",
+        "My journey began with curiosity and grew into a multidisciplinary practice shaped by weddings, portraits, fashion, and creative content.": "Mon parcours a commencé par la curiosité et s'est transformé en une pratique pluridisciplinaire autour du mariage, du portrait, de la mode et du contenu créatif.",
+        "I see every collaboration as a shared process — built on trust, clarity, and a desire to create something honest and memorable.": "Je vois chaque collaboration comme un travail partagé, fondé sur la confiance, la clarté et le désir de créer quelque chose de sincère et mémorable.",
+        "Principles": "Principes", "Creative Philosophy": "Philosophie créative",
+        "Authentic Storytelling": "Récit authentique", "Capturing genuine moments and emotions.": "Saisir des instants et des émotions authentiques.",
+        "Technical Excellence": "Excellence technique", "Using craft and precision to bring the vision to life.": "Mettre le savoir-faire et la précision au service de votre vision.",
+        "Collaborative Vision": "Vision partagée", "Building the strongest work through communication.": "Créer les meilleurs projets grâce à l'échange.",
+        "Ethical Approach": "Approche éthique", "Respectful, thoughtful, and honest creative practice.": "Une pratique créative respectueuse, réfléchie et sincère.",
+        "Comprehensive visual storytelling solutions tailored to your vision": "Des solutions de narration visuelle conçues selon votre vision",
+        "Comprehensive visual storytelling solutions tailored to your vision.": "Des solutions complètes de narration visuelle conçues selon votre vision.",
+        "Based in Marrakesh, Morocco": "Basée à Marrakech, au Maroc",
+        "[ COLLAB // STATUS: OPEN ]": "[ COLLABORATION // DISPONIBLE ]",
+        "Let's create something extraordinary": "Créons quelque chose d'extraordinaire",
+        "Weddings, commercial, editorial and personal photography.": "Photographie de mariage, commerciale, éditoriale et personnelle.",
+        "Location": "Lieu", "Marrakesh, Morocco": "Marrakech, Maroc", "Email": "E-mail",
+        "Instagram": "Instagram", "Response": "Réponse", "Within 24 hours": "Sous 24 heures",
+        "Direct Booking": "Réservation directe", "Start your project on WhatsApp": "Lancez votre projet sur WhatsApp",
+        "Send a short message with your project, preferred date, location, and what you would like to create.": "Envoyez un message avec votre projet, la date souhaitée, le lieu et votre idée.",
+        "NOUL PRODUCTION": "NOUL PRODUCTION", "NOUL PRODUCTION portrait": "Portrait de NOUL PRODUCTION",
+        "Nouhaila working with a camera": "Nouhaila avec son appareil photo",
+        "A Night to Remember": "Une nuit inoubliable",
+        "A Celebration in Green": "Une célébration en vert",
+        "Marrakech Rides Together": "Marrakech à vélo",
+        "Art on the Move": "L'art dans la rue",
+        "Play Without Limits": "Jouer sans limites",
+        "A Place to Belong": "Un lieu pour se retrouver",
+        "Little Hands, Big Ideas": "Petites mains, grandes idées",
+        "Art in the Open": "L'art à ciel ouvert",
+        "A Dream in Blush": "Un rêve en rose",
+        "A Study in Softness": "Étude de douceur",
+        "After-Hours Portrait": "Portrait après la tombée du jour",
+        "Runway in Monochrome": "Défilé en noir et blanc",
+        "The Beautiful Game": "La beauté du jeu",
+        "The Table is Set": "À table",
+        "The Signing": "La signature",
+        "Opening Day": "Jour d'ouverture",
+        "A Toast Together": "Un toast à deux",
+        "An Evening Together": "Une soirée à deux",
+        "Words That Matter": "Des mots qui comptent",
+        "A Family Blessing": "La bénédiction familiale",
+        "A Portrait Before the Vows": "Portrait avant les vœux",
+        "The First Dance": "La première danse",
+        "The Celebration Dance": "La danse de la fête",
+        "Vows in the Desert": "Vœux dans le désert",
+        "Promise, Held Close": "Une promesse à portée de main",
+        "Courtyard Celebration": "Fête dans la cour",
+        "One Look, Everything": "Un regard, tout est dit",
+        "The Garden Walk": "Promenade au jardin",
+        "A Quiet Promise": "Une promesse intime",
+        "Under the Flowering Arch": "Sous l'arche fleurie",
+        "Engagements": "Fiançailles", "Authentic couples sessions before the wedding day.": "Séances de couple authentiques avant le mariage.",
+        "Portrait & Fashion": "Portrait et mode", "Personal, editorial, and professional portrait sessions.": "Séances de portrait personnelles, éditoriales et professionnelles.",
+        "Runway, lookbooks, editorial and commercial fashion.": "Défilés, lookbooks et photographie de mode éditoriale ou commerciale.",
+        "Hospitality & Space": "Hospitalité et espaces", "Food, ambience, interiors, and signature dining details.": "Cuisine, ambiance, intérieurs et détails gastronomiques.",
+        "Architectural, interior, and property presentation.": "Photographie d'architecture, d'intérieur et de biens immobiliers.",
+        "Brands & Events": "Marques et événements", "Events": "Événements",
+        "Corporate, social, and cultural event coverage.": "Couverture d'événements professionnels, sociaux et culturels.",
+        "Brands": "Marques", "Campaign imagery, product stories, and brand identity.": "Visuels de campagne, récits de produits et identité de marque.",
+        "Action & Lifestyle": "Action et style de vie", "Sports": "Sport",
+        "Dynamic action and athletic storytelling.": "Récits dynamiques autour du sport et du mouvement.",
+        "Lifestyle": "Style de vie", "Natural lifestyle sessions and personal stories.": "Séances naturelles et récits personnels.",
+        "Creative Production": "Production créative", "Clean, detailed product and commercial photography.": "Photographie commerciale et de produits précise et soignée.",
+        "Content": "Contenu", "Visual campaigns and tailored social media content.": "Campagnes visuelles et contenus adaptés aux réseaux sociaux.",
+        "Footer": "Pied de page", "WhatsApp · +212 656 448 893": "WhatsApp · +212 656 448 893",
+        "WhatsApp · +212 669 587 666": "WhatsApp · +212 669 587 666"
+      },
+      ar: {
+        "NOUL PRODUCTION - Photographer & Visual Storyteller": "NOUL PRODUCTION - مصورة وراوية قصص بصرية",
+        "Select language": "اختر اللغة", "Primary": "التنقل الرئيسي",
+        "NOUL home": "الصفحة الرئيسية لنول", "Open menu": "فتح القائمة", "Close menu": "إغلاق القائمة",
+        "Close image": "إغلاق الصورة", "Home": "الرئيسية", "Portfolio": "الأعمال",
+        "Services": "الخدمات", "About": "من أنا", "Contact": "اتصل بي",
+        "Photographer & Visual Storyteller": "مصورة وراوية قصص بصرية",
+        "View Portfolio": "استعرض الأعمال", "Get In Touch": "تواصل معي",
+        "Selected Visuals": "مختارات بصرية", "Latest Projects": "أحدث المشاريع",
+        "View All Work": "عرض جميع الأعمال", "Explore All Services": "استكشف جميع الخدمات",
+        "Short Form": "مقاطع قصيرة",
+        "Visual Stories": "قصص بصرية", "View All Visuals": "عرض جميع الأعمال البصرية",
+        "Photography": "التصوير الفوتوغرافي", "Featured Photography": "صور مختارة",
+        "View All Photography": "عرض جميع الصور", "Expertise": "مجالات الخبرة",
+        "Celebrations": "المناسبات", "Weddings": "حفلات الزفاف",
+        "Elegant coverage of your ceremony and celebration": "توثيق أنيق لمراسم زفافك واحتفالك",
+        "Elegant coverage of your ceremony, portraits, and celebration.": "توثيق أنيق لمراسم الزفاف وصوركما واحتفالكما.",
+        "Portraits": "الصور الشخصية", "Personal and professional portrait sessions": "جلسات تصوير شخصية ومهنية",
+        "Fashion": "الأزياء", "Editorial and commercial fashion": "تصوير الأزياء التحريري والتجاري",
+        "Brands & Spaces": "العلامات التجارية والأماكن", "Restaurants": "المطاعم",
+        "Food, ambience, and interior photography": "تصوير الطعام والأجواء والديكورات الداخلية",
+        "Real Estate": "العقارات", "Architectural and property presentation": "إبراز العقارات والتصاميم المعمارية",
+        "Products": "المنتجات", "Detailed commercial and product imagery": "صور تجارية وصور منتجات بتفاصيل دقيقة",
+        "Let's Work Together": "لنعمل معًا", "Ready to Collaborate?": "هل أنت مستعد للتعاون؟",
+        "Let's create something beautiful together. Reach out to discuss your project or book a session.": "لنصنع شيئًا جميلًا معًا. تواصل لمناقشة مشروعك أو حجز جلسة تصوير.",
+        "Get In Touch →": "تواصل معي →", "ALL": "الكل", "WEDDINGS": "حفلات الزفاف",
+        "Wedding": "زفاف", "Shooting": "جلسة تصوير", "Reel": "مقطع قصير",
+        "SHOOTING": "جلسات تصوير", "CONTENT": "محتوى", "Selected Work": "أعمال مختارة",
+        "NOUL PRODUCTION — Photography": "NOUL PRODUCTION - التصوير",
+        "A curated collection of moments, emotions, and stories captured through the lens.": "مجموعة مختارة من اللحظات والمشاعر والقصص التي التقطتها العدسة.",
+        "Learn more about my journey, approach, and philosophy as a visual storyteller.": "اكتشف مسيرتي ونهجي ورؤيتي في سرد القصص بصريًا.",
+        "Biography": "نبذة", "The Story Behind the Lens": "الحكاية خلف العدسة",
+        "I'm Nouhaila Ait Oufquir, a photographer passionate about visual storytelling. Through photography and creative direction, I create images that communicate emotions and preserve meaningful moments.": "أنا نوهيلة آيت أوفقير، مصورة شغوفة بسرد القصص بصريًا. أبتكر من خلال التصوير والتوجيه الإبداعي صورًا تنقل المشاعر وتحفظ اللحظات المهمة.",
+        "My journey began with curiosity and grew into a multidisciplinary practice shaped by weddings, portraits, fashion, and creative content.": "بدأت رحلتي بدافع الفضول، وتطورت إلى ممارسة متعددة المجالات تشمل حفلات الزفاف والصور الشخصية والأزياء والمحتوى الإبداعي.",
+        "I see every collaboration as a shared process — built on trust, clarity, and a desire to create something honest and memorable.": "أرى كل تعاون رحلة مشتركة تقوم على الثقة والوضوح والرغبة في ابتكار شيء صادق ولا يُنسى.",
+        "Principles": "مبادئ", "Creative Philosophy": "الفلسفة الإبداعية",
+        "Authentic Storytelling": "سرد قصصي صادق", "Capturing genuine moments and emotions.": "توثيق اللحظات والمشاعر الحقيقية.",
+        "Technical Excellence": "التميّز التقني", "Using craft and precision to bring the vision to life.": "توظيف الحرفية والدقة لتحقيق الرؤية.",
+        "Collaborative Vision": "رؤية مشتركة", "Building the strongest work through communication.": "ابتكار أعمال أقوى من خلال التواصل.",
+        "Ethical Approach": "نهج أخلاقي", "Respectful, thoughtful, and honest creative practice.": "ممارسة إبداعية قائمة على الاحترام والتفكير والصدق.",
+        "Comprehensive visual storytelling solutions tailored to your vision": "حلول متكاملة لسرد القصص بصريًا بما يلائم رؤيتك",
+        "Comprehensive visual storytelling solutions tailored to your vision.": "حلول متكاملة لسرد القصص بصريًا بما يلائم رؤيتك.",
+        "Based in Marrakesh, Morocco": "مقرّي مراكش، المغرب",
+        "[ COLLAB // STATUS: OPEN ]": "[ التعاون // متاحة للعمل ]",
+        "Let's create something extraordinary": "لنبتكر شيئًا استثنائيًا",
+        "Weddings, commercial, editorial and personal photography.": "تصوير حفلات الزفاف والأعمال والتحرير والصور الشخصية.",
+        "Location": "الموقع", "Marrakesh, Morocco": "مراكش، المغرب", "Email": "البريد الإلكتروني",
+        "Instagram": "إنستغرام", "Response": "الرد", "Within 24 hours": "خلال 24 ساعة",
+        "Direct Booking": "حجز مباشر", "Start your project on WhatsApp": "ابدأ مشروعك عبر واتساب",
+        "Send a short message with your project, preferred date, location, and what you would like to create.": "أرسل رسالة قصيرة تتضمن مشروعك والتاريخ والموقع المفضلين وما ترغب في إنشائه.",
+        "NOUL PRODUCTION": "NOUL PRODUCTION", "NOUL PRODUCTION portrait": "صورة NOUL PRODUCTION",
+        "Nouhaila working with a camera": "نوهيلة تعمل بكاميرتها",
+        "A Night to Remember": "ليلة لا تُنسى",
+        "A Celebration in Green": "احتفال بالأخضر",
+        "Marrakech Rides Together": "مراكش على الدراجات",
+        "Art on the Move": "الفن في الشارع",
+        "Play Without Limits": "اللعب بلا حدود",
+        "A Place to Belong": "مكان يجمعنا",
+        "Little Hands, Big Ideas": "أيدٍ صغيرة وأفكار كبيرة",
+        "Art in the Open": "فن في الهواء الطلق",
+        "A Dream in Blush": "حلم بالوردي",
+        "A Study in Softness": "تأمل في النعومة",
+        "After-Hours Portrait": "صورة بعد الغروب",
+        "Runway in Monochrome": "عرض أزياء بالأبيض والأسود",
+        "The Beautiful Game": "جمال اللعبة",
+        "The Table is Set": "المائدة جاهزة",
+        "The Signing": "لحظة التوقيع",
+        "Opening Day": "يوم الافتتاح",
+        "A Toast Together": "نخب معًا",
+        "An Evening Together": "أمسية معًا",
+        "Words That Matter": "كلمات لها معنى",
+        "A Family Blessing": "بركة العائلة",
+        "A Portrait Before the Vows": "صورة قبل العهود",
+        "The First Dance": "الرقصة الأولى",
+        "The Celebration Dance": "رقصة الاحتفال",
+        "Vows in the Desert": "عهود في الصحراء",
+        "Promise, Held Close": "وعد قريب من القلب",
+        "Courtyard Celebration": "احتفال في الفناء",
+        "One Look, Everything": "نظرة تقول كل شيء",
+        "The Garden Walk": "جولة في الحديقة",
+        "A Quiet Promise": "وعد هادئ",
+        "Under the Flowering Arch": "تحت القوس المزهر",
+        "Engagements": "الخطوبة", "Authentic couples sessions before the wedding day.": "جلسات تصوير عفوية للأزواج قبل يوم الزفاف.",
+        "Portrait & Fashion": "الصور الشخصية والأزياء", "Personal, editorial, and professional portrait sessions.": "جلسات تصوير شخصية وتحريرية ومهنية.",
+        "Runway, lookbooks, editorial and commercial fashion.": "عروض الأزياء وكتالوجاتها والتصوير التحريري والتجاري.",
+        "Hospitality & Space": "الضيافة والمساحات", "Food, ambience, interiors, and signature dining details.": "تصوير الطعام والأجواء والديكورات وتفاصيل المطاعم المميزة.",
+        "Architectural, interior, and property presentation.": "تصوير العمارة والديكورات وإبراز العقارات.",
+        "Brands & Events": "العلامات التجارية والفعاليات", "Events": "الفعاليات",
+        "Corporate, social, and cultural event coverage.": "تغطية الفعاليات المهنية والاجتماعية والثقافية.",
+        "Brands": "العلامات التجارية", "Campaign imagery, product stories, and brand identity.": "صور الحملات وقصص المنتجات وهوية العلامة التجارية.",
+        "Action & Lifestyle": "الحركة ونمط الحياة", "Sports": "الرياضة",
+        "Dynamic action and athletic storytelling.": "توثيق ديناميكي للحركة والرياضة.",
+        "Lifestyle": "نمط الحياة", "Natural lifestyle sessions and personal stories.": "جلسات طبيعية وقصص شخصية من الحياة اليومية.",
+        "Creative Production": "الإنتاج الإبداعي", "Clean, detailed product and commercial photography.": "تصوير تجاري وتصوير منتجات واضح ودقيق.",
+        "Content": "المحتوى", "Visual campaigns and tailored social media content.": "حملات بصرية ومحتوى مخصص لوسائل التواصل الاجتماعي.",
+        "WhatsApp · +212 656 448 893": "واتساب · +212 656 448 893",
+        "WhatsApp · +212 669 587 666": "واتساب · +212 669 587 666"
+      }
+    };
+    let currentLanguage = ["en", "fr", "ar"].includes(localStorage.getItem("noul-language"))
+      ? localStorage.getItem("noul-language")
+      : "en";
+
+    function translate(value) {
+      return (translations[currentLanguage] && translations[currentLanguage][value]) || value;
+    }
+
+    function sourceText(value) {
+      for (const dictionary of Object.values(translations)) {
+        const source = Object.keys(dictionary).find(key => dictionary[key] === value);
+        if (source) return source;
+      }
+      return value;
+    }
+
+    function applyLanguage() {
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+      document.title = translate("NOUL PRODUCTION - Photographer & Visual Storyteller");
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let node;
+      while ((node = walker.nextNode())) {
+        const value = node.nodeValue.trim();
+        if (value) {
+          const leading = node.nodeValue.match(/^\s*/)[0];
+          const trailing = node.nodeValue.match(/\s*$/)[0];
+          node.nodeValue = leading + translate(sourceText(value)) + trailing;
+        }
+      }
+      document.querySelectorAll("[aria-label], [alt], [data-title]").forEach(element => {
+        ["aria-label", "alt", "data-title"].forEach(attribute => {
+          if (element.hasAttribute(attribute)) element.setAttribute(attribute, translate(sourceText(element.getAttribute(attribute))));
+        });
+      });
+      document.querySelectorAll(".language-switch button").forEach(button => {
+        const active = button.dataset.language === currentLanguage;
+        button.setAttribute("aria-pressed", String(active));
+        button.setAttribute("aria-label", languageNames[button.dataset.language]);
+        button.onclick = () => {
+          currentLanguage = button.dataset.language;
+          localStorage.setItem("noul-language", currentLanguage);
+          route(false);
+        };
+      });
+    }
 
     function setMenu(open) {
       mobileMenu.classList.toggle("open", open);
@@ -476,7 +774,7 @@
       <footer><div class="footer-inner section" style="min-height:140px;padding-top:32px;padding-bottom:32px">
         <a class="footer-brand" href="#/">NOUL PRODUCTION</a>
         <nav class="footer-links"><a href="#/stills">Portfolio</a><a href="#/about">About</a><a href="#/services">Services</a><a href="#/contact">Contact</a></nav>
-        <span class="footer-copy">Â© 2026 NOUL PRODUCTION</span>
+        <span class="footer-copy">&copy; 2026 NOUL PRODUCTION</span>
       </div></footer>`;
 
     const home = () => `
@@ -485,48 +783,49 @@
         <div class="hero-inner">
           <p class="hero-kicker">Photographer &amp; Visual Storyteller</p>
           <h1>NOUL<br/>PRODUCTION</h1>
-          <div class="hero-actions"><a class="button light" href="#/stills">View Portfolio <span>â†’</span></a><a class="button" href="#/contact">Get In Touch</a></div>
+          <div class="hero-actions"><a class="button light" href="#/stills">View Portfolio <span>&rarr;</span></a><a class="button" href="#/contact">Get In Touch</a></div>
         </div>
       </section>
       <section class="section" id="projects">
         <div class="section-head" data-reveal><div><p class="eyebrow">Selected Visuals</p><h2 class="section-title">Latest Projects</h2></div><a class="view-link" href="#/stills">View All Work</a></div>
         <div class="media-grid" data-reveal>
-          ${mediaCard("assets/images/weddings/wedding-03.mp4","Wedding","A Promise at Dusk","video")}
-          ${mediaCard("assets/images/weddings/wedding-06.mp4","Wedding","Wedding Moment","video")}
-          ${mediaCard("assets/images/content/content-02.mp4","Content","Ride Together","video")}
+          ${mediaCard("assets/images/weddings/wedding-03.mp4","Wedding","A Night to Remember","video")}
+          ${mediaCard("assets/images/weddings/wedding-06.mp4","Wedding","A Celebration in Green","video")}
+          ${mediaCard("assets/images/content/content-02.mp4","Content","Marrakech Rides Together","video")}
         </div>
         <a class="mobile-view-link" href="#/stills">View All Work</a>
       </section>
       <section class="section" id="reels">
         <div class="section-head" data-reveal><div><p class="eyebrow">Short Form</p><h2 class="section-title">Visual Stories</h2></div><a class="view-link" href="#/stills">View All Visuals</a></div>
         <div class="media-grid" data-reveal>
-          ${mediaCard("assets/images/content/content-01.mp4","Reel","Motion 01","video")}
-          ${mediaCard("assets/images/content/content-03.mp4","Reel","Motion 03","video")}
-          ${mediaCard("assets/images/content/content-04.mp4","Reel","Motion 04","video")}
+          ${mediaCard("assets/images/content/content-01.mp4","Reel","Art on the Move","video")}
+          ${mediaCard("assets/images/content/content-03.mp4","Reel","Play Without Limits","video")}
+          ${mediaCard("assets/images/content/content-04.mp4","Reel","A Place to Belong","video")}
         </div>
         <a class="mobile-view-link" href="#/stills">View All Visuals</a>
       </section>
       <section class="section" id="stills">
         <div class="section-head" data-reveal><div><p class="eyebrow">Photography</p><h2 class="section-title">Featured Photography</h2></div><a class="view-link" href="#/stills">View All Photography</a></div>
         <div class="media-grid" data-reveal>
-          ${mediaCard("assets/images/weddings/wedding-01.jpg","Wedding","The Bridal Heirloom","image")}
-          ${mediaCard("assets/images/shooting/shoot-02.jpg","Shooting","Soft Light","image")}
-          ${mediaCard("assets/images/shooting/shoot-03.jpg","Shooting","Rhythm in Green","image")}
-          ${mediaCard("assets/images/weddings/wedding-07.jpg","Wedding","The Rings","image")}
-          ${mediaCard("assets/images/shooting/shoot-10.jpg","Shooting","A Shared Smile","image")}
-          ${mediaCard("assets/images/weddings/wedding-12.jpg","Wedding","Wedding Portrait","image")}
+          ${mediaCard("assets/images/weddings/wedding-01.jpg","Wedding","A Portrait Before the Vows","image")}
+          ${mediaCard("assets/images/shooting/shoot-02.jpg","Shooting","A Study in Softness","image")}
+          ${mediaCard("assets/images/shooting/shoot-03.jpg","Shooting","After-Hours Portrait","image")}
+          ${mediaCard("assets/images/weddings/wedding-07.jpg","Wedding","Promise, Held Close","image")}
+          ${mediaCard("assets/images/shooting/shoot-10.jpg","Shooting","An Evening Together","image")}
+          ${mediaCard("assets/images/weddings/wedding-12.jpg","Wedding","Under the Flowering Arch","image")}
         </div>
         <a class="mobile-view-link" href="#/stills">View All Photography</a>
       </section>
       <section class="section services" id="services">
-        <div class="section-head" data-reveal><div><p class="eyebrow">Expertise</p><h2 class="section-title">Services</h2></div></div>
+        <div class="section-head" data-reveal><div><p class="eyebrow">Expertise</p><h2 class="section-title">Services</h2></div><a class="view-link" href="#/services">Explore All Services</a></div>
         <p style="max-width:560px;color:rgba(255,255,255,.62);margin:-12px 0 38px">Comprehensive visual storytelling solutions tailored to your vision</p>
         <div class="service-grid" data-reveal>
           <div><h3 class="service-heading">Celebrations</h3><div class="service-list">${service("Weddings","Elegant coverage of your ceremony and celebration")}${service("Portraits","Personal and professional portrait sessions")}${service("Fashion","Editorial and commercial fashion")}</div></div>
           <div><h3 class="service-heading">Brands &amp; Spaces</h3><div class="service-list">${service("Restaurants","Food, ambience, and interior photography")}${service("Real Estate","Architectural and property presentation")}${service("Products","Detailed commercial and product imagery")}</div></div>
         </div>
+        <a class="mobile-view-link" href="#/services">Explore All Services</a>
       </section>
-      <section class="section cta"><div class="cta-inner" data-reveal><p class="eyebrow">Let's Work Together</p><h2>Ready to Collaborate?</h2><div class="cta-bottom"><p>Let's create something beautiful together. Reach out to discuss your project or book a session.</p><a class="button" href="#/contact">Get In Touch â†’</a></div></div></section>
+      <section class="section cta"><div class="cta-inner" data-reveal><p class="eyebrow">Let's Work Together</p><h2>Ready to Collaborate?</h2><div class="cta-bottom"><p>Let's create something beautiful together. Reach out to discuss your project or book a session.</p><a class="button" href="#/contact">Get In Touch &rarr;</a></div></div></section>
       ${footer()}`;
 
     function service(title, description) {
@@ -540,44 +839,44 @@
     }
 
     function pageHero(title, subtitle, image) {
-      return `<section class="page-hero"><img src="${image}" alt="" /><div class="page-hero-inner"><p class="eyebrow" style="color:rgba(255,255,255,.65)">NOUL PRODUCTION</p><h1>${title}</h1><p>${subtitle}</p></div></section>`;
+      return `<section class="page-hero"><img src="${image}" alt="" /><div class="page-hero-inner"><p class="eyebrow">NOUL PRODUCTION</p><h1>${title}</h1><p>${subtitle}</p></div></section>`;
     }
 
     function galleryPage() {
       const items = [
-        ["assets/images/weddings/wedding-01.jpg","WEDDINGS","The Bridal Heirloom","image"],
-        ["assets/images/shooting/shoot-01.jpg","SHOOTING","Evening Light","image"],
-        ["assets/images/content/content-01.mp4","CONTENT","Motion 01","video"],
-        ["assets/images/weddings/wedding-04.jpg","WEDDINGS","The Newlyweds","image"],
-        ["assets/images/shooting/shoot-05.jpg","SHOOTING","Blue Hour Portrait","image"],
-        ["assets/images/weddings/wedding-02.jpg","WEDDINGS","The Celebration","image"],
-        ["assets/images/content/content-02.mp4","CONTENT","Motion 02","video"],
-        ["assets/images/shooting/shoot-09.jpg","SHOOTING","Together at Home","image"],
-        ["assets/images/weddings/wedding-05.jpg","WEDDINGS","A Quiet Blessing","image"],
-        ["assets/images/shooting/shoot-03.jpg","SHOOTING","Rhythm in Green","image"],
-        ["assets/images/content/content-03.mp4","CONTENT","Motion 03","video"],
-        ["assets/images/weddings/wedding-03.mp4","WEDDINGS","A Promise at Dusk","video"],
-        ["assets/images/shooting/shoot-07.jpg","SHOOTING","Modern Portrait","image"],
-        ["assets/images/content/content-04.mp4","CONTENT","Motion 04","video"],
-        ["assets/images/shooting/shoot-02.jpg","SHOOTING","Soft Light","image"],
-        ["assets/images/shooting/shoot-10.jpg","SHOOTING","A Shared Smile","image","50% 38%"],
-        ["assets/images/weddings/wedding-07.jpg","WEDDINGS","The Rings","image","50% 52%"],
-        ["assets/images/weddings/wedding-06.mp4","WEDDINGS","Wedding in Motion","video"],
-        ["assets/images/shooting/shoot-06.jpg","SHOOTING","Blue Frame","image"],
-        ["assets/images/content/content-06.webp","CONTENT","Visual 06","image"],
-        ["assets/images/shooting/shoot-04.jpg","SHOOTING","The Editorial","image"],
-        ["assets/images/shooting/shoot-08.jpg","SHOOTING","Night Portrait","image"],
-        ["assets/images/weddings/wedding-08.jpg","WEDDINGS","Celebration Dance","image","50% 35%"],
-        ["assets/images/shooting/shoot-11.jpg","SHOOTING","The Conversation","image","50% 38%"],
-        ["assets/images/weddings/wedding-09.jpg","WEDDINGS","The Bride","image","50% 34%"],
-        ["assets/images/shooting/shoot-12.jpg","SHOOTING","The Ceremony Exchange","image","50% 38%"],
-        ["assets/images/weddings/wedding-10.jpg","WEDDINGS","Together Forever","image","50% 36%"],
-        ["assets/images/weddings/wedding-11.jpg","WEDDINGS","Vows in the Garden","image","50% 42%"],
-        ["assets/images/weddings/wedding-12.jpg","WEDDINGS","Wedding Portrait","image","50% 34%"],
-        ["assets/images/content/content-05.webp","CONTENT","Visual 05","image"]
+        ["assets/images/weddings/wedding-01.jpg","WEDDINGS","A Portrait Before the Vows","image"],
+        ["assets/images/shooting/shoot-01.jpg","SHOOTING","A Dream in Blush","image"],
+        ["assets/images/content/content-01.mp4","CONTENT","Art on the Move","video"],
+        ["assets/images/weddings/wedding-04.jpg","WEDDINGS","The Celebration Dance","image"],
+        ["assets/images/shooting/shoot-05.jpg","SHOOTING","The Beautiful Game","image"],
+        ["assets/images/weddings/wedding-02.jpg","WEDDINGS","The First Dance","image"],
+        ["assets/images/content/content-02.mp4","CONTENT","Marrakech Rides Together","video"],
+        ["assets/images/shooting/shoot-09.jpg","SHOOTING","A Toast Together","image"],
+        ["assets/images/weddings/wedding-05.jpg","WEDDINGS","Vows in the Desert","image"],
+        ["assets/images/shooting/shoot-03.jpg","SHOOTING","After-Hours Portrait","image"],
+        ["assets/images/content/content-03.mp4","CONTENT","Play Without Limits","video"],
+        ["assets/images/weddings/wedding-03.mp4","WEDDINGS","A Night to Remember","video"],
+        ["assets/images/shooting/shoot-07.jpg","SHOOTING","The Signing","image"],
+        ["assets/images/content/content-04.mp4","CONTENT","A Place to Belong","video"],
+        ["assets/images/shooting/shoot-02.jpg","SHOOTING","A Study in Softness","image"],
+        ["assets/images/shooting/shoot-10.jpg","SHOOTING","An Evening Together","image","50% 38%"],
+        ["assets/images/weddings/wedding-07.jpg","WEDDINGS","Promise, Held Close","image","50% 52%"],
+        ["assets/images/weddings/wedding-06.mp4","WEDDINGS","A Celebration in Green","video"],
+        ["assets/images/shooting/shoot-06.jpg","SHOOTING","The Table is Set","image"],
+        ["assets/images/content/content-06.webp","CONTENT","Art in the Open","image"],
+        ["assets/images/shooting/shoot-04.jpg","SHOOTING","Runway in Monochrome","image"],
+        ["assets/images/shooting/shoot-08.jpg","SHOOTING","Opening Day","image"],
+        ["assets/images/weddings/wedding-08.jpg","WEDDINGS","Courtyard Celebration","image","50% 35%"],
+        ["assets/images/shooting/shoot-11.jpg","SHOOTING","Words That Matter","image","50% 38%"],
+        ["assets/images/weddings/wedding-09.jpg","WEDDINGS","One Look, Everything","image","50% 34%"],
+        ["assets/images/shooting/shoot-12.jpg","SHOOTING","A Family Blessing","image","50% 38%"],
+        ["assets/images/weddings/wedding-10.jpg","WEDDINGS","The Garden Walk","image","50% 36%"],
+        ["assets/images/weddings/wedding-11.jpg","WEDDINGS","A Quiet Promise","image","50% 42%"],
+        ["assets/images/weddings/wedding-12.jpg","WEDDINGS","Under the Flowering Arch","image","50% 34%"],
+        ["assets/images/content/content-05.webp","CONTENT","Little Hands, Big Ideas","image"]
       ];
       return `${pageHero("Photography","A curated collection of moments, emotions, and stories captured through the lens.","assets/images/photographer/portrait.jpg")}
-      <section class="section"><div class="section-head" data-reveal><div><p class="eyebrow">NOUL PRODUCTION â€” Photography</p><h2 class="section-title">Selected Work</h2></div></div>
+      <section class="section"><div class="section-head" data-reveal><div><p class="eyebrow">NOUL PRODUCTION - Photography</p><h2 class="section-title">Selected Work</h2></div></div>
       <div class="filter-row" data-reveal><button class="filter active" data-filter="ALL">ALL</button><button class="filter" data-filter="WEDDINGS">WEDDINGS</button><button class="filter" data-filter="SHOOTING">SHOOTING</button><button class="filter" data-filter="CONTENT">CONTENT</button></div>
       <div class="gallery" data-reveal style="margin-top:24px">${items.map(i => {
         const media = i[3] === "video" ? `<video src="${i[0]}" muted loop playsinline preload="metadata"></video>` : `<img src="${i[0]}" alt="${i[2]}" loading="lazy" />`;
@@ -588,7 +887,7 @@
 
     function aboutPage() {
       return `${pageHero("About","Learn more about my journey, approach, and philosophy as a visual storyteller.","assets/images/photographer/about.jpg")}
-      <section class="section about-copy" data-reveal><img src="assets/images/photographer/about.jpg" alt="Nouhaila working with a camera" /><div><p class="eyebrow">Biography</p><h2 class="section-title">The Story Behind the Lens</h2><p>I'm Nouhaila Ait Oufquir, a photographer passionate about visual storytelling. Through photography and creative direction, I create images that communicate emotions and preserve meaningful moments.</p><p>My journey began with curiosity and grew into a multidisciplinary practice shaped by weddings, portraits, fashion, and creative content.</p><p>I see every collaboration as a shared process â€” built on trust, clarity, and a desire to create something honest and memorable.</p></div></section>
+      <section class="section about-copy" data-reveal><img src="assets/images/photographer/about.jpg" alt="Nouhaila working with a camera" /><div><p class="eyebrow">Biography</p><h2 class="section-title">The Story Behind the Lens</h2><p>I'm Nouhaila Ait Oufquir, a photographer passionate about visual storytelling. Through photography and creative direction, I create images that communicate emotions and preserve meaningful moments.</p><p>My journey began with curiosity and grew into a multidisciplinary practice shaped by weddings, portraits, fashion, and creative content.</p><p>I see every collaboration as a shared process - built on trust, clarity, and a desire to create something honest and memorable.</p></div></section>
       <section class="section services"><div class="section-head" data-reveal><div><p class="eyebrow">Principles</p><h2 class="section-title">Creative Philosophy</h2></div></div><div class="service-grid" data-reveal>${service("Authentic Storytelling","Capturing genuine moments and emotions.")}${service("Technical Excellence","Using craft and precision to bring the vision to life.")}${service("Collaborative Vision","Building the strongest work through communication.")}${service("Ethical Approach","Respectful, thoughtful, and honest creative practice.")}</div></section>${footer()}`;
     }
 
@@ -607,7 +906,7 @@
     function contactPage() {
       return `${pageHero("Contact","Based in Marrakesh, Morocco","assets/images/photographer/about.jpg")}
       <section class="section"><div class="contact-grid"><div data-reveal><p class="eyebrow">[ COLLAB // STATUS: OPEN ]</p><h1>Let's create something extraordinary</h1><p>Weddings, commercial, editorial and personal photography.</p><div class="contact-channels"><div class="channel"><span>Location</span>Marrakesh, Morocco</div><div class="channel"><span>Email</span><a href="mailto:aitoufquirnouhaila@gmail.com">aitoufquirnouhaila@gmail.com</a></div><div class="channel"><span>Instagram</span><a href="https://www.instagram.com/noulprod" target="_blank" rel="noopener">@noulprod</a></div><div class="channel"><span>Response</span>Within 24 hours</div></div></div>
-      <aside class="whatsapp-panel" data-reveal><div><p class="eyebrow">Direct Booking</p><h2>Start your project on WhatsApp</h2><p>Send a short message with your project, preferred date, location, and what you would like to create.</p></div><div class="whatsapp-links"><a class="button" href="https://wa.me/212656448893?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp Â· +212 656 448 893 <span>â†’</span></a><a class="button" href="https://wa.me/212669587666?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp Â· +212 669 587 666 <span>â†’</span></a></div></aside></div></section>${footer()}`;
+      <aside class="whatsapp-panel" data-reveal><div><p class="eyebrow">Direct Booking</p><h2>Start your project on WhatsApp</h2><p>Send a short message with your project, preferred date, location, and what you would like to create.</p></div><div class="whatsapp-links"><a class="button" href="https://wa.me/212656448893?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp &middot; +212 656 448 893 <span>&rarr;</span></a><a class="button" href="https://wa.me/212669587666?text=Hello%20NOUL%20PRODUCTION%2C%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener">WhatsApp &middot; +212 669 587 666 <span>&rarr;</span></a></div></aside></div></section>${footer()}`;
     }
 
     function setupMedia() {
@@ -653,7 +952,7 @@
       });
     }
 
-    function route() {
+    function route(resetScroll = true) {
       const path = location.hash.replace("#","");
       document.querySelectorAll(".rail-nav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${path === "" ? "/" : path}`));
       if (path === "/" || path === "") app.innerHTML = home();
@@ -662,7 +961,8 @@
       else if (path === "/services") app.innerHTML = servicesPage();
       else if (path === "/contact") app.innerHTML = contactPage();
       else app.innerHTML = home();
-      window.scrollTo({ top: 0, behavior: "instant" });
+      if (resetScroll) window.scrollTo({ top: 0, behavior: "instant" });
+      applyLanguage();
       setupMedia();
     }
     window.addEventListener("hashchange", route);
